@@ -1,0 +1,27 @@
+Price-stable cryptocurrencies (aka SmartCoins) were the inspiration for
+BitShares. Now, users can create their own price-stable assets with custom
+parameters designed to track the value of any asset they can imagine. The
+benefit of price-stable cryptocurrencies is that they are fully collateralized,
+and the issuer only needs to be trusted to appoint an honest set of independent
+(non-collusive) feed producers. Unlike deposit receipts, the value of a
+Privatized SmartCoin is secured even if the issuer disappears.
+
+Bitshares provides many parameters that an issuer may tune. In addition to
+account whitelists, market restrictions, and transfer restrictions, the issuer
+of a private SmartCoin has control over:
+
+\begin{enumerate}
+\item Collateral Type
+\item Initial Collateral Rate
+\item Maintenance Collateral Rate
+\item Forced Settlement Fee, Delay, and Daily Volume
+\item Price Feed Update Rate
+\item Global Forced Settlement
+\end{enumerate}
+
+With these tools it is possible to emulate a pure contract for difference with
+periodic global forced settlement (ie: monthly, yearly, etc), or to emulate
+BitShares 1.0 BitAssets by having a 30 day delay on forced settlement.
+
+Arbitrary financial indexes can be used for the price feed to mimic all manner
+of exotic assets.

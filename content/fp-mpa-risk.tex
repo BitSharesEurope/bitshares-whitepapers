@@ -1,0 +1,13 @@
+The current implementation of market pegged assets in the BitShares system is
+designed to minimize risk of loss to market pegged asset holders. Short
+positions are opened with collateral worth three times the market value of the
+asset. The initial collateral is comprised of the BTS paid by the buyer for the
+asset and twice this amount of BTS contributed by the short seller. The
+collateral requirements and margin triggers were chosen conservatively to
+protect the holders of market pegged assets from volatility of the underlying
+collateral. Forcing short positions to cover every 30 days provides additional
+assurance of short term liquidity. Control over the price feed is distributed
+among over 50 separately elected delegates who compile information from
+multiple exchange sources. Despite such precautions, it is important to
+carefully explore risks of using the system. Risks can be broadly categorized
+as value risk, counterparty risk, or systemic risk.

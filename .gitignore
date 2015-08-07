@@ -1,6 +1,9 @@
-*.aux
-*.log
+.swp
 .*.swp
 *.toc
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
 *.pdf
-.swp

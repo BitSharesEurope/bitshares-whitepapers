@@ -1,4 +1,4 @@
-\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+\documentclass[conference,final,10pt,a4paper]{IEEEtran}
 
 \usepackage[latin1]{inputenc}
 \usepackage{amssymb,amssymb}
@@ -8,7 +8,6 @@
 \author{}
 
 \IEEEoverridecommandlockouts
-\overrideIEEEmargins
 \begin{document}
 \sloppy
 \maketitle
@@ -16,32 +15,46 @@
 \begin{abstract}
 \end{abstract}
 
-\section{Overview}
-\tableofcontents
+\section       { BitShares 2.0: Distributed Consensus             } 
+\subsection    { Introduction                                     } \input { content/cons          } 
+\subsection    { Delegated Proof-of-Stake (DPOS)                  } \input { content/cons-dpos     } 
+\subsection    { Transactions as Proof-of-Stake (TaPOS)           } \input { content/cons-tapos    } 
+\subsection    { Distinction from Traditional Consensus Schemes   } \input { content/cons-comp     } 
+\subsection    { Attack Vectors                                   } \input { content/cons-att      } 
+\subsection    { Conclusion                                       } \input { content/cons-conc     } 
 
-\section{Distributed Consensus}
-\subsection{Delegated Proof-of-Stake (DPOS)}
-\subsection{Transactions as Proof-of-Stake (TaPOS)}
+\section       { BitShares 2.0: Financial Smart Contract Platform } \input { content/fp            } 
+\subsection    { Decentralized Exchange                           } \input { content/fp-dex        } 
+\subsection    { Price Stability                                  } \input { content/fp-mpa        } 
+\section       { User-Issued Assets                               } \input { content/fp-uia        } 
+\subsection    { Collateralized Bond Market                       } \input { content/fp-bond       } 
+\subsection    { Conclusion                                       } \input { content/fp-conc       } 
 
-\section{BitShares: Financial Platform}
-\subsection{Decentralized Exchange}
-\subsection{Price Stability}
-\subsection{User-Issued Assets}
-\subsection{Collateralized Bond Market}
+\subsection    { BitShares 2.0: General Documentation             } \input { content/bts           } 
+\subsection    { Accounts                                         } \input { content/bts-acc       } 
+\subsection    { Operations                                       } \input { content/bts-ops       } 
+\subsection    { Transactions                                     } \input { content/bts-txs       } 
+\subsection    { Privacy                                          } \input { content/bts-priv      } 
+\subsection    { Fees                                             } \input { content/bts-fees      } 
+\subsection    { Specifications                                   } \input { content/spec          } 
+\subsubsection { Blockchain                                       } \input { content/spec-bc       } 
+\subsubsection { Network                                          } \input { content/spec-net      } 
+\subsection    { Conclusion                                       } \input { content/bts-conc      } 
 
-\section{BitShares: Organizational Structure}
-\subsection{Recurring \& Scheduled Payments}
-\subsection{Stakeholder-Approved Project Funding}
-\subsection{Transferable Named Accounts}
-\subsection{Dynamic Account Permissions}
+\section       { BitShares 2.0: Growth Considerations             } \input { content/grow          } 
+\subsection    { Decentralized Development                        } \input { content/grow-ded      } 
+\subsection    { Industrial Performance and Scalability           } \input { content/grow-perf     } 
+\subsection    { Referral Rewards Program                         } \input { content/grow-ref      } 
+\subsection    { Conclusion                                       } \input { content/grow-conc     } 
 
-\section{Growth Considerations}
-\subsection{Decentralized Development}
-\subsection{Industrial Performance and Scalability}
-\subsection{Referral Rewards Program}
+\section       { BitShares 2.0: Business Structure                } \input { content/org           } 
+\subsection    { The DAC                                          } \input { content/org-dac       } 
+\subsection    { Dynamic Account Permissions                      } \input { content/org-dynacc    } 
+\subsection    { Recurring \& Scheduled Payments                  } \input { content/org-recurr    } 
+\subsection    { Stakeholder-Approved Project Funding             } \input { content/org-approval  } 
+\subsection    { Transferable Named Accounts                      } \input { content/org-transfacc } 
+\subsection    { Conclusion                                       } \input { content/org-conc      } 
 
-\section{Summary \& Conclusions}
-
-\section*{Litarture}
+\section*      { Litarture                                        } 
 
 \end{document}

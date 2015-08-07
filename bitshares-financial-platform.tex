@@ -1,0 +1,116 @@
+\documentclass[conference,final,10pt,a4paper]{IEEEtran}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amssymb,amssymb}
+\usepackage{algorithmic}
+\usepackage[hyphens]{url}
+
+\usepackage{url}
+\usepackage{breakurl} 
+\usepackage[breaklinks]{hyperref}
+
+\title{BitShares 2.0: Financial Smart Contract Platform}
+\author{
+ \IEEEauthorblockN{Fabian~Schuh\IEEEauthorrefmark{1}}
+ \IEEEauthorblockA{BitShares Europe, BitShares.eu\\
+                   Erlangen, Germany\\
+                   Email: \texttt{fabian@bitshares.eu}}
+ \and
+ \IEEEauthorblockN{Daniel~Larimer\IEEEauthorrefmark{2}}
+ \IEEEauthorblockA{Cryptonomex, Cryptonomex.com\\
+                   Blacksburg (VA), USA\\
+                   Email: \texttt{Dan@Cryptonomex.com}}%
+ \thanks{This work was supported by Cryptonomex.}
+}
+
+\IEEEoverridecommandlockouts
+\begin{document}
+\sloppy
+\maketitle
+
+\begin{abstract}
+ Every since Satoshi Nakamoto released his whitepaper and corresponding
+ software for bitcoin, the cryptocurrency ecosystem grew rapidly. Bitcoin
+ created an ecosystem which everybody could use to \emph{transfer} value
+ without unnecessary middlemen, banks or counterparty risk. Having the
+ blockchain technology established and proven stable, the question arose
+ whether this technology could be leveraged to also enable \emph{trading} of
+ multiple assets without the need for a broker or central entity (exchange).
+ Several so called bitcoin 2.0 projects (among which are BitShares 1.0, NXT,
+ Counterparty)\footnote{At the time of writing, the promising Ethereum project
+ has not launched a DEX, yet.} showed the feasibility of a ``decentral
+ exchange'' (DEX). The aim of BitShares 2.0 is to innovate the term ``decentral
+ exchange'' and not only provide trading of assets but additionally offer
+ classical financial instruments on the blockchain. With price stable digital
+ tokens such as bitUSD, a whole new set of financial contracts are now directly
+ available through the decentral exchange.
+\end{abstract}
+\section       { Introduction                                    } \input { content/fp                     } 
+
+\section       { Market Pegged Assets (MPA)                      } \input { content/fp-mpa                 } 
+\subsection    { Price Stability                                 } \input { content/fp-mpa-stab            } 
+\subsubsection { Definition of Price Stability                   } \input { content/fp-mpa-stab-def        }
+\subsubsection { It needs a Price Floor                          } \input { content/fp-mpa-stab-floor      }
+\subsubsection { Price Feeds                                     } \input { content/fp-mpa-stab-feed       }
+\subsection    { The Shorter                                     } \input { content/fp-mpa-short           } 
+\subsection    { The Long (BitUSD holder)                        } \input { content/fp-mpa-long            } 
+\subsection    { The BTS Buyer                                   } \input { content/fp-mpa-buyer           } 
+\subsection    { The Merchant                                    } \input { content/fp-mpa-merchant        } 
+\subsection    { The Customer                                    } \input { content/fp-mpa-costumer        } 
+\subsection    { Price Manipulation                              } \input { content/fp-mpa-manipulation    } 
+\subsection    { Black Swans - Extreme Market Conditions         } \input { content/fp-mpa-blackswan       } 
+\subsection    { Privatized SmartCoins                           } \input { content/fp-mpa-privatized      } 
+\subsection    { Risks                                           } \input { content/fp-mpa-risk            } 
+\subsubsection { Collateral Risk                                 } \input { content/fp-mpa-risk-coll       } 
+\subsubsection { Counterparty Risk                               } \input { content/fp-mpa-risk-counter    } 
+\subsubsection { Systemic Risk                                   } \input { content/fp-mpa-risk-system     } 
+
+\section       { User-Issued Assets (UIA)                        } \input { content/fp-uia                 } 
+\subsection    { Deposit Receipts                                } \input { content/fp-uia-rights          } 
+\subsubsection { Know Your Customer                              } \input { content/fp-uia-rights-kyc      } 
+\subsubsection { Asset Seizing                                   } \input { content/fp-uia-rights-seize    } 
+\subsubsection { Market Restriction                              } \input { content/fp-uia-rights-market   } 
+\subsubsection { Transfer Restrictions                           } \input { content/fp-uia-rights-tx       } 
+\subsection    { Use-cases                                       } \input { content/fp-uia-uc              } 
+\subsubsection { Company Shares                                  } \input { content/fp-uia-uc-stock        } 
+\subsubsection { Event Tickets                                   } \input { content/fp-uia-uc-ticket       } 
+\subsubsection { Rewards Points                                  } \input { content/fp-uia-uc-points       } 
+\subsubsection { Individual or Corporate Debt                    } \input { content/fp-uia-uc-dept         } 
+\subsubsection { Crowd Funding                                   } \input { content/fp-uia-uc-crowdfunding } 
+\subsubsection { Digital Property                                } \input { content/fp-uia-uc-property     } 
+\subsubsection { Privatized SmartCoins (Stable Cryptocurrencies) } \input { content/fp-uia-uc-privatized   } 
+\subsubsection { Information/Prediction Markets                  } \input { content/fp-uia-uc-pm           } 
+\subsection    { How to Profit by Issuing an Asset               } \input { content/fp-uia-profit          } 
+\subsubsection { Fee Pools                                       } \input { content/fp-uia-profit-feepool  } 
+
+\section       { Decentralized Exchange                          } \input { content/fp-dex                 } 
+\subsection    { Core Selling Points                             } 
+\subsubsection { Global Unified Order Book                       } \input { content/fp-dex-globalbook      } 
+\subsubsection { No Limits                                       } \input { content/fp-dex-limits          } 
+\subsubsection { Decentralized                                   } \input { content/fp-dex-decentral       } 
+\subsubsection { Secure                                          } \input { content/fp-dex-secure          } 
+\subsubsection { Fast, but not *too* fast                        } \input { content/fp-dex-fast            } 
+\subsubsection { Trade Almost Anything                           } \input { content/fp-dex-anything        } 
+\subsubsection { Separation of Powers                            } \input { content/fp-dex-powers          } 
+\subsubsection { Decentralization of Privacy                     } \input { content/fp-dex-privacy         } 
+\subsection    { Order Matching                                  } \input { content/fp-dex-ordermatching   } 
+\subsection    { Collateralized Blockchain IOUs                  } \input { content/fp-dex-collateral      } 
+\subsection    { 3rd Party Services and Business Opportunities   } \input { content/fp-dex-roles           } 
+\subsubsection { BitFIAT to FIAT Gateways                        } \input { content/fp-dex-gateway         } 
+
+\section       { Collateralized Bond Market                      } \input { content/fp-bond                } 
+\subsection    { Avoiding Margin Calls                           } \input { content/fp-bond-margin         } 
+\subsection    { Proposing and Creating a Bond                   } \input { content/fp-bond-create         } 
+\subsection    { Bond Parameters                                 } \input { content/fp-bond-parameters     } 
+\subsection    { Closing a Bond                                  } \input { content/fp-bond-close          } 
+\subsection    { Interest on MPA                                 } \input { content/fp-bond-market         } 
+
+\section       { Conclusion                                      } \input { content/fp-conc                } 
+\bibliographystyle{IEEEtran}
+\bibliography{literature}
+\end{document}
+
+%% TODO:
+% - review all occurrences of ``delegate''
+%
+%

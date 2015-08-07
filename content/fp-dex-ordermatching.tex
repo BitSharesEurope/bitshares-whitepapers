@@ -1,0 +1,17 @@
+% Market orders and other signed transactions on the BitShares block chain are
+% grouped into 10 second blocks by delegates. When buy and sell orders on the
+% internal BitShares’ market are matched, the highest buy orders are matched with
+% the lowest sell orders and any BTS contained in the overlap are destroyed so
+% that each party gets exactly what they paid for. The reason for this is
+% twofold. Firstly, it prevents high frequency trading that attempts to insert an
+% order between two placed orders to profit from the overlap, this is sometimes
+% called ``front running''. It also makes it very costly for a large buyer or
+% seller to quickly move the market by placing a large order far from the current
+% market rate. Doing so would require the buyer or seller to pay the more
+% expensive rate and lose any overlap with all orders their order is matched
+% with. The destruction of BTS from the overlap of orders creates value for BTS
+% holders as a whole by making the token more scarce. When there is significant
+% demand to short sell assets at the price feed rate, the current BitShares
+% system allows short sellers to offer interest to asset holders in exchange for
+% priority in order matching. In this way, holders of market pegged assets can
+% also collect an additional yield on their savings.
