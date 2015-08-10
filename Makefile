@@ -12,7 +12,7 @@ BIBS=$(wildcard *.bib) $(wildcard *.bst)
 
 all: $(SRC:.tex=.pdf)
 
-%.pdf: %.tex
+%.pdf: %.tex %.bbl
 	pdflatex $(PDFLATEXOPTS) $<
 	pdflatex $(PDFLATEXOPTS) $<
 
