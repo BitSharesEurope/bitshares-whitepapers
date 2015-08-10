@@ -1,10 +1,12 @@
 First and foremost the issuer must know every single customer. BitShares
-supports this by enabling both whitelists and blacklists. Rather than
-requiring every issuer to whitelist every customer separately, an issuer may
-specify a set of identity verifiers that they trust to do this job. This
-allows issuers to benefit from the network effect of validated users without
-having to do any direct identity verification themselves.
+supports this by enabling both \emph{whitelists} and \emph{blacklists} on the
+block chain. Rather than requiring every issuer to whitelist every customer
+separately, an issuer may specify a set of identity verifiers that they trust
+to do this job. This allows issuers to benefit from the network effect of
+validated users without having to do any direct identity verification
+themselves.
 
-When an asset enables whitelists, no account may send or receive that asset
-without being on an authorized whitelist. An accounts funds can be frozen by
-removing them from the whitelist.
+When an asset enables whitelists, no account may send, receive or trade that
+asset without being on an authorized whitelist. With this feature, account
+funds can effectively be frozen by removing them from the whitelist. Of course
+this only affects those tokens of that particular UIA.

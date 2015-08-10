@@ -1,2 +1,27 @@
-The blockchain is aware of the price of its core asset (e.g. BTS in the
-Bitshares network).
+In order for settlements to convert any smartcoin into the core asset (e.g. BTS
+in the BitShares network) at a fair price, the blockchain needs to be aware of
+the external price of BTS.
+
+In BitShares, this is achieved by means of a set of $N$ trusted
+\emph{delegates}. These delegates have to be elected by the corresponding
+BitShares shareholders (e.g. holders of BTS) and can be constantly reviewed as
+all prices are put on the blockchain in a public manner by means of
+transactions of a particular type.
+
+Having a set of $N$ prices $p_i,\;1<i<N$ for an arbitrary MPA on the
+blockchain, the protocol obtains a single price $\tilde{p}$ by the use of the
+\emph{median} according to:
+\begin{align}
+ x &= \operatorname{sort}(p_{i})\\
+ \tilde p &=\begin{cases}
+   x_\frac{N+1}{2}                                                & N \text{ odd}\\
+   \frac {1}{2}\left(x_{\frac{N}{2}} + x_{\frac{N}{2} + 1}\right) & N \text{ even.}
+ \end{cases}
+\end{align}
+
+Hence, this price is resistant against misbehaving delegates in such as only
+majority of published prices (for a particular MPA) can manipulate the outcome
+of the median and hence the price from blockchain perspective.
+
+Obviously, the shareholders are required to constantly monitor the published
+prices of their delegates and should make public note about discrepancies. 

@@ -1,45 +1,21 @@
 Market pegged assets maintain their price parity due to being backed by
 collateral that has an established real world value. When the value of the
 collateral falls, the system is designed to react by driving the internal asset
-exchange to match the new real world exchange rate and trigger margin calls as
-necessary. However, there exists a possibility that the underlying collateral
-(BTS) drops in value so quickly the market pegged assets become
-under-collateralized. Often termed a ``black swan event'', a sudden crash of BTS
-value could prevent the system from adjusting in time. In this event, the full
-amount of collateral is no longer sufficient to purchase the market pegged
-asset back at the new real exchange rate. In such an event, assets may trade
-below their face value. It is possible the market could recover if BTS regained
-value. It is also possible the market would need to be ``reset'' and asset
-holders forced to settle for BTS collateral worth less than the intended face
-value of their assets. Under normal conditions, short term market movements,
-spreads, and fees charged by exchanges may also affect the potential cost of
-conversion into and out of market pegged assets.
-
-
-
-
-
-
-
-
-
-
-%% BTS2 - lessons learned
-Unnecessary Collateral Restrictions
+exchange to match the new real world exchange rate and trigger force
+settlements (i.e. margin calls) as necessary.
 
 All collateral above the maintenance collateral limit is effectively
-meaningless when it comes to enforcing the peg. A black swan event occurs
-whenever the least collateralized position is unable to buy enough BitUSD to
-cover. At this point, all positions are force settled and any additional
-collateral maintained by the shorts is returned to them. The only reason for a
-short to provide additional collateral beyond the maintenance level is to avoid
-being forced to cover at a loss during a short squeeze or to avoid being the
-first to be force settled by a BitUSD holder.
+meaningless when it comes to enforcing the peg. Maintenance collateral only
+needs to be high enough to cover any slippage as a result of a short squeeze.
 
-Either the maintenance collateral level is sufficient or the system is
-fundamentally unsound. Maintenance collateral only needs to be high enough to
-cover any slippage as a result of a short squeeze. Rules in BitShares that only
-allowed users to increase their collateral put extra risk on shorts and did
-nothing to protect against a black swan. By relaxing this restriction, shorts
-face less risk and can gain higher leverage which will enable them to sell
-closer to the floor.
+However, there exists a possibility that the underlying collateral (BTS) drops
+in value so quickly the market pegged assets become under-collateralized. Often
+termed a \emph{black swan event} (c.f., \cref{sec:blackswan}), a sudden crash
+of BTS value could prevent the system from adjusting in time. In this event,
+the full amount of collateral is no longer sufficient to purchase the market
+pegged asset back at the new real exchange rate. In such an event, assets may
+settle at the price fees and are converted back into the underlying collateral
+(BTS). This may expose costumers at the volatility risk of BTS. Under normal
+conditions, short term market movements, spreads, and fees charged by exchanges
+may also affect the potential cost of conversion into and out of market pegged
+assets.
