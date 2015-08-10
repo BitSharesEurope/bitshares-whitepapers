@@ -1,0 +1,61 @@
+A BitShares MPA can be viewed as a contract between an asset buyer seeking
+price stability and a \emph{short seller} seeking greater exposure to BTS price
+movement. The open source BitShares software program implements a decentralized
+marketplace for MPA where all transactions are recorded on the shared block
+chain ledger and the software enforces the market rules. This block chain based
+marketplace is referred to as the \emph{decentral exchange} or \emph{internal
+market} (c.f., \cref{sec:dex}) to distinguish from \emph{external markets} such
+as websites that facilitate the exchange of government issued currencies with
+crypto-currency. 
+
+SmartCoins are tokens of a particular MPA (e.g. bitUSD), take the concept of a
+contract for difference, and make the long side fungible. For the purpose of
+this discussion, we will assume that the long side of the contract is BitUSD
+and that the backing \emph{collateral} is BTS (the BitShares core asset).
+
+In practice, bitUSD are created on the BitShares blockchain when a BTS holder
+asks the network for them by handing over \emph{collateral} to the network
+essentially locking them in a contract for difference.
+
+The collateral is only returned to the short seller when assets are purchased
+back from the market and effectively destroyed to fulfill the contract. This is
+referred to as \emph{covering a short}. If the value of the collateral relative
+to the current price of the market pegged asset falls below a certain margin of
+safety the assets can be automatically repurchased from the market before
+collateral becomes insufficient. These rules create systemic demand for market
+pegged assets while allowing them to remain fungible. To protect your contract
+against \emph{margin calls} (automated, network initiated force settlement of
+your contract at the price feed), you should at least maintain the so called
+\emph{maintenance collateral level} at all times. Hence, the collateral only
+needs to be high enough to cover any slippage as a result of a short squeeze.
+
+Hence, at the moment of creation, the position of the \emph{shorter} has not
+changed at all because he can directly cover the short position using the
+bitUSD to gaining back his BTS used as collateral.
+
+In summary, the following set of market rules apply to all market pegged assets
+(for the sake of simplicity, we here focus on the MPA bitUSD):
+\begin{itemize}
+ \item Anyone with BitUSD can settle their position within an hour at the feed
+       price.
+ \item The least collateralized short positions are used to settle the
+       position.
+ \item The price feed is the median of many sources that are updated at least
+       once per hour.
+ \item Short positions never expire, except by hitting the maintenance
+       collateral limit, or being force-settled as the least collateralized at the
+       time of forced settlement (see point 2).
+ \item In the event that the least-collateralized short position lacks enough
+       collateral to cover at the price feed, then all BitUSD positions are
+       automatically force settled at the price of the least collateralized short.
+\end{itemize}
+
+A simple metric for testing the validity of our claim that 1.00 BitUSD is
+always worth at least \$1.00 is to demonstrate that, if you can find someone
+willing to sell 1.00 BitUSD for \$1.00, that it would be the cheapest option for
+buying BTS. This means that 100\% of the buying demand for BTS would be
+available to give liquidity to BitUSD holders as a priority over BTS holders.
+
+While the rules are simple, the consequences are less obvious. Let's analyze
+this from the perspective of the various players and attempt to prove that this
+condition is met.
