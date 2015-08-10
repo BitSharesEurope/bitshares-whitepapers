@@ -1,5 +1,37 @@
 \label{sec:gateway}
 
+The roles that traditional exchanges perform today encompass:
+
+\begin{enumerate}
+ \item Receiving cryptocurrency and issuing IOUs. \label{it:g1}
+ \item Receiving fiat and issuing IOUs. \label{it:g2}
+ \item Processing an order book.
+ \item Redeeming IOUs. \label{it:g3}
+\end{enumerate}
+
+Each of these stages requires a high degree of trust and direct counterparty
+risk, because they involve an IOU from the exchange. To get the best
+liquidity and lowest spreads requires a large and active order book, and this
+means that most people gravitate toward a few core exchanges, leaving everyone
+exposed to the same counterparty risk.
+
+Moving money into or out of an exchange often incurs a significant time delay,
+which means that active traders must keep their funds on the exchange. This
+magnifies the amount of risk to users of the exchange. It also magnifies the
+risk to all users in the cryptocurrency ecosystem. Each large security breach
+results in significant sell pressure, from both the thief looking to cash in
+their loot, and from regular users hoping to sell before the thief.
+
+\medskip
+
+With the separation of powers, we only need gateways that perform
+\label{it:g1}, \label{it:g2} and \label{it:g3} while order book processing and
+storage of account balances are managed by the BitShares protocol/network. An
+entity issuing and redeeming IOUs for an other asset in BitShares is called a
+\emph{gateway}. In contrast to central exchanges, the IOUs are send directly
+to the wallet of the costumer directly and are his under full control (see
+\cref{sec:uia:restrictions}).
+
 Many gateways prefer the low-risk approach of one-for-one redemption and will
 simply allow the GatewayUSD to float against BitUSD with a small but variable
 spread in the market. Users then pay a small variable conversion cost as they

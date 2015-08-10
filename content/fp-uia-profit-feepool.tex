@@ -1,9 +1,14 @@
-Issuers may optionally maintain a Fee Pool. The Fee Pool is a pool of BTS and
-an exchange rate at which the issued asset may be converted into BTS. When a
-user wishes to pay a network fee with the asset, the fee pool will step in to
-convert the asset into BTS at the rate that the issuer has specified. This
-means that issuers may charge a premium every time users opt to use their asset
-to pay network fees rather than paying them directly with BTS.
+\label{seq:feepool}
+
+Issuers may optionally maintain a so called \emph{fee pool}. The fee pool is a
+pool of BTS and an exchange rate at which the issued asset may be converted
+into BTS. This allows users to pay transaction fees in form of an asset even
+though the network requires fees to be paid in BTS.
+
+When a user wishes to pay a network fee with the asset, the fee pool will step
+in to convert the asset into BTS at the rate that the issuer has specified.
+This means that issuers may charge a premium every time users opt to use their
+asset to pay network fees rather than paying them directly with BTS.
 
 The purpose of the fee pool is to provide a convenience to users that would
 like to use an asset without concerning themselves with the details of

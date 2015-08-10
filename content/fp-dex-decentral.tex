@@ -11,9 +11,16 @@ expect a lot more effort to be put into compromising that exchange than would
 be put into attacking your individual account.
 
 Within a given company, multiple people usually have access to customer funds.
-You may have heard the expression, "Three can keep a secret if two are dead".
+%
+%You may have heard the expression, "Three can keep a secret if two are dead".
+%
 Currently, all centralized exchanges end up depending upon multiple people who
 share the responsibility of guarding the secret key that controls the funds.
-If any one of them is compromised, everyone's funds are put at risk. Because
-of this, being individually responsible for maintaining your own secrets is the
+If any one of them is compromised, everyone's funds are put at risk. Because of
+this, being individually responsible for maintaining your own secrets is the
 only safe option.
+
+Accessing funds in BitShares can be even more secured by means of corporate
+accounts that implement threshold signatures~\cite{} and validate only those
+transactions which signature weights (e.g. the CEO has more say than a worker)
+surpass a pre-defined threshold.

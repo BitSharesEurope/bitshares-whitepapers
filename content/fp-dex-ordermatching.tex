@@ -1,17 +1,16 @@
-% Market orders and other signed transactions on the BitShares block chain are
-% grouped into 10 second blocks by delegates. When buy and sell orders on the
-% internal BitShares’ market are matched, the highest buy orders are matched with
-% the lowest sell orders and any BTS contained in the overlap are destroyed so
-% that each party gets exactly what they paid for. The reason for this is
-% twofold. Firstly, it prevents high frequency trading that attempts to insert an
-% order between two placed orders to profit from the overlap, this is sometimes
-% called ``front running''. It also makes it very costly for a large buyer or
-% seller to quickly move the market by placing a large order far from the current
-% market rate. Doing so would require the buyer or seller to pay the more
-% expensive rate and lose any overlap with all orders their order is matched
-% with. The destruction of BTS from the overlap of orders creates value for BTS
-% holders as a whole by making the token more scarce. When there is significant
-% demand to short sell assets at the price feed rate, the current BitShares
-% system allows short sellers to offer interest to asset holders in exchange for
-% priority in order matching. In this way, holders of market pegged assets can
-% also collect an additional yield on their savings.
+The old BitShares 1.0 protocol went to great effort to avoid market
+manipulation and eliminate the supposed evil of front running. To stop front
+running, all orders were matched at the exact price specified in the order. Any
+overlap in the market was captured as fees. This means that to get the best
+price, a client would have been forced to submit many orders manually matching
+each order. This had the side effect of slowing down how quickly someone could
+walk the book. This slow down effect was pitched as protection against market
+manipulation attacks on Smartcoins.
+
+Experience has taught us that the lack of standard limit orders has harmed
+market liquidity and adoption. BitShares 2.0 matches orders on a
+\emph{first-come, first-serve basis} and gives the buyer the best price
+possible up to the limit. Rather than charging unpredictable fees from market
+overlap, the network charges a defined fee based upon the size of the order
+matched and the assets involved. Each asset issuer gets an opportunity to
+configure their fees as described in~\cref{seq:feepool}.
