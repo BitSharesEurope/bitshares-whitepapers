@@ -1,0 +1,28 @@
+The BitShares network has a set of parameters available that are subject of
+shareholder approval. Shareholders can define their preferred set of parameters
+and thereby create a so called \emph{committee member} or alternatively vote
+for an existing committee member.
+
+% FIXME, how is final consensus reached?
+
+Besides the required fees for individual blockchain operations and settings for
+the referral program~\cite{FIXME}, we have the following blockchain parameters:
+%
+\begin{itemize}
+ \item [ \texttt{block-interval}:                   ] time in seconds between blocks
+ \item [ \texttt{maintenance-interval}:             ] time in seconds between maintenance blocks
+ \item [ \texttt{maximum-transaction-size}:         ] maximum size of a single transaction in bytes
+ \item [ \texttt{maximum-block-size}:               ] maximum size of a single block in bytes
+ \item [ \texttt{maximum-expiration}:               ] maximum expiration interval
+ \item [ \texttt{maximum-time-until-expiration}:    ] maximum time to expiration of a transaction
+ \item [ \texttt{maximum-witness-count}:            ] maximum amount of witnesses (block producers)
+ \item [ \texttt{maximum-committee-count}:          ] maximum amount of committee members
+ \item [ \texttt{committee-proposal-review-period}: ] review period for committee proposals
+ \item [ \texttt{reserve-percent-of-fee}:           ] percentage of fees to be put back into reserves~\cite{}
+ \item [ \texttt{network-percent-of-fee}:           ] percentage of fees % FIXME
+ \item [ \texttt{witness-pay-per-block}:            ] payment for each witnesses per signed block
+ \item [ \texttt{worker-budget-per-day}:            ] available budget available for budget items (e.g. development)~\cite{}
+\end{itemize}
+
+Please note that the given set of parameters serves as an example and that the
+network's parameters are subject to change over time.
