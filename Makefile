@@ -13,14 +13,14 @@ BIBS=$(wildcard *.bib) $(wildcard *.bst)
 all: $(SRC:.tex=.pdf)
 
 %.pdf: %.tex %.bbl
-	pdflatex $(PDFLATEXOPTS) $<
-	pdflatex $(PDFLATEXOPTS) $<
+	@pdflatex $(PDFLATEXOPTS) $<
+	@pdflatex $(PDFLATEXOPTS) $<
 
 %.aux: %.tex
-	pdflatex $(PDFLATEXOPTS) $<
+	@pdflatex $(PDFLATEXOPTS) $<
 
 %.bbl: %.aux
-	bibtex $(shell basename $< .tex)
+	@bibtex $(shell basename $< .tex)
 
 clean:
 	@rm -rf $(TMPFILES) *.pdf

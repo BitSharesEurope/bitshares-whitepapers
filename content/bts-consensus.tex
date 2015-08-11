@@ -1,0 +1,91 @@
+\label{sec:consensus}
+
+Consensus is the mechanism by which a subset of people decide upon unitary
+rational action. The process of consensus decision-making allows for all
+participants to consent upon a resolution of action even if not the favored
+course of action for each individual participant. Bitcoin was the first system
+to integrate a fully decentralized consensus method with the modern technology
+of the internet and peer-to-peer networks in order to more efficiently
+facilitate the transfer of value through electronic communication. The
+proof-of-work structure that secures and maintains the Bitcoin network is one
+manner of organizing individuals who do not necessarily trust one another to
+act in the best interest of all participants of the network.
+
+It is of importance to distinguish a democratic voting process in which every
+citizen of a community has one and only one vote from a distributed consensus
+mechanism in cryptocurrencies hand over voting power either in relation to
+hashing power (e.g. proof-of-work) or on a per stake basis (e.g.
+proof-of-stake). In both cases, those that invest in the required
+infrastructure to increase their voting percentage (i.e. by buying mining
+hardware or stake) act as shareholder in a distributed community.
+
+The BitShares community employs \emph{Delegated Proof-of-Stake} (DPOS) in order
+to find efficient solutions to distributed consensus decision making.  DPOS
+attempts to solve the problems of both Bitcoin's traditional proof-of-work
+system, and the proof-of-stake system of Peercoin and NXT by implementing a
+layer of technological democracy to offset the negative effects of
+centralization. For historical reasons, the technology is still called
+\emph{delegated} proof-of-stake even though what have been delegates in
+BitShares 1.0 are now so called \emph{witnesses}.
+
+In DPOS set of $N$ witnesses (formerly known as \emph{delegates}) sign the
+blocks and are voted on by those using the network with every transaction that
+gets made. By using a decentralized voting process, DPOS is by design more
+democratic than comparable systems. Rather than eliminating the need for trust
+all together, DPOS has safeguards in place the ensure that those trusted with
+signing blocks on behalf of the network are doing so correctly and without
+bias. A more detailed description about the distributed consensus mechanism as
+well as a discussion how blockchain forking is prevented during attacks is
+given in a separate paper~\cite{}. % FIXME link dpos paper
+
+Additionally, each block signed must have a verification that the block
+before it was signed by a trusted node. DPOS eliminates the need to wait until
+a certain number of untrusted nodes have verified a transaction before it can
+be confirmed.
+
+This reduced need for confirmation produces an increase in speed of transaction
+times. By intentionally placing trust with the most trustworthy of potential
+block signers, as decided by the network, no artificial encumbrance need be
+imposed to slow down the block signing process. DPOS allows for many more
+transactions to be included in a block than either proof of work or proof of
+stake systems.
+
+In a delegated proof-of-stake system, centralization still occurs, but it is
+controlled. Unlike other methods of securing cryptocurrency networks, every
+client in a DPOS system has the ability to decide who is trusted rather than
+trust concentrating in the hands of those with the most resources. DPOS allows
+the network to reap some of the major advantages of centralization, while still
+maintaining some calculated measure of decentralization. Furthermore, once a
+delegates has reached approval by shareholders, surpasses the threshold of the
+most $N$ active witnesses, and, hence, is elected to actively participate in
+the block production procedure, its power is \emph{equivalent} to all other
+active witnesses. This system is enforced by a fair election process where
+anyone could potentially become a delegated representative (witness) of the
+majority of users.
+
+Please note that DPOS has a recommended $1-2$ block confirmation versus
+bitcoin's 6 block recommendation. DPOS is much more resistant against forks for
+the following reasons:
+\begin{itemize}
+\item When a fork is produced it is
+      very likely that all delegates have seen and processed your transaction and
+      thus no alternative transactions can be broadcast and the next delegate is
+      almost certain to include your transaction.  All delegates are much more
+      trusted than miners.
+\item The probability of a fork after a block has been produced is very low (<
+      0.01\%) where as Bitcoin has 25 orphans in the last 22 days (about 1 per day in
+      Dec 3,2014) which translates into 0.7\% of blocks are orphaned.
+\item On normal operations, DPOS achieves a 100\% witness participation rate and when
+      we are less than that it is more often because a delegate went offline and didn't
+      produce a block than because they produced a fork. 
+\item In BitShares 1.0 forks have almost always been resolved within 30 seconds. 
+\end{itemize}
+
+Assuming a 10 second block interval, Bitshares is mathematically over 70x less
+likely to orphan after 1 block than Bitcoin after 1 block (10 minutes). After 3
+blocks (30 seconds) any random orphan will have been resolved and the
+probability of alternative chains is much lower than the 0.000001\% of Bitcoin.
+By the time Bitcoin gets to .7\% orphan probability, BitShares has 60 blocks
+which would have a probability of being orphaned of less than $10^-{120}$.
+
+% FIXME: review these numbers

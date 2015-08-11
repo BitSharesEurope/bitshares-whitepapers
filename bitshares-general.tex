@@ -1,11 +1,28 @@
 \documentclass[conference,final,10pt,a4paper]{IEEEtran}
 
 \usepackage[latin1]{inputenc}
-\usepackage{amssymb,amssymb}
-\usepackage{algorithmic}
+\usepackage{amsmath,amssymb,amssymb}
+\usepackage{cleveref}
+\usepackage{paralist}
+\usepackage[hyphens]{url}
+\usepackage{breakurl} 
+\usepackage[breaklinks]{hyperref}
+\usepackage{siunitx}
 
 \title{BitShares 2.0: General Documentation}
-\author{}
+\author{
+ \IEEEauthorblockN{Daniel~Larimer, Lance~Kasper}
+ \IEEEauthorblockA{Cryptonomex, Cryptonomex.com\\
+                   Blacksburg (VA), USA\\
+                   Email: \texttt{\{dan,\,agent86\}@cryptonomex.com}}%
+ \and
+ \IEEEauthorblockN{Fabian~Schuh}
+ \IEEEauthorblockA{BitShares Europe, BitShares.eu\\
+                   Erlangen, Germany\\
+                   Email: \texttt{fabian@bitshares.eu}}
+ \thanks{This work was supported by Cryptonomex.}
+ % 
+}
 
 \IEEEoverridecommandlockouts
 \begin{document}
@@ -14,24 +31,32 @@
 
 \begin{abstract}
 \end{abstract}
-\section    { Introduction    } \input { content/bts            } 
+\section       { Introduction                    } \input { content/bts             } 
 
-\section    { Specifications  } \input { content/spec           } 
-\subsection { Blockchain      } \input { content/spec-bc        } 
-\subsection { Network         } \input { content/spec-net       } 
+\section       { Specifications                  } \input { content/spec            } 
+\subsection    { Blockchain                      } \input { content/spec-bc         } 
+\subsection    { Distributed Consensus Mechanism } \input { content/bts-consensus   } 
+\subsection    { Peer-to-Peer Network            } \input { content/spec-net        } 
+\subsection    { System Parameters               } \input { content/bts-parameters  }
 
-\section    { Base Token      } \input { content/bts-token      } 
-\subsection { Distribution    } \input { content/bts-token-dist } 
-\subsection { Payment of Fees } \input { content/bts-token-fees } 
-\subsection { Token Usage     } \input { content/bts-token-use  } 
+\section       { Base Token                      } \input { content/bts-token       } 
+\subsection    { Distribution                    } \input { content/bts-token-dist  } 
+\subsection    { Payment of Fees                 } \input { content/bts-token-fees  } 
+\subsection    { Token Usage                     } \input { content/bts-token-use   } 
 
-\section    { Interacting with BitShares }
-\subsection { Accounts        } \input { content/bts-acc        } 
-\subsection { Operations      } \input { content/bts-ops        } 
-\subsection { Transactions    } \input { content/bts-txs        } 
-\subsection { Privacy         } \input { content/bts-priv       } 
+\section       { Wallet                          } \input { content/bts-wallet      } 
+\subsection    { Operations                      } \input { content/bts-ops         } 
+\subsection    { Transactions                    } \input { content/bts-txs         } 
 
-\section    { Conclusion      } \input { content/bts-conc       } 
+\section       { Accounts                        } \input { content/bts-acc         } 
+\subsection    { Transferable Named Accounts     } \input { content/org-transfacc   } 
+\subsection    { Dynamic Account Permissions     } \input { content/org-dynacc      } 
+\subsection    { Recurring \& Scheduled Payments } \input { content/org-recurr      } 
+\subsection    { Costumer Privacy                } \input { content/bts-priv        } 
 
-\section*   { Litarture      } 
+\section       { Discussion                      } \input { content/bts-discussion  } 
+
+\section       { Conclusion                      } \input { content/bts-conc        } 
+\bibliographystyle{IEEEtran}
+\bibliography{literature}
 \end{document}

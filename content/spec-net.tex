@@ -1,0 +1,26 @@
+The peer-to-peer network distributes the full blockchain database across the
+world. It consists of public and private nodes as well as seed nodes that are
+used for initial connection to the peer-to-peer network. Anybody may connect to
+any known node and download the current global and unique state (i.e. the
+blockchain).
+
+Once a node is in sync with the peer-to-peer network it received and applies
+newly created blocks, and assists new network nodes by further distribution of
+the blockchain. Additionally, new blocks are broadcast to all connected nodes.
+
+Furthermore, network nodes receive transaction from participants and forward
+them to the rest of the network until they reach the witness that is in charge
+of constructing the next block. Hence, new transaction broadcasts do not
+necessarily need to reach all nodes.
+
+On reception of new transactions by a witness node, the witness validates its
+operations and advances the blockchain state by one block containing that
+transaction (and possibly many more).
+
+If a node does not receive a block, it will request it when it receives the
+next block and realizes it missed one. If a witness did not receive its
+previous block at the time it is supposed to construct its block, the previous
+block will be marked as \emph{missed} and a reference to the block before the
+previous block will be used instead. A more detailed description about the
+distributed consensus mechanism as well as a discussion how blockchain forking
+is prevented during attacks is given in a separate paper~\cite{}. % FIXME link dpos paper

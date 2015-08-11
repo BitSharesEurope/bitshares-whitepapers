@@ -1,0 +1,50 @@
+\newcommand*\justify{%
+  \fontdimen2\font=0.4em% interword space
+  \fontdimen3\font=0.2em% interword stretch
+  \fontdimen4\font=0.1em% interword shrink
+  \fontdimen7\font=0.1em% extra space
+  \hyphenchar\font=`\-% allowing hyphenation
+}
+
+As in other cryptocurrencies, the public ledger of BitShares is built and
+stored in a linked series of blocks, known as a blockchain.
+
+The ledger provides a permanent record of transactions that have taken place,
+and also establishes an order in which transactions have occurred. Hence, every
+\emph{content} of the blockchain can be assigned an permanent and unique
+identifier in form of a scalar number.
+
+Every full node in the BitShares network stores a full copy of this blockchain
+and can verify its validity and the evaluate new blocks.
+
+Every block contains
+\begin{itemize}
+ \item a reference to the previous block,
+ \item a timestamp,
+ \item a hash of a secret,
+ \item the secret of the previous hash,
+ \item a set of transactions, and
+ \item a signature by the block producing authority
+\end{itemize}
+
+As will be discussed in \cref{sec:consensus}, the consensus mechanism allows
+for synchronous block production with constant block confirmation times, e.g.,
+one block every \SI{5}{\second}.
+
+Since the blocks mainly embrace costumer transactions but has to perform time
+intensive tasks, or execute rare events from time to time, some actions such as
+reenumeration of blockchain-based votes and rare events such as newly
+registered block producers (witnesses) are carried out more rarely but still on
+a frequent so called \emph{maintenance interval}.
+
+The following parameters are associated with the blockchain operations and are
+subject to shareholder consensus:
+%
+\texttt{\justify
+ block-interval,
+ maintenance-interval,
+ maximum-transaction-size,
+ maximum-block-size,
+ maximum-witness-count,
+ maximum-committee-count.
+}
