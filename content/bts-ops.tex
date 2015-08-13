@@ -1,0 +1,36 @@
+Similar to most cryptocurrencies, there is a set of predefined operations that
+can be performed on the blockchain. In contrast to Bitcoin, which uses a
+technique called \emph{script} to describe operations that shall be performed
+in a programmatic way using \emph{OP} codes, the BitShares network has a
+predefined (but extensible) set of operations that a user may perform.
+
+All operations end up on the blockchain eventually. Once they are validated and
+confirmed by a witness by being included into a block, they are \emph{executed}
+and update the state of the blockchain accordingly.
+
+The release version of BitShares 2.0 comes with 
+\begin{inparaenum}[(a)]
+ \item transfer ops,
+ \item limit-order ops,
+ \item call-order ops,
+ \item fill-order ops,
+ \item account ops,
+ \item asset ops,
+ \item witness ops,
+ \item withdraw-permission ops,
+ \item committee-member ops,
+ \item vesting-balance ops,
+ \item worker ops,
+ \item custom ops,
+ \item assert ops,
+ \item balance ops, and
+ \item override ops.
+\end{inparaenum}
+However, since BitShares allows for shareholder approved, live protocol
+upgrades, the set of operations can be extended and modified. 
+% FIXME do we allows for modifications of existing ops?
+
+On the blockchain level, each operation is assigned an individual \emph{id}
+with a custom set of parameters for performance reasons.
+
+% FIXME example

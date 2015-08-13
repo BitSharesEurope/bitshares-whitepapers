@@ -1,0 +1,31 @@
+% This chapter is mostly a guess!
+
+BitShares 2.0 makes use of confidential transactions (by means of blind
+signatures~\cite{blindSigPaper}) in combination with stealth addresses to
+protect costumers privacy while keeping scalability and performance.
+
+In \cite{blindSigPaper}, a scheme was proposed that allows generating a blind
+signature compatible with the existing Bitcoin protocol. There, the client
+requests a set of parameters from a 3rd partiy (e.g. a \emph{signing server})
+and synthesizes a public key to use in a transaction. To redeem the funds, the
+client transforms the hash of the transaction (\emph{blinds}), sends to the 3rd
+party to sign and then transforms the signature (\emph{unblinds}) to arrive at
+a valid ECDSA signature. The signed transaction is published revealing the
+synthetic public key and the unblinded signature. Hence, the 3rd party cannot
+learn about its participation neither from the public key nor from the
+signature.
+
+The novelty of the scheme is that unlike the original Chaum blind signature
+scheme, this approach does not allow anyone to prove that the signing party
+signed a particular message, but instead provides a much stronger privacy: the
+resulting signature, public key and the message are all completely unlinkable
+to the signing party.
+
+For BitShares, it allows to have \emph{someone} else sign something without
+them being able to prove they were the one who signed it which is useful for
+multi-signature/two-factor on confidential transactions.
+
+In combination with stealth addresses, we can now derive a \emph{one-time
+public key} that can be signed by \emph{someone} knowing that this
+\emph{someone} cannot use any knowledge of the one-time public key to link back
+to us.

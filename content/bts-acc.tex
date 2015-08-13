@@ -1,0 +1,34 @@
+BitShares makes use of read-able account names that have to be registered
+together with a public key in the blockchain prior to its usage. On
+registration, a new account is associated with an individual and unique
+identifier that will be used internally to identify an account. In this case,
+the blockchain acts as a name--to--public-key resolver similar to the
+traditional domain name service (DNS). These named accounts enable users to
+easily remember and communicate their account information. 
+
+%% transferable
+In BitShares, an account name can be transfered by updating the public key that
+is associated with it.
+
+%% recurring
+Furthermore, BitShares is the first smart contract platform with built-in
+support for \emph{recurring payments} and subscription payments. This feature
+allows users to authorize third parties to make withdrawals from their accounts
+within certain limits. This is a convenient way to \emph{set it and forget it}
+for monthly bills and subscriptions.
+
+%% dynamic
+BitShares also designs permissions around people, rather than around
+cryptography, making it easy to use. Every account can be controlled by any
+weighted combination of other accounts and private keys. This creates a
+hierarchical structure that reflects how permissions are organized in real
+life, and makes multi-user control over funds easier than ever. Multi-user
+control is the single biggest contributor to security, and, when used properly,
+it can virtually eliminate the risk of theft due to hacking. Hence, BitShares
+does technically not have multi-\emph{signature} accounts, but has
+multi-\emph{account} permissions.
+
+\medskip
+
+In the following we introduce the above mentioned features that come with named
+account in the BitShares network in more detail.

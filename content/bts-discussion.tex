@@ -1,25 +1,45 @@
-The inherent problems of Bitcoin and other Cryptocurrencies
+In general, BitShares has similarities and differences to most known
+cryptocurrencies. As many others, BitShares is based on a blockchain that
+stores and propagates transactions, i.e. user operations. Since, with DPOS,
+computational resources are used solely for the purpose of transaction
+propagation and confirmation, rather than wasteful computational work, the
+block production interval has been reduced to a few seconds. Eventually, this
+improves the over-all profitability of the DAC.
 
-    Slow transactions per second (TPS) when compared to major payment processors like VISA. (7 TPS with Bitcoin vs 10,000 TPS with VISA)
-    Addresses are machine readable, not human readable. As a result ~5\% of BTC have been irrevocably lost.
-    Transactions are not anonymous.
-    Security of the network consumes between \$500 million and \$1 billion annually, depending on the Bitcoin market capitalization.
-    Control of the network is proportional to hashing power, not proportional to one's Bitcoin holdings.
-    Centralization of hashing power can come under the control of a single mining pool.
-    High price volatility. This is the biggest deterrent when it comes to adoption as a major currency.
+Additionally, we make use of \emph{named} accounts that can be registered on
+the blockchain. Users no longer need to send money to an alphanumeric string
+that can be copied incorrectly. Rather, funds can be sent as easily as sending
+an email, and in the same fashion. Name registration allows for the
+identification of who transactions are are originating with with no need to
+manually create a contact account for a given address. Transactions may contain
+a memo field that allow users to describe the nature of the transaction or
+broadcast secure messages about the price of the current transaction fee. Since
+BitShares 2.0 implements \emph{confidential transaction}, there is no longer a
+need for \emph{mixing} or \emph{master nodes}. Transactions can be more private
+iin BitShares than in Bitcoin, for example, with no additional work needed from
+the user.
 
-How BitShares solves these issues
+BitShares is a 100\% proof-of-stake system. This means it is a lot more
+efficient (cost per security) than proof-of-work and therefore does not have to
+dilute stakeholders/coinholders (there is a ~10\% yearly dilution of
+Bitcoin-holders as per 2015 with Bitcoin and lowering this dilution would mean
+to lower the security). Hence, the cost of securing the BitShares network is
+merely a fraction of all transaction fees accumulated by the network. 
 
-    BitShares Uses block rewards to directly fund development and marketing as opposed to spending on mining equipment and electricity.
-    DPOS reduces block production to 10 seconds. Since computational resources are used for the purpose of transaction propagation and confirmation, rather than wasteful computational work, DPOS blockchains can scale to the transaction load of visa.
-    BitShares uses accounts that can be registered on the blockchain. Users no longer need to send money to an alphanumeric string that can be copied incorrectly. Rather, money can be sent as easily as sending an email, and in the same fashion. It is very difficult to send to a wrong account. You can still send to public keys but its unnecessary and adds little advantage.
-    Name registration allows for the identification of who transactions are are originating with with no need to manually create a contact account for a given address.
-    Transactions contain a memo field that allow users to describe the nature of the transaction or broadcast secure messages about the price of the current transaction fee.
-    BitShares uses TITAN, which automates the creation of stealth address using an accounts registered public key. There is no longer a need for mixing or "master nodes." Transactions are more anonymous than Bitcoin, for example, with no additional work needed from the user.
-    BitShares is a 100\% proof-of-stake system. This means it is a lot more efficient (cost per security) than proof-of-work and therefore does not have to dilute stakeholders/coinholders (there is a ~10\% dilution of Bitcoin-holders per year with Bitcoin and lowering this dilution would mean to lower the security). Proof of stake does not depend on hash rate for security.
-    BitShares is a bank and decentralized exchange allowing people to hold deposits in whatever asset they choose. This system allows investors with a higher risk tolerance to collateralize and trade virtual assets. Users who simply want to use crypto-currencies as a stable medium of exchange can do so without risk, due to the volatility of the network's main equity/currency. For example, if a user were to put \$100 in the network, the deposit is always redeemable for \$100 worth of BitShares, as a result of the free market peg of bitUSD to real USD.
-    The cost of securing the network is merely a fraction of all transaction fees accumulated by the network.
-    Delegates compete for votes and the top 101 delegates produce blocks. The job of a basic delegate is simple: include as many valid transactions in your given block as possible and sign a single block. If a delegate signs multiple blocks they are immediately fired. If a delegate blocks transactions, they will be voted out of office. Each round delegates are randomly assigned a block to produce, thereby making it that much harder to coordinate a sustained attack on the network - without 51\% of the shares.
-    Shareholder votes are proportionate to the relative number of shares they own. The DAC is completely shareholder run.
-    Now people can be hired by the blockchain. By running a delegate with a higher than basic payrate, a person can attempt to be voted into a position on the blockchain. Where coins like Bitcoin dilute to pay for network security, BitShares takes these fees and directs them towards continual improvement of the network and community. This helps insure BitShares will stay competitive in its featureset.
+The job of the block producers is simple: include as many valid transactions in
+your given block as possible and sign a single block. These Block producers
+compete for the most approval in order to be allowed to produce blocks.
+Shareholder votes are proportionate to the relative number of shares they own.
+The BitShares DAC is \emph{completely} shareholder run. Now people can be hired
+by the blockchain. Where coins like Bitcoin dilute to pay for network security,
+BitShares takes these fees and directs them towards continual improvement of
+the network and community. This helps insure BitShares will stay competitive in
+its feature set. More details about the consensus scheme of BitShares can be
+found in a separated whitepaper~\cite{}.
+
+Recalling the initial distribution of BTS, it seem convincing to assume that
+most alternative distributions are way more unfair and some disproportionately
+favor their respective core developers. Since BitShares is a self-funded DAC,
+it can \emph{pay} for its future development autonomously by dilution, if
+shareholders reach an on-blockchain consensus by approval voting.
 
