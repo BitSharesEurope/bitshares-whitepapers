@@ -2,26 +2,16 @@
 
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath,amssymb,amssymb}
-\usepackage{cleveref}
 \usepackage{paralist}
 \usepackage[hyphens]{url}
 \usepackage{breakurl} 
 \usepackage[breaklinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{cleveref}
+\usepackage{graphicx}
 
 \title{BitShares 2.0: Financial Smart Contract Platform}
-\author{
- \IEEEauthorblockN{Daniel~Larimer, Lance~Kasper}
- \IEEEauthorblockA{Cryptonomex, Cryptonomex.com\\
-                   Blacksburg (VA), USA\\
-                   Email: \texttt{\{dan,\,agent86\}@cryptonomex.com}}%
- \and
- \IEEEauthorblockN{Fabian~Schuh}
- \IEEEauthorblockA{BitShares Europe, BitShares.eu\\
-                   Erlangen, Germany\\
-                   Email: \texttt{fabian@bitshares.eu}}
- \thanks{This work was supported by Cryptonomex.}
- % 
-}
+\input{AUTHORS}
 
 \IEEEoverridecommandlockouts
 \begin{document}
@@ -29,6 +19,7 @@
 \maketitle
 
 \begin{abstract}
+
  Every since Satoshi Nakamoto released his whitepaper and corresponding
  software for bitcoin, the cryptocurrency ecosystem grew rapidly. Bitcoin
  created an ecosystem which everybody could use to \emph{transfer} value
@@ -37,79 +28,79 @@
  whether this technology could be leveraged to also enable \emph{trading} of
  multiple assets without the need for a broker or central entity (exchange).
  Several so called bitcoin 2.0 projects (among which are BitShares 1.0, NXT,
- Counterparty)\footnote{At the time of writing, the promising Ethereum project
- has not launched a DEX, yet.} showed the feasibility of a \emph{decentral
+ Counterparty, Ethereum, \dots) showed the feasibility of a \emph{decentral
  exchange} (DEX). The aim of BitShares 2.0 is to innovate the term
  \emph{decentral exchange} and not only provide trading of assets but
  additionally offer classical financial instruments on the blockchain. With
  price stable digital tokens such as bitUSD, a whole new set of financial
  contracts are now directly available through the decentral exchange.
+
 \end{abstract}
-\section       { Introduction                                    } \input { content/fp                     } 
+\section        { Introduction                                    } \input { content/fp                     } 
 
-\section       { Market Pegged Assets (MPA)                      } \input { content/fp-mpa                 } 
-\subsection    { Price Stability                                 } \input { content/fp-mpa-stab            } 
-\subsubsection { Definition of Price Stability                   } \input { content/fp-mpa-stab-def        } 
-\subsubsection { It needs a Price Floor                          } \input { content/fp-mpa-stab-floor      } 
-\subsubsection { Price Feeds                                     } \input { content/fp-mpa-stab-feed       } 
+\section        { Market Pegged Assets (MPA)                       } \input { content/fp-mpa                 } 
+\subsection     { Price Stability                                  } \input { content/fp-mpa-stab            } 
+\subsubsection  { Definition of Price Stability                    } \input { content/fp-mpa-stab-def        } 
+\subsubsection  { It needs a Price Floor                           } \input { content/fp-mpa-stab-floor      } 
+\subsubsection  { Price Feeds                                      } \input { content/fp-mpa-stab-feed       } 
+\subsection     { Issuance and Supply of Collateralized Smartcoins } \input { content/fp-mpa-create          } 
+\subsection     { Perspectives of Participants                     } \input { content/fp-mpa-persp           } 
+\subsubsection  { The Short Position                               } \input { content/fp-mpa-short           } 
+\subsubsection  { The Long Position                                } \input { content/fp-mpa-long            } 
+\subsubsection  { The Customer's Perspective                       } \input { content/fp-mpa-costumer        } 
+\subsubsection  { The Merchant's Perspective                       } \input { content/fp-mpa-merchant        } 
+\subsubsection  { BTS Shareholders and Investors                   } \input { content/fp-mpa-buyer           } 
+\subsection     { Price Manipulation                               } \input { content/fp-mpa-manipulation    } 
+\subsection     { Undercollateralization and Black Swans Events    } \input { content/fp-mpa-blackswan       } 
+\subsection     { Risks                                            } \input { content/fp-mpa-risk            } 
+\subsubsection  { Collateral Risk                                  } \input { content/fp-mpa-risk-coll       } 
+\subsubsection  { Counterparty Risk                                } \input { content/fp-mpa-risk-counter    } 
+\subsubsection  { Systemic Risk                                    } \input { content/fp-mpa-risk-system     } 
+\subsection     { Privatized SmartCoins                            } \input { content/fp-mpa-privatized      } 
 
-\subsection    { Creation of Collateralized Smartcoins           } \input { content/fp-mpa-create          } 
-\subsubsection { The Shorter                                     } \input { content/fp-mpa-short           } 
-\subsubsection { The Long (BitUSD holder)                        } \input { content/fp-mpa-long            } 
-\subsubsection { The BTS Buyer                                   } \input { content/fp-mpa-buyer           } 
-\subsubsection { The Merchant                                    } \input { content/fp-mpa-merchant        } 
-\subsubsection { The Customer                                    } \input { content/fp-mpa-costumer        } 
-\subsection    { Price Manipulation                              } \input { content/fp-mpa-manipulation    } 
-\subsection    { Black Swans - Extreme Market Conditions         } \input { content/fp-mpa-blackswan       } 
-\subsection    { Privatized SmartCoins                           } \input { content/fp-mpa-privatized      } 
-\subsection    { Risks                                           } \input { content/fp-mpa-risk            } 
-\subsubsection { Collateral Risk                                 } \input { content/fp-mpa-risk-coll       } 
-\subsubsection { Counterparty Risk                               } \input { content/fp-mpa-risk-counter    } 
-\subsubsection { Systemic Risk                                   } \input { content/fp-mpa-risk-system     } 
+\section        { User-Issued Assets (UIA)                         } \input { content/fp-uia                 } 
+\subsection     { Deposit Receipts                                 } \input { content/fp-uia-rights          } 
+\subsubsection  { Know Your Customer                               } \input { content/fp-uia-rights-kyc      } 
+\subsubsection  { Asset Seizing                                    } \input { content/fp-uia-rights-seize    } 
+\subsubsection  { Market Restriction                               } \input { content/fp-uia-rights-market   } 
+\subsubsection  { Transfer Restrictions                            } \input { content/fp-uia-rights-tx       } 
+\subsection     { How to Profit by Issuing an Asset                } \input { content/fp-uia-profit          } 
+\subsection     { Use-Cases                                        } \input { content/fp-uia-uc              } 
+\subsubsection  { Company Shares                                   } \input { content/fp-uia-uc-stock        } 
+\subsubsection  { Event Tickets                                    } \input { content/fp-uia-uc-ticket       } 
+\subsubsection  { Rewards Points                                   } \input { content/fp-uia-uc-points       } 
+%\subsubsection { Individual or Corporate Debt                     } \input { content/fp-uia-uc-dept         } % Bond
+\subsubsection  { Crowd Funding                                    } \input { content/fp-uia-uc-crowdfunding } 
+\subsubsection  { Digital Property                                 } \input { content/fp-uia-uc-property     } 
+\subsubsection  { Privatized SmartCoins (Stable Cryptocurrencies)  } \input { content/fp-uia-uc-privatized   } 
+\subsubsection  { Information/Prediction Markets                   } \input { content/fp-uia-uc-pm           } 
+\subsection     { Fee Pools                                        } \input { content/fp-uia-profit-feepool  } 
 
-\section       { User-Issued Assets (UIA)                        } \input { content/fp-uia                 } 
-\subsection    { Deposit Receipts                                } \input { content/fp-uia-rights          } 
-\subsubsection { Know Your Customer                              } \input { content/fp-uia-rights-kyc      } 
-\subsubsection { Asset Seizing                                   } \input { content/fp-uia-rights-seize    } 
-\subsubsection { Market Restriction                              } \input { content/fp-uia-rights-market   } 
-\subsubsection { Transfer Restrictions                           } \input { content/fp-uia-rights-tx       } 
-\subsection    { How to Profit by Issuing an Asset               } \input { content/fp-uia-profit          } 
-\subsection    { Use-Cases                                       } \input { content/fp-uia-uc              } 
-\subsubsection { Company Shares                                  } \input { content/fp-uia-uc-stock        } 
-\subsubsection { Event Tickets                                   } \input { content/fp-uia-uc-ticket       } 
-\subsubsection { Rewards Points                                  } \input { content/fp-uia-uc-points       } 
-%\subsubsection{ Individual or Corporate Debt                    } \input { content/fp-uia-uc-dept         } % Bond
-\subsubsection { Crowd Funding                                   } \input { content/fp-uia-uc-crowdfunding } 
-\subsubsection { Digital Property                                } \input { content/fp-uia-uc-property     } 
-\subsubsection { Privatized SmartCoins (Stable Cryptocurrencies) } \input { content/fp-uia-uc-privatized   } 
-\subsubsection { Information/Prediction Markets                  } \input { content/fp-uia-uc-pm           } 
-\subsection    { Fee Pools                                       } \input { content/fp-uia-profit-feepool  } 
+\section        { Decentralized Exchange                           } \input { content/fp-dex                 } 
+\subsection     { Core Features of the DEX                         } \input { content/fp-dex-features        } 
+\subsubsection  { Global Unified Order Book                        } \input { content/fp-dex-globalbook      } 
+\subsubsection  { Separation of Powers                             } \input { content/fp-dex-powers          } 
+\subsubsection  { Trade Almost Anything                            } \input { content/fp-dex-anything        } 
+\subsubsection  { No Limits                                        } \input { content/fp-dex-limits          } 
+\subsubsection  { Decentralized                                    } \input { content/fp-dex-decentral       } 
+\subsubsection  { Secure                                           } \input { content/fp-dex-secure          } 
+\subsubsection  { Fast, but not too fast                           } \input { content/fp-dex-fast            } 
+\subsubsection  { Decentralization of Privacy                      } \input { content/fp-dex-privacy         } 
+\subsection     { Order Matching                                   } \input { content/fp-dex-ordermatching   } 
+\subsection     { Collateralized Smartcoins                        } \input { content/fp-dex-collateral      } 
+%\subsection    { 3rd Party Services and Business Opportunities    } \input { content/fp-dex-roles           } 
+\subsubsection  { Fiat Gateways                                    } \input { content/fp-dex-gateway         } 
 
-\section       { Decentralized Exchange                          } \input { content/fp-dex                 } 
-\subsection    { Core Features of the DEX                        } \input { content/fp-dex-features        }
-\subsubsection { Global Unified Order Book                       } \input { content/fp-dex-globalbook      } 
-\subsubsection { Separation of Powers                            } \input { content/fp-dex-powers          } 
-\subsubsection { Trade Almost Anything                           } \input { content/fp-dex-anything        } 
-\subsubsection { No Limits                                       } \input { content/fp-dex-limits          } 
-\subsubsection { Decentralized                                   } \input { content/fp-dex-decentral       } 
-\subsubsection { Secure                                          } \input { content/fp-dex-secure          } 
-\subsubsection { Fast, but not too fast                          } \input { content/fp-dex-fast            } 
-\subsubsection { Decentralization of Privacy                     } \input { content/fp-dex-privacy         } 
-\subsection    { Order Matching                                  } \input { content/fp-dex-ordermatching   } 
-\subsection    { Collateralized Smartcoins                       } \input { content/fp-dex-collateral      } 
-%\subsection   { 3rd Party Services and Business Opportunities   } \input { content/fp-dex-roles           } 
-\subsubsection { Fiat Gateways                                   } \input { content/fp-dex-gateway         } 
+% \section      { Collateralized Bond Market                       } \input { content/fp-bond                } 
+% \subsection   { Avoiding Margin Calls                            } \input { content/fp-bond-margin         } 
+% \subsection   { Proposing and Creating a Bond                    } \input { content/fp-bond-create         } 
+% \subsection   { Bond Parameters                                  } \input { content/fp-bond-parameters     } 
+% \subsection   { Closing a Bond                                   } \input { content/fp-bond-close          } 
+% \subsection   { Interest on MPA                                  } \input { content/fp-bond-market         } 
 
-% \section     { Collateralized Bond Market                      } \input { content/fp-bond                } 
-% \subsection  { Avoiding Margin Calls                           } \input { content/fp-bond-margin         } 
-% \subsection  { Proposing and Creating a Bond                   } \input { content/fp-bond-create         } 
-% \subsection  { Bond Parameters                                 } \input { content/fp-bond-parameters     } 
-% \subsection  { Closing a Bond                                  } \input { content/fp-bond-close          } 
-% \subsection  { Interest on MPA                                 } \input { content/fp-bond-market         } 
+\section        { Fees                                             } \input { content/fp-fees                } 
 
-\section       { Fees                                            } \input { content/fp-fees                }
-
-\section       { Conclusion                                      } \input { content/fp-conc                } 
+\section        { Conclusion                                       } \input { content/fp-conc                } 
 \bibliographystyle{IEEEtran}
 \bibliography{literature}
 \end{document}

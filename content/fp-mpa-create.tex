@@ -31,6 +31,14 @@ your contract at the price feed), you should at least maintain the so called
 \emph{maintenance collateral level} at all times. Hence, the collateral only
 needs to be high enough to cover any slippage as a result of a short squeeze.
 
+\begin{figure}[!htp]
+ \begin{center}
+  \includegraphics[width=.8\linewidth]{figures/external-pricefeed}
+ \end{center}
+ \caption{Illustration of }
+ \label{fig:btsdex}
+\end{figure}
+
 Hence, at the moment of creation, the position of the \emph{shorter} has not
 changed at all because he can directly cover the short position using the
 bitUSD to gaining back his BTS used as collateral.
@@ -57,7 +65,3 @@ always worth at least \$1.00 is to demonstrate that, if you can find someone
 willing to sell 1.00 BitUSD for \$1.00, that it would be the cheapest option for
 buying BTS. This means that 100\% of the buying demand for BTS would be
 available to give liquidity to BitUSD holders as a priority over BTS holders.
-
-While the rules are simple, the consequences are less obvious. Let's analyze
-this from the perspective of the various players and attempt to prove that this
-condition is met.
