@@ -6,4 +6,11 @@
 *.blg
 *.log
 *.out
-*.pdf
+
+bitshares-consensus.pdf
+bitshares-financial-platform.pdf
+bitshares-general.pdf
+bitshares-growth.pdf
+bitshares-history.pdf
+bitshares-license.pdf
+bitshares-structure.pdf
