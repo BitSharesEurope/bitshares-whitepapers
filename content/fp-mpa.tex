@@ -1,32 +1,41 @@
-BitShares' market pegged assets (MPA), or \emph{Smartcoin} (as they is often also
-called) are a new type of freely traded digital asset whose value is meant to
-track the value of a conventional asset such as the U.S. dollar or 1 ounce
-of gold. What makes market pegged assets unique is that they are free from
-counter party risk.
+\label{sec:mpa}
 
-A currency with the properties and advantages of Bitcoin that maintains price
-parity with a globally adopted currency such as the US dollar has high utility
-for convenient and censorship resistant commerce. A SmartCoin (synonym for
-Market Pegged Asset) is a cryptocurrency that always has 100\% or more of
-their value backed by the BitShares core currency, BTS, to which they can be
-converted at any time at an exchange rate set by a trustworthy price
-feed\footnote{Price feeds are published by delegates that have shareholder
-approval.}. 
+A crypto-currency, with the properties and advantages of Bitcoin, that is
+capable of maintaining price parity with a globally adopted currency (e.g.
+U.S. dollar), has high utility for convenient and censorship resistant
+commerce. This can be achieved by BitShares' market pegged assets (MPA), a new
+type of freely traded digital asset whose value is meant to track the value of
+a conventional underlying asset by means of contracts for difference (CFD). 
 
-BitShares market pegged assets are a viable open source alternative to the
-incumbent banking system. Achieving price parity with a commonly used currency
+A \emph{SmartCoin} (synonym for MPA) is a crypto-currency that \emph{always}
+has 100\% or more of their value backed by the BitShares core currency (BTS),
+to which they can be converted at any time, as \emph{collateral} in a CFD.
+
+What makes MPAs unique is that they are free from counterparty risk even though
+they resemble a CFD backed by collateral. This is achieve by letting the
+network itself (implemented as software protocol) be responsible for securing
+the collateral and performing settlements as will be described in more detail
+below.
+
+% at an exchange rate set by a trustworthy price feed\footnote{Price feeds are
+% published by delegates that have shareholder approval.}. 
+
+% While certain risks of the system have been outlined, no system is
+% without risk. The current banking system allows private funds to be frozen or
+% confiscated without consent, such as by court order or administrative actions.
+% Traditional banks and financial institutions are susceptible to insolvency.
+% The availability and quality of banking service varies greatly throughout the
+% world. 
+
+We will present SmartCoins as a viable open source alternative to the expensive
+banking system. Achieving price parity with a commonly used currency
 facilitates pricing and acceptance by merchants. Additionally it reduces the
 need to calculate capital gains and losses on volatile assets to determine tax
-liability. While certain risks of the system have been outlined, no system is
-without risk. The current banking system allows private funds to be frozen or
-confiscated without consent, such as by court order or administrative actions.
-Banks and financial institutions are susceptible to insolvency. The
-availability and quality of banking service varies greatly throughout the
-world. BitShares brings publically auditable open source banking to anyone with
-access to the internet. Market pegged assets allow savers and spenders to
-choose preferred asset types. This brings flexibility and ease of use to the
+liability. In short, BitShares brings \emph{publicly} auditable open source
+banking to anyone with access to the internet. MPAs allow savers and spenders
+to choose preferred asset types. This brings flexibility and ease of use to the
 open source banking experience.
  
 The subsequent paragraphs will explain how market pegged assets including (for
-instance) \emph{BitUSD} (intended to track the value of the US dollar)
+instance) \emph{BitUSD} (intended to track the value of the U.S. dollar)
 achieve price parity while minimizing risk to holders.
