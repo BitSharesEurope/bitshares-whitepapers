@@ -1,13 +1,11 @@
 Market pegged assets maintain their price parity due to being backed by
 collateral that has an established real world value. When the value of the
 collateral falls, the system is designed to react by driving the internal asset
-exchange to match the new real world exchange rate and trigger force
-settlements (i.e. margin calls) as necessary.
+exchange to match the new real world exchange rate and trigger \emph{force
+settlements} (also known as margin calls) if necessary.
 
-All collateral above the maintenance collateral limit is effectively
-meaningless when it comes to enforcing the peg. Maintenance collateral only
-needs to be high enough to cover any slippage as a result of a short squeeze.
-
+% First half of the paragraph contains dublicated information from
+% fp-mpa-blackswan.tex
 However, there exists a possibility that the underlying collateral (BTS) drops
 in value so quickly the market pegged assets become under-collateralized. Often
 termed a \emph{black swan event} (c.f., \cref{sec:blackswan}), a sudden crash

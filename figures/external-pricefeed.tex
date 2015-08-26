@@ -3,6 +3,9 @@
 \usepackage{amsmath}
 \usepackage[active,tightpage]{preview}
 \usepackage{tikz}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+ decorations.pathreplacing,decorations.pathmorphing,shapes,%
+ matrix,shapes.symbols,plotmarks,decorations.markings,shadows,fit,patterns,through,intersections}
 \PreviewEnvironment{tikzpicture}
 \setlength\PreviewBorder{2mm}
 \usepackage{btscolors}
@@ -11,30 +14,23 @@
 \author{Fabian Schuh}
 \begin{document}
  \begin{tikzpicture}[>=latex,remember picture]
-  \node[draw,align=center, rotate=90] (ext) {\textbf{external exchanges}};
-  \node[draw,at=(ext),right=2cm,anchor=west,align=center] (bts) {
-   \centering\begin{tikzpicture}[>=latex,remember picture]
-    \node (bts) {\includegraphics[width=3cm]{btslogo1.png}};
-    \node[at=(bts.south),below=1ex,align=center] (cfd) {
-     \begin{tikzpicture}[>=latex,remember picture]
-      \node[draw,fill=btslight,text=white,align=center] (cfd) {
-             \begin{tikzpicture}[>=latex,remember picture]
-              \node[draw] (d) {\textbf{CFD}};
-              \node[at=(d),above right=1cm] (s) {\textbf{short position}};
-              \node[at=(d),below right=1cm] (l) {\textbf{long position}};
-              \draw (s) edge[->,bend left,shorten >=3mm] node[pos=0.3,right=1mm,font=\footnotesize,align=center]{\textbf{1.} put\\collateral} (d.east);
-              \draw (d.north) edge[->,bend left,shorten <=3mm] node[pos=0.7,left=1mm,font=\footnotesize,align=center]{\textbf{2.} obtain\\bitUSD} (s);
-              \draw (s.south east) edge[->,bend left,shorten <=3mm] node[pos=0.7,left=1mm,font=\footnotesize,align=center]{\textbf{3.} sell\\bitUSD} (l.north east);
-             \end{tikzpicture}
-      };
-      \node[at=(cfd.south),anchor=north] (trades) {
-         \centering\begin{tikzpicture}[>=latex,remember picture]
-         \end{tikzpicture}
-      };
-      \end{tikzpicture}
-     };
-   \end{tikzpicture}
-  };
+
+  %% BOX content
+  \node[draw] (d) {\textbf{CFD}};
+  \node[at=(d),above right=1cm] (s) {\textbf{short position}};
+  \node[at=(d),below right=1cm] (l) {\textbf{long position}};
+  \draw (s) edge[->,bend left,shorten >=3mm] node[pos=0.3,right=1mm,font=\footnotesize,align=center](t1){\textbf{1.} put\\collateral} (d.east);
+  \draw (d.north) edge[->,bend left,shorten <=3mm] node[pos=0.7,left=1mm,font=\footnotesize,align=center](t2){\textbf{2.} obtain\\bitUSD} (s);
+  \draw (s.south east) edge[->,bend left,shorten <=3mm] node[pos=0.7,left=1mm,font=\footnotesize,align=center](t3){\textbf{3.} sell\\bitUSD} (l.north east);
+
+  %% CFD box
+  \node[fit=(s) (l) (d) (t1) (t2) (t3), inner xsep=2ex, draw] (cfd) {};
+  \node[rotate=90,at=(cfd.east),anchor=north] (logo) {\includegraphics[width=2.5cm]{btslogo1.png}};
+
+  %% BTS box
+  \node[fit=(cfd) (logo), inner xsep=2ex, draw] (bts) {};
+
+  \node[draw,align=center,at=(bts.west),anchor=south,xshift=-2cm,rotate=90] (ext) {\textbf{external}\\\textbf{exchanges}};
   \draw[->] (ext) -- node[above,font=\footnotesize] {BTS/USD} (bts);
   %\draw[->] (l)      edge[loop below] (l);
   %\draw[-] (l.east) edge[in=-45, out=+45,->] (s.east);

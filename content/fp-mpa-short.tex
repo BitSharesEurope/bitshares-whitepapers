@@ -1,30 +1,32 @@
 When deciding a price at which to enter a short order, a trader must consider
-the risk of forced settlement. In this case, no trader will attempt to short at
-or below the price feed, because they could be forced to settle at the price
-feed. In fact, a smart trader would allow enough of a spread to account for the
-risk of being forced to settle at a feed price that was off by a small amount.
-In practice, the risk posed by the feed error is balanced equally between being
-in the favor of the short and in the favor of the long, leaving only the risk
-of being forced out of their position at an inopportune time.
+the risk of being force settled. In this case, no trader will attempt to short
+at or \emph{below} the price feed, because they could be forced to settle
+\emph{at} the price feed. In fact, a smart trader would allow enough of a
+spread to account for the risk of being forced to settle at a feed price that
+was off by a small amount. Since feed errors are equally balanced between being
+in the favor of the short and in the favor of the long (c.f. \cref{sec:feeds})
+this leaves only the risk of being forced out of their position at an
+inopportune time.
 
 A short can minimize their exposure to the feed by providing enough collateral
-to keep far above the least collateralized positions, and thus very unlikely to
-be forced to settle at the feed or at an inopportune time.
+to keep far above the least collateralized positions, and thus stay very
+unlikely to be forced to settle at the feed or at an inopportune time.
 
-In practice, the only way new BitUSD enters circulation is if there is someone
-willing to pay enough of a premium to convince a short to provide guaranteed
-liquidity at the price feed on demand, while also covering the cost of exchange
-rate risk. This premium will be higher for the backing crypto-currency in a bear
-market, and will be lower in a bull market.
+\medskip
+In practice, the only way new smartcoins enters circulation is if there is
+someone willing to pay enough of a premium to convince a short to provide
+guaranteed liquidity at the price feed on demand, while also covering the cost
+of exchange rate risk. This premium will be higher for the backing
+crypto-currency in a bear market, and will be lower in a bull market.
 
-Someone who is short has only one way to exit their position: by buying BitUSD
-off the market. This means that a short must also factor in the risk that the
-premium may change. If a short position is entered in a bull market with a 0.1\%
-premium, it may be forced to exit during a bear market with a 5\% premium. In
-this event a short position is exposed to both exchange rate of the dollar vs.
-BTS and the premium risk. On the other hand, a short entered during a bear
-market with a 5\% premium may get to cover during a bull market with a 0.1\%
-premium.
+Someone who is short has only one way to exit their position: by buying
+smartcoins off the market. This means that a short must also factor in the risk
+that the premium may change. If a short position is entered in a bull market
+with a 0.1\% premium, it may be forced to exit during a bear market with a 5\%
+premium. In this event a short position is exposed to both exchange rate of the
+dollar vs. BTS and the premium risk. On the other hand, a short entered during
+a bear market with a 5\% premium may get to cover during a bull market with a
+0.1\% premium.
 
 For all intents and purposes, the premium is expected to move in the same
 direction as the price, and thus speculators who only care about relative price
