@@ -1,25 +1,39 @@
 Before we discuss how BitShares achieves price \emph{stability} we first need to
 define what properties make a currency \emph{stable}.
 
-In the U.S., for instance, the Federal Reserve (FED) has as a mandate of
+In the U.S., for instance, the Federal Reserve (FED) has a mandate of
 \emph{stable prices} and it is almost universally accepted that this is a good
 mandate. The same holds true for the Euro with its stability being
 \emph{controlled} by the European Central Bank (ECB). Mostly every
 country/nation or federation applies a similar concept.
 
-It is also widely accepted among many crypto-currency fans that, in the case of
-the US dollar, the FED has failed at their mandate because of persistent rise
-in prices resulting in the dollar losing 99\% of its \emph{purchasing power}
-since the FED was founded in 1913. As a result people in the crypto currency
-space are attempting to provide an alternative currency that can achieve the
-FEDs mandate. The goal of price stability at its heart is the same as
-\emph{price fixing} and this is a well known economic fallacy that
-crypto-currencies should avoid.
+However, it is also widely accepted among many crypto-currency fans that, in
+the case of the US dollar, the FED has failed at their mandate because of
+monetary inflation and increase in the money supply. Since monetary inflation
+is a sustained increase in the general level of prices, it is equivalent to a
+decline in purchasing power of money. Hence, a dollar buys less and less over
+time. As a result, we see the dollar losing 99\% of its \emph{purchasing power}
+since the FED was founded in 1913~(see \cref{fig:monetarybase}). 
+
+\begin{figure}[!htp]
+ \centering
+ \includegraphics[width=\linewidth]{figures/monetary-base}
+ \caption{St. Louis Adjusted Monetary Base~\cite{ambsl}}
+ \label{fig:monetarybase}
+\end{figure}
+
+The goal of this paper is not to propose a replacement of central banks but to
+clarify the terminology in particular with regards to ``stable''
+cryptocurrencies. Unfortunately, some people in the cryptocurrency space are
+attempting to provide an alternative currency that can achieve the same
+mandate. However, since price stability at its heart is the same as \emph{price
+fixing}, this is a well known economic fallacy that crypto-currencies should
+avoid.
 
 % The goal of the FED price stability mandate is to mask the systematic theft of
 % all increases in the production efficiency of the economy. 
 
-Let's assume a central bank managed to keep prices stable through their monetary
+Imagine a central bank managed to keep prices stable through their monetary
 policy with 0\% price inflation over 20 years. Now lets assume that during this
 same 20 years the advances in robotics and automation resulted in a 3x increase
 in efficiency and thus there are now 3x as much food, cars, phones, houses,

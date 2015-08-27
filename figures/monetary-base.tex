@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[active,tightpage]{preview}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+ decorations.pathreplacing,decorations.pathmorphing,shapes,%
+ matrix,shapes.symbols,plotmarks,decorations.markings,shadows,fit,patterns,through,intersections}
+\usepgfplotslibrary{dateplot}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2mm}
+\usepackage{btscolors}
+\title{}
+\author{Fabian Schuh}
+\begin{document}
+ \begin{tikzpicture}[>=latex,remember picture]
+  \begin{axis}[
+    width=20cm,
+    height=10cm,
+    date coordinates in=x,
+    date ZERO=1918-01-01,
+    xtick={1920-01-01,
+           1930-01-01,
+           1940-01-01,
+           1950-01-01,
+           1960-01-01,
+           1970-01-01,
+           1980-01-01,
+           1990-01-01,
+           2000-01-01,
+           2010-01-01,
+           2015-01-01},
+    xticklabel={\year},
+    xticklabel style= {rotate=90,font=\small},
+    enlargelimits=.05,
+    grid=both,
+    xlabel={Year},
+    ylabel={Billions of Dollars},
+    xlabel style={yshift=-1ex},
+   ]
+   \addplot[thick,btslight] table {AMBSL.csv};
+  \end{axis}
+ \end{tikzpicture}
+\end{document}
