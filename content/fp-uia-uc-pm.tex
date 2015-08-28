@@ -1,18 +1,23 @@
-A prediction market~\cite{wiki_pm} is a specialization of SmartCoins where
-there is no need for margin calls or forced settlement because all positions
-are fully collateralized at any price. A prediction market has a price between
-0 and 1 and the issuer settles all positions after the event occurs and the
-final price is known.
+With BitShares and the decentral exchange described in \cref{sec:dex},
+prediction markets~\cite{wiki_pm} are quickly implemented. A binary prediction
+market has a ``price'' between 0 and 1 representing the two possible outcomes
+of an event. All that is needed is a proper prediction criteria in the
+description of a newly created asset that anybody can issue by putting up
+collateral. 
 
-Prediction markets are quickly implemented with BitShares and the DEX. All that
-is needed is a proper prediction criteria in the description of a newly created
-asset that anybody can issue by putting up collateral. While the event has not
-occurred, the price of this asset reflects the probability of an event to
-occur. Participants that have voted correctly will be able to settle their
-shares back to the network at a higher price and make a profit. This feature,
-in combination with the bitUSD, allows to reimplement most binary prediction
-and information markets currently established in a decentralized and trust-less
-manner.
+Hence, a prediction market is a specialization of SmartCoins where there is no
+need for margin calls or forced settlement because all positions are fully
+collateralized at any price. 
+
+While the event has not occurred, the price of this asset reflects the
+probability of an event to occur. After the event has occured the issuer can
+settle all positions at final ``price'' depending on the actual outcome.
+Participants that have voted correctly will be able to settle their shares back
+to the network at a higher price and make a profit.
 
 These prediction markets can be very secure if the issuer is a multi-sig
 account with many independent and trustworthy parties involved.
+
+This feature, in combination with the bitUSD, allows to reimplement most binary
+prediction and information markets currently established in a decentralized and
+trust-less manner.
