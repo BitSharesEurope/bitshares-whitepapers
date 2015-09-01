@@ -40,11 +40,14 @@ a frequent so called \emph{maintenance interval}.
 The following parameters are associated with the blockchain operations and are
 subject to shareholder consensus:
 %
-\texttt{\justify
- block-interval,
- maintenance-interval,
- maximum-transaction-size,
- maximum-block-size,
- maximum-witness-count,
- maximum-committee-count.
-}
+\begin{description}[leftmargin=4em,style=nextline]
+ \item[\texttt{block-interval}] time in seconds between blocks
+ \item[\texttt{maintenance-interval}] time in seconds for a maintenance
+                                      interval to evaluate more time-consuming tasks
+ \item[\texttt{maximum-transaction-size}] maximum size of a transaction in bytes
+ \item[\texttt{maximum-block-size}] maximum size of a block in bytes
+ \item[\texttt{maximum-witness-count}] number of witnesses allowed to actively
+                                       produce blocks
+ \item[\texttt{maximum-committee-count}] maximum amount of committee members to
+                                         take into account for parameter definition.
+\end{description}

@@ -1,49 +1,64 @@
-\documentclass[conference,final,10pt,a4paper]{IEEEtran}
-
-\usepackage[latin1]{inputenc}
-\usepackage{amsmath,amssymb,amssymb}
-\usepackage{cleveref}
-\usepackage{paralist}
-\usepackage[hyphens]{url}
-\usepackage{breakurl} 
-\usepackage[breaklinks]{hyperref}
-\usepackage{siunitx}
-
+\documentclass{btswhitepaper}
 \title{BitShares 2.0: General Documentation}
 \input{AUTHORS}
-
-\IEEEoverridecommandlockouts
 \begin{document}
 \sloppy
 \maketitle
 
-\begin{abstract}
+\begin{abstract}%
+ BitShares 2.0 is an industrial-grade decentralized platform built for
+ high-performance financial smart contracts. The decentralized exchange that
+ allows for trading of arbitrary pairs without counterparty risk facilitates
+ only one out of many available features. Market-pegged assets, such as the
+ bitUSD, are crypto tokens that come with all the advantages of traditional
+ cryptocurrencies like bitcoin but trade for at least the value of their
+ underlying asset, e.g. \$1. Furthermore, BitShares represents the first
+ decentralized autonomous company that lets its shareholders decide on its
+ future direction and products. This paper gives a brief overview over the
+ whole BitShares platform, recapitulates known blockchain technologies and
+ redefines \emph{state-of-the-art}.
+
 \end{abstract}
-\section       { Introduction                    } \input { content/bts                } 
 
-\section       { Specifications                  } \input { content/spec               } 
-\subsection    { Blockchain                      } \input { content/spec-bc            } 
-\subsection    { Distributed Consensus Mechanism } \input { content/bts-consensus      } 
-\subsection    { Peer-to-Peer Network            } \input { content/spec-net           } 
-\subsection    { System Parameters               } \input { content/bts-parameters     } 
-\subsection    { Operations                      } \input { content/bts-ops            } 
-\subsection    { Transactions                    } \input { content/bts-txs            } 
+\section       { Introduction                      } \input { content/bts                 } 
 
-\section       { Base Token                      } \input { content/bts-token          } 
-\subsection    { Distribution                    } \input { content/bts-token-dist     } 
-\subsubsection { Bitshares PTS                   } \input { content/bts-token-dist-pts } 
-\subsubsection { Bitshares AGS                   } \input { content/bts-token-dist-ags } 
-\subsection    { Supply and Fees                 } \input { content/bts-token-supply   } 
+\section       { Architecture of BitShares         } \input { content/whatis-architecture } 
+\subsection    { Public Ledger                     } \input { content/spec-bc             } 
+\subsection    { Low Latency Peer-to-Peer Network  } \input { content/spec-net            } 
+\subsection    { Distributed Consensus Mechanism   } \input { content/bts-consensus       } 
+\subsection    { Operations                        } \input { content/bts-ops             } 
+\subsection    { Transactions                      } \input { content/bts-txs             } 
+\subsection    { Objects                           } \input { content/bts-objs            } 
 
-\section       { Named Accounts                  } \input { content/bts-acc            } 
-\subsection    { Transferability                 } \input { content/org-transfacc      } 
-\subsection    { Dynamic Permissions             } \input { content/org-dynacc         } 
-\subsection    { Recurring \& Scheduled Payments } \input { content/org-recurr         } 
-\subsection    { Costumer Privacy                } \input { content/bts-priv           } 
+\section       { Named Account                     } \input { content/bts-acc             } 
+\subsection    { Transferability                   } \input { content/org-transfacc       } 
+\subsection    { Dynamic Permissions               } \input { content/org-dynacc          } 
+\subsection    { Recurring \& Scheduled Payments   } \input { content/org-recurr          } 
+\subsection    { Costumer Privacy                  } \input { content/bts-priv            } 
 
-\section       { Discussion                      } \input { content/bts-discussion     } 
+\section       { Crypto Token                      } \input { content/bts-token           } 
+\subsection    { Distribution of BTS               } \input { content/bts-token-dist      } 
+\subsubsection { Bitshares PTS                     } \input { content/bts-token-dist-pts  } 
+\subsubsection { Bitshares AGS                     } \input { content/bts-token-dist-ags  } 
+\subsection    { Supply of BTS and Fees            } \input { content/bts-token-supply    } 
 
-\section       { Conclusion                      } \input { content/bts-conc           } 
+\section       { Financial Smart Contract Platform } \input { content/whatis-financial    } 
+
+\section       { Blockchain Entities               }
+\subsection    { BitShares Witnesses               } 
+\subsection    { BitShares Committee               } 
+\subsection    { BitShares Budget Items            } 
+
+\section       { BitShares: A profitable DAC       } \input { content/whatis-business     } 
+\subsection    { Fee Schedule and Fee Flow         } \input { content/bts-fee             }
+\subsection    { System Parameters                 } \input { content/bts-parameters      } 
+\subsection    { Growth Considerations             } \input { content/whatis-growth       } 
+
+\section       { Discussion                        } \input { content/bts-discussion      } 
+
+\section       { Conclusion                        } \input { content/bts-conc            } 
+
 \bibliographystyle{IEEEtran}
 \bibliography{literature}
+%\nocite{*}
 \end{document}

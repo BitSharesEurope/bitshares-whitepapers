@@ -1,0 +1,32 @@
+Speaking abstractly, the BitShares blockchain does not distinguish between
+assets, account, or operations. These terms do only exist outside the
+blockchain. Instead, the blockchain deals with \emph{contextual objects} that
+are associated with a given set of features, permissions, etc.
+
+Hence, on the BitShares blockchains there are no addresses similar to Bitcoin,
+but objects identified by a unique \emph{id}, a \emph{type} and a \emph{space}
+in the form:
+
+\begin{verbatim}
+   space.type.id
+\end{verbatim}
+
+The reserved \emph{space} are
+\begin{verbatim}
+   enum reserved_spaces {
+      relative_protocol_ids = 0,
+      protocol_ids          = 1,
+      implementation_ids    = 2
+   };
+\end{verbatim}
+
+As an example, we have the following objects:
+\begin{description}[leftmargin=4em,style=nextline]
+ \item[1.2.15]   15th blockchain account
+ \item[1.6.105]  105th blockchain witness
+ \item[1.14.7]   7th blockchain worker proposal
+ \item[2.1.0]    wallet dynamic global properties
+ \item[2.3.8]    8th asset
+\end{description}
+
+A programmatic description of all fields can be found in the sources.

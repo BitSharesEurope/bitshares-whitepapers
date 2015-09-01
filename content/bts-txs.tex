@@ -20,3 +20,9 @@ In addition to its operations, a transaction also consists of
  \item a set of extensions, and
  \item a set of signatures to authorize each operation.
 \end{inparaenum}
+
+Each node (including witnesses) verifies that all requires signatures to
+perform the given operations are present and valid prior to propagating the
+transactions to the rest of the network and hence to the witness node
+constructing the next block. If the transaction is included into a block it is
+considered \emph{finally valid} or \emph{executed}.
