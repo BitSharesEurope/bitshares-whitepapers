@@ -7,6 +7,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{amsmath,amssymb,amssymb}
 \RequirePackage{paralist}
+\RequirePackage[shortlabels]{enumitem}
 \RequirePackage[hyphens]{url}
 \RequirePackage{breakurl} 
 \RequirePackage[breaklinks]{hyperref}
@@ -69,6 +70,50 @@
 \definecolor{btslight}{HTML}{00a9e0}
 
 %% -----------------------------
+%% Makros
+%% -----------------------------
+\newcommand{\note}[1]{ {\color{red}(#1)} }
+
+%% -----------------------------
+%% Title
+%% -----------------------------
+\usepackage[some]{background}
+\backgroundsetup{
+ scale=1,angle=0,opacity=1,
+ contents={%
+ \begin{tikzpicture}[remember picture,overlay]
+  \path [fill=btsdark] (-0.5\paperwidth, 0.50\paperheight) 
+             rectangle ( 0.5\paperwidth, 0.25\paperheight);
+ \end{tikzpicture}}
+}
+
+\makeatletter
+\def\@maketitle{%
+ \vskip-5em
+ \newpage
+ \BgThispage
+ \let \footnote \thanks
+ \begin{minipage}[t][.25\paperheight][t]{\textwidth}
+  \begin{flushright}
+  \color{white}
+   {\LARGE\bfseries\textsc{\@title} \par}%
+    \vskip 3.5em%
+    {\normalsize
+      \lineskip .5em%
+      \begin{minipage}{.3\linewidth}
+      \end{minipage}
+      {\color{white}\vrule width 2pt}\hskip.5em
+      \begin{minipage}{.3\linewidth}
+       \@author
+      \end{minipage}
+    }%
+  \end{flushright}
+ \end{minipage}
+ \thispagestyle{plain}
+}
+\makeatother
+
+%% -----------------------------
 %% Headers
 %% -----------------------------
 \fancypagestyle{wp}{%
@@ -90,56 +135,6 @@
 \pagestyle{wp}
 
 %% -----------------------------
-%% Diverse
-%% -----------------------------
-\hyphenpenalty=750
-\hbadness=1350
-\frenchspacing
-\binoppenalty=1000
-\relpenalty=800
-\clubpenalty=1000
-\widowpenalty=1000
-\displaywidowpenalty=1000
-
-%% -----------------------------
-%% Title
-%% -----------------------------
-\usepackage[some]{background}
-\backgroundsetup{
- scale=1,angle=0,opacity=1,
- contents={%
- \begin{tikzpicture}[remember picture,overlay]
-  \path [fill=btsdark] (-0.5\paperwidth, 0.50\paperheight) 
-              rectangle ( 0.5\paperwidth, 0.25\paperheight);
- \end{tikzpicture}}
-}
-
-\makeatletter
-\def\@maketitle{%
- \vskip-5em
- \newpage
- \BgThispage
- \let \footnote \thanks
- \begin{flushright}
- \color{white}
-  {\LARGE\bfseries\textsc{\@title} \par}%
-   \vskip 3.5em%
-   {\normalsize
-     \lineskip .5em%
-     \begin{minipage}{.3\linewidth}
-     \end{minipage}
-     {\color{white}\vrule width 2pt}\hskip.5em
-     \begin{minipage}{.3\linewidth}
-      \@author
-     \end{minipage}
-   }%
- \end{flushright}
- \vskip 3.5em
- \thispagestyle{plain}
-}
-\makeatother
-
-%% -----------------------------
 %% Abstract
 %% -----------------------------
 \def\abstract{\noindent\normalfont\bfseries\textit{\abstractname}---\relax}
@@ -158,3 +153,16 @@
 \titleformat{\subsubsection}
   {\normalfont\sffamily\large\bfseries\color{btslight}}
   {\thesubsubsection}{1em}{}
+
+%% -----------------------------
+%% Diverse
+%% -----------------------------
+\hyphenpenalty=750
+\hbadness=1350
+\frenchspacing
+\binoppenalty=1000
+\relpenalty=800
+\clubpenalty=1000
+\widowpenalty=1000
+\displaywidowpenalty=1000
+

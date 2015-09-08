@@ -1,8 +1,6 @@
-A crypto token is .. % FIXME
-
 In the BitShares network the base token is called \emph{a BitShare} and carries
 the abbreviation \texttt{BTS}. It is dividable into $10^5$ sub-units which are
-denoted as follows:
+denoted as follows \note{proposal}:
 \begin{align*}
 \SI{1}{mises } &= \SI{0.00001}{BTS}\\
 \SI{1}{xennon} &= \SI{0.0001}{BTS}\\
@@ -12,15 +10,19 @@ denoted as follows:
 \end{align*}
 
 In general, all properties of Bitcoin also apply to BTS, namely, they have
-value, can be transfered on the blockchain and are secured by elliptic curve
-signatures.
+value, can be transfered on the blockchain and are secured by an Elliptic
+Curve Digital Signature Algorithm (ECDSA) on the curve \texttt{secp256k1}.
 
-In contrast to most crypto-currencies, BitShares does not claim to be a currency
-but rather equity in a decentral autonomous company (DAC). As a result, the
-market valuation of BitShares is free floating and may be as volatile as any
-other equity (e.g. of traditional companies).
+In contrast to most crypto-currencies, BitShares does not claim to be a
+currency but rather an \emph{equity} in a decentral autonomous company (DAC).
+As a result, the market valuation of BitShares is free floating and may be as
+volatile as any other equity (e.g. of traditional companies).
 
 Nonetheless, BTS tokens can be used as \emph{collateral} in financial smart
-contracts~\cite{bts:financial} such as market pegged assets.
+contracts~\cite{bts:financial} such as market pegged assets and thus back every
+existing smartcoin such as the bitUSD.
 
 % FIXME what else?
+
+The following subsection recapitulate the initial distribution and supply of
+BTS.
