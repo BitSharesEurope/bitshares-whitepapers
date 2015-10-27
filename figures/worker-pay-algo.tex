@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[active,tightpage]{preview}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+ decorations.pathreplacing,decorations.pathmorphing,shapes,%
+ matrix,shapes.symbols,plotmarks,decorations.markings,shadows,fit,patterns,through,intersections}
+\usepgfplotslibrary{groupplots}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2mm}
+\usepackage{btscolors}
+\title{}
+\author{Fabian Schuh}
+\begin{document}
+ \begin{tikzpicture}[>=latex,remember picture]
+  \begin{groupplot}[
+    group style={group size=1 by 2},
+    group/xticklabels at=edge bottom,
+    group/yticklabels at=edge left,
+    group/horizontal sep=3em,
+    group/vertical sep=3ex,
+    width=20cm,
+    height=7cm,
+    grid=both,
+    ytick={\empty},
+    xmin=0.5,
+    xmax=31,
+    ymin=0,
+    ybar=-10pt,
+    ylabel style={yshift=-3ex},
+   ]
+   \nextgroupplot[
+                  ylabel={Approval Rate},
+                 ]
+   \addplot[btslight,fill] coordinates {
+        (        1,  992572)
+        (        2,  980379)
+        (        3,  938581)
+        (        4,  897815)
+        (        5,  840620)
+        (        6,  762836)
+        (        7,  755006)
+        (        8,  736783)
+        (        9,  713807)
+        (       10,  659788)
+        (       11,  646319)
+        (       12,  604483)
+        (       13,  526934)
+        (       14,  467805)
+        (       15,  418481)
+        (       16,  414028)
+        (       17,  412496)
+        (       18,  399801)
+        (       19,  394028)
+        (       20,  352102)
+        (       21,  345962)
+        (       22,  337322)
+        (       23,  247087)
+        (       24,  231744)
+        (       25,  216070)
+        (       26,  145152)
+        (       27,  139322)
+        (       28,   73239)
+        (       29,   53087)
+        (       30,    3066)
+    };
+   \addlegendentry{$v_\text{pro}-v_\text{con}$}
+
+
+   \nextgroupplot[
+                  xlabel={Budget Item},
+                  ylabel={Request and Received Funds},
+                 ]
+   \addplot[btslight,fill] coordinates {
+        (      1,   291.0600)
+        (      2,   273.9492)
+        (      3,   248.0483)
+        (      4,   242.0462)
+        (      5,   236.3347)
+        (      6,   236.0652)
+        (      7,   232.6853)
+        (      8,   226.4689)
+        (      9,   218.4273)
+        (     10,   213.2009)
+        (     11,   200.5946)
+        (     12,   181.6709)
+        (     13,   175.2915)
+        (     14,   170.1801)
+        (     15,   157.7491)
+        (     16,   156.5655)
+        (     17,   153.8877)
+        (     18,   141.5665)
+        (     19,   141.2266)
+        (     20,   139.8797)
+        (     21,   135.6973)
+        (     22,   135.3192)
+        (     23,   132.5863)
+        (     24,   131.9588)
+        (     25,   128.1745)
+        (     26,   120.2993)
+        (     27,   117.5866)
+        (     28,   115.3648)
+        (     29,   114.4385)
+        (     30,   100.7722)
+   };
+   \addplot[btsdark,fill] coordinates {
+        (      1,   291.0600)
+        (      2,   273.9492)
+        (      3,   248.0483)
+        (      4,   242.0462)
+        (      5,   236.3347)
+        (      6,   236.0652)
+        (      7,   232.6853)
+        (      8,   226.4689)
+        (      9,   218.4273)
+        (     10,   213.2009)
+        (     11,   200.5946)
+        (     12,   181.6709)
+        (     13,   175.2915)
+        (     14,   170.1801)
+        (     15,   157.7491)
+        (     16,   156.5655)
+        (     17,   153.8877)
+        (     18,    50.0000)
+   };
+   \addlegendentry{Requested Funds}
+   \addlegendentry{Payed Funds}
+  \end{groupplot}
+ \end{tikzpicture}
+\end{document}

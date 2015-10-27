@@ -1,0 +1,251 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[active,tightpage]{preview}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{calc,trees,positioning}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2mm}
+\usepackage{btscolors}
+
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{ask/.style={%
+           draw,
+           fill=btslight,
+           draw=btslight,
+           fill opacity=.5,
+       }}
+\pgfplotsset{bid/.style={%
+           draw,
+           fill=btsdark,
+           draw=btsdark,
+           fill opacity=.5,
+       }}
+\pgfplotsset{overlap/.style={%
+           draw,
+           fill=gray,
+           draw=gray,
+           fill opacity=1,
+       }}
+
+\title{}
+\author{Fabian Schuh}
+\begin{document}
+
+ \begin{tikzpicture}[>=latex]
+  \pgfmathparse{0.005}\let\price\pgfmathresult
+  \pgfmathparse{0.0025}\let\SWAN\pgfmathresult
+  \pgfmathparse{1.6}\let\MCPR\pgfmathresult
+  \pgfmathparse{1.1}\let\SQPR\pgfmathresult
+  \begin{axis}[
+                 width=12cm,
+                 height=6cm,
+                 enlargelimits=false,
+                 xtick={\empty},
+                 ytick={\empty},
+                 ymin=0,ymax=1,
+                 xmin=0.002,xmax=0.008,
+                 scaled x ticks = false,
+                 x tick label style={
+                     /pgf/number format/.cd,
+                     fixed,
+                     precision=5,
+                     /tikz/.cd
+                 },
+                 samples=100,
+              ]
+   \pgfmathparse{\SWAN*\MCPR}\let\MCP\pgfmathresult
+   \pgfmathparse{\price/\SQPR}\let\SQP\pgfmathresult
+   \begin{scope}[font=\tiny,line width=1pt,opacity=.9]
+    \draw[btsdark] (axis cs:\SWAN,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Swan Price}}
+          node[pos=0.5,coordinate] (SWAN) {}
+          (axis cs:\SWAN,1);
+    \draw[btsdark!10!red] (axis cs:\MCP,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Margin Call Price}}
+          node[pos=0.5,coordinate] (MCP) {}
+          (axis cs:\MCP,1);
+    \draw[btsdark!40!red] (axis cs:\SQP,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Short Squeeze Protection Price}}
+          node[pos=0.5,coordinate] (SQP) {}
+          (axis cs:\SQP,1);
+    \draw[btslight] (axis cs:\price,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Settlement Price}}
+          node[pos=0.5,coordinate] (SP) {}
+          (axis cs:\price,1);
+   \end{scope}
+   \path[name path=axis] (rel axis cs:0,0) -- (rel axis cs:1,0);
+   \addplot[name path=bid,restrict x to domain=\price:0.008] table[x expr={(\thisrowno{0})/2e4+\price}, y expr=\thisrowno{1}] {market.csv};
+   \addplot[name path=ask,restrict x to domain=0:\price] table[x expr={(\thisrowno{0}-101)/3e4+\price}, y expr=\thisrowno{2}] {market.csv};
+   %\addplot[name path=bid,domain=0:0.005] {1e5*(x-\price)^2};
+   %\addplot[name path=ask,domain=0:0.007] {1e5*(x-\price)^2};
+   \addplot [ask] fill between[ of=ask and axis ];
+   \addplot [bid] fill between[ of=bid and axis ];
+   \draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
+   \draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
+  \end{axis}
+ \end{tikzpicture}
+
+ \begin{tikzpicture}[>=latex]
+  \pgfmathparse{0.0048}\let\price\pgfmathresult
+  \pgfmathparse{0.0025}\let\SWAN\pgfmathresult
+  \pgfmathparse{1.6}\let\MCPR\pgfmathresult
+  \pgfmathparse{1.1}\let\SQPR\pgfmathresult
+  \begin{axis}[
+                 width=12cm,
+                 height=6cm,
+                 enlargelimits=false,
+                 xtick={\empty},
+                 ytick={\empty},
+                 ymin=0,ymax=1,
+                 xmin=0.002,xmax=0.008,
+                 scaled x ticks = false,
+                 x tick label style={
+                     /pgf/number format/.cd,
+                     fixed,
+                     precision=5,
+                     /tikz/.cd
+                 },
+                 samples=100,
+              ]
+   \pgfmathparse{\SWAN*\MCPR}\let\MCP\pgfmathresult
+   \pgfmathparse{\price/\SQPR}\let\SQP\pgfmathresult
+   \begin{scope}[font=\tiny,line width=1pt,opacity=.9]
+    \draw[btsdark] (axis cs:\SWAN,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Swan Price}}
+          node[pos=0.5,coordinate] (SWAN) {}
+          (axis cs:\SWAN,1);
+    \draw[btsdark!10!red] (axis cs:\MCP,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Margin Call Price}}
+          node[pos=0.5,coordinate] (MCP) {}
+          (axis cs:\MCP,1);
+    \draw[btsdark!40!red] (axis cs:\SQP,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Short Squeeze Protection Price}}
+          node[pos=0.5,coordinate] (SQP) {}
+          (axis cs:\SQP,1);
+    \draw[btslight] (axis cs:\price,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Settlement Price}}
+          node[pos=0.5,coordinate] (SP) {}
+          (axis cs:\price,1);
+   \end{scope}
+   \path[name path=axis] (rel axis cs:0,0) -- (rel axis cs:1,0);
+   \addplot[name path=bid,restrict x to domain=\price:0.008] table[x expr={(\thisrowno{0})/2e4+\price}, y expr=\thisrowno{1}] {market.csv};
+   \addplot[name path=ask,restrict x to domain=0:\price] table[x expr={(\thisrowno{0}-101)/3e4+\price}, y expr=\thisrowno{2}] {market.csv};
+   \addplot [ask] fill between[ of=ask and axis ];
+   \addplot [bid] fill between[ of=bid and axis ];
+   \draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
+   \draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
+  \end{axis}
+ \end{tikzpicture}
+
+ \begin{tikzpicture}[>=latex]
+  \pgfmathparse{0.0042}\let\price\pgfmathresult
+  \pgfmathparse{0.0025}\let\SWAN\pgfmathresult
+  \pgfmathparse{1.6}\let\MCPR\pgfmathresult
+  \pgfmathparse{1.1}\let\SQPR\pgfmathresult
+  \begin{axis}[
+                 width=12cm,
+                 height=6cm,
+                 enlargelimits=false,
+                 xtick={\empty},
+                 ytick={\empty},
+                 ymin=0,ymax=1,
+                 xmin=0.002,xmax=0.008,
+                 scaled x ticks = false,
+                 x tick label style={
+                     /pgf/number format/.cd,
+                     fixed,
+                     precision=5,
+                     /tikz/.cd
+                 },
+                 samples=100,
+              ]
+   \pgfmathparse{\SWAN*\MCPR}\let\MCP\pgfmathresult
+   \pgfmathparse{\price/\SQPR}\let\SQP\pgfmathresult
+   \begin{scope}[font=\tiny,line width=1pt,opacity=.9]
+    \draw[btsdark] (axis cs:\SWAN,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Swan Price}}
+          node[pos=0.5,coordinate] (SWAN) {}
+          (axis cs:\SWAN,1);
+    \draw[btsdark!10!red] (axis cs:\MCP,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Margin Call Price}}
+          node[pos=0.5,coordinate] (MCP) {}
+          (axis cs:\MCP,1);
+    \draw[btsdark!40!red] (axis cs:\SQP,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Short Squeeze Protection Price}}
+          node[pos=0.5,coordinate] (SQP) {}
+          (axis cs:\SQP,1);
+    \draw[btslight] (axis cs:\price,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Settlement Price}}
+          node[pos=0.5,coordinate] (SP) {}
+          (axis cs:\price,1);
+   \end{scope}
+   \path[name path=axis] (rel axis cs:0,0) -- (rel axis cs:1,0);
+   \addplot[name path=bid,restrict x to domain=\price:0.008] table[x expr={(\thisrowno{0})/2e4+\price}, y expr=\thisrowno{1}] {market.csv};
+   \addplot[name path=ask,restrict x to domain=0:\price] table[x expr={(\thisrowno{0}-101)/3e4+\price}, y expr=\thisrowno{2}] {market.csv};
+   \addplot [ask] fill between[ of=ask and axis ];
+   \addplot [bid] fill between[ of=bid and axis ];
+   \draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
+   \draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
+   \addplot[name path=overlap,restrict x to domain=\MCP:\price] table[x expr={(\thisrowno{0}-101)/3e4+\price}, y expr=\thisrowno{2}] {market.csv};
+   \path[name path=lvpa] (axis cs:\MCP,0) -- (axis cs:\price,0);
+   \addplot [overlap] fill between[ of=overlap and lvpa ];
+  \end{axis}
+ \end{tikzpicture}
+
+ \begin{tikzpicture}[>=latex]
+  \pgfmathparse{0.0042}\let\price\pgfmathresult
+  \pgfmathparse{0.0025}\let\SWAN\pgfmathresult
+  \pgfmathparse{1.6}\let\MCPR\pgfmathresult
+  \pgfmathparse{1.1}\let\SQPR\pgfmathresult
+  \begin{axis}[
+                 width=12cm,
+                 height=6cm,
+                 enlargelimits=false,
+                 xtick={\empty},
+                 ytick={\empty},
+                 ymin=0,ymax=1,
+                 xmin=0.002,xmax=0.008,
+                 scaled x ticks = false,
+                 x tick label style={
+                     /pgf/number format/.cd,
+                     fixed,
+                     precision=5,
+                     /tikz/.cd
+                 },
+                 samples=100,
+              ]
+   \pgfmathparse{\SWAN*\MCPR}\let\MCP\pgfmathresult
+   \pgfmathparse{\price/\SQPR}\let\SQP\pgfmathresult
+   \begin{scope}[font=\tiny,line width=1pt,opacity=.9]
+    \draw[btsdark] (axis cs:\SWAN,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Swan Price}}
+          node[pos=0.5,coordinate] (SWAN) {}
+          (axis cs:\SWAN,1);
+    \draw[btsdark!10!red] (axis cs:\MCP,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Margin Call Price}}
+          node[pos=0.5,coordinate] (MCP) {}
+          (axis cs:\MCP,1);
+    \draw[btsdark!40!red] (axis cs:\SQP,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Short Squeeze Protection Price}}
+          node[pos=0.5,coordinate] (SQP) {}
+          (axis cs:\SQP,1);
+    \draw[btslight] (axis cs:\price,0) --
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Settlement Price}}
+          node[pos=0.5,coordinate] (SP) {}
+          (axis cs:\price,1);
+   \end{scope}
+   \path[name path=axis] (rel axis cs:0,0) -- (rel axis cs:1,0);
+   \addplot[name path=bid,restrict x to domain=\price:0.008] table[x expr={(\thisrowno{0})/2e4+\price}, y expr=\thisrowno{1}] {market.csv};
+   \addplot[name path=ask,restrict x to domain=0:\price] table[x expr={(\thisrowno{0}-101)/3e4+\MCP}, y expr=\thisrowno{2}] {market.csv};
+   \addplot [ask] fill between[ of=ask and axis ];
+   \addplot [bid] fill between[ of=bid and axis ];
+   \draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
+   \draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
+  \end{axis}
+ \end{tikzpicture}
+
+\end{document}

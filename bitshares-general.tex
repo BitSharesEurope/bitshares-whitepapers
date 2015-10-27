@@ -2,7 +2,6 @@
 \title{BitShares 2.0: General Documentation}
 \input{AUTHORS}
 \begin{document}
-\sloppy
 \maketitle
 
 \begin{abstract}%
@@ -21,11 +20,6 @@
 
 \section       { Introduction                      } \input { content/bts                 } 
 
-\section       { Architecture of BitShares         } \input { content/whatis-architecture } 
-\subsection    { Public Ledger                     } \input { content/spec-bc             } 
-\subsection    { Low Latency Peer-to-Peer Network  } \input { content/spec-net            } 
-\subsection    { Distributed Consensus Mechanism   } \input { content/bts-consensus       } 
-
 \section       { Crypto Token                      } \input { content/bts-token           } 
 \subsection    { Distribution of BTS               } \input { content/bts-token-dist      } 
 \subsubsection { Bitshares PTS                     } \input { content/bts-token-dist-pts  } 
@@ -38,26 +32,72 @@
 \subsection    { BitShares Budget Items            } \input { content/bts-orga-budget     }
 
 \section       { BitShares: A profitable DAC       } \input { content/whatis-business     } 
-\subsection    { The products                      } \input { content/bts-products        }
+\subsection    { The Products                      } \input { content/bts-products        }
+\subsubsection { Price-stable SmartCoins           } \input { content/bts-products-mpa    }
+\subsubsection { Customizable Assets               } \input { content/bts-products-uia    }
+\subsubsection { Decentralized Exchange            } \input { content/bts-products-dex    }
+\subsubsection { Flexible Identity Management      } \input { content/bts-products-idm    }
+\subsubsection { International Payments            } \input { content/bts-products-pay    }
+
 \subsection    { Revenue and Expenses              } \input { content/bts-revenue-expense }
 \subsection    { Fee Schedule and Cash Flow        } \input { content/bts-fee             }
 \subsection    { Growth Considerations             } \input { content/whatis-growth       } 
 
-\section       { Technical Specifications          } \input { content/bts-specs           }
+\section       { Architecture of BitShares         } \input { content/whatis-architecture } 
+\subsection    { Public Ledger                     } \input { content/spec-bc             } 
+\subsection    { Low Latency Peer-to-Peer Network  } \input { content/spec-net            } 
+\subsection    { Distributed Consensus Mechanism   } \input { content/bts-consensus       } 
 \subsection    { Operations                        } \input { content/bts-ops             } 
 \subsection    { Transactions                      } \input { content/bts-txs             } 
 \subsection    { Objects                           } \input { content/bts-objs            } 
-\subsection    { Named Account                     } \input { content/bts-acc             } 
-\subsubsection { Transferability                   } \input { content/org-transfacc       } 
-\subsubsection { Dynamic Permissions               } \input { content/org-dynacc          } 
-\subsubsection { Recurring \& Scheduled Payments   } \input { content/org-recurr          } 
-\subsubsection { Costumer Privacy                  } \input { content/bts-priv            } 
 
 \section       { Discussion                        } \input { content/bts-discussion      } 
 
 \section       { Conclusion                        } \input { content/bts-conc            } 
 
+% acknowledgment @ cass!!
+
 \bibliographystyle{IEEEtran}
 \bibliography{literature}
 %\nocite{*}
 \end{document}
+
+
+% Proxy voting:
+
+[00:21:02] bytemaster: Datasecuritynode asked a question. “When proxy voters are enabled, does the original account holder lose the complete ability to cast votes or do they know when the proxy cast their votes?
+
+[00:21:22] bytemaster: Well everyone knows when anything happens because the blockchain is public. At any time you can cast a vote to change your proxy. You can remove your proxy and cast votes, you can change proxies, you can do that at any time. But once you set a proxy if you’re not paying attention the proxy can change who they’re voting for without requiring you to do anything. And that’s a feature, that’s the intent of the proxy accounts.
+
+[00:21:58] bytemaster: So setting a proxy is not irrevocable. The other thing to keep in mind is that votes are only tallied once per day, which means if a proxy changes their vote and you don’t like how they changed it, you can change your proxy by the end of the day. So ideally, good proxiers would only change their vote at the beginning at the day to give everyone who’s using them an opportunity to review their changes by the end of the day before it has any impact on the consensus.
+
+[00:22:42] bytemaster: If you pick a proxy that changes their vote at the last second without an opportunity to review, they are probably a bad proxy for you to be using.
+
+[00:23:57] bytemaster: I think a lot of people have expressed that they would prefer to set the vote one time to someone they trust. And then let that person manage it. It’s more like an insurance policy. If it’s not going the direction you like, then you can pull it out and take action. Otherwise you leave it set on default and let some core group of individuals steer the ship.
+
+[00:24:20] bytemaster: That is centralizing in some respects, but it’s controlled centralization in the sense that nothing can happen too quickly and if you don’t like which way it’s going then you still have the ability to switch courses. I think that’s going to be the most practical way for things to go, which probably means a lot of people will choose to set me as the proxy vote and set some of the other core developers as their proxy vote if they think I’ve got to much power. And then just leave it like that, until a loss of confidence in the core developers to steer the ship, in which case you take ____ out and you vote directly.
+
+[00:25:08] bytemaster: So there’s some questions about proxy voting. Under BitShares 2.0 all balances are directly tied to your account unless you’re using blinded balances. The blinded balances, you do not vote. Because voting compromises privacy. So you can have your choice of either voting or being anonymous and blinded.
+
+[00:25:30] bytemaster: So when you vote, you specify ____ the list of accounts, a slate that you will be voting for. And when you set someone else as the proxy, your saying vote for me the same way they’re voting. This means that you’re going to use their list.
+
+% Decay voting
+
+[00:26:35] bytemaster: There’s another factor here that I’m glad you brought up. We need the ability for votes to decay. If you have not updated your vote or reaffirmed your vote, then you’re not continuing to assert your opinion and you’re kind of defaulting back to, well whatever the consensus is, you know whatever the active ___ is.
+
+[00:27:00] bytemaster: So if you want to have a say you’ve got to be active. You can’t be, Oh I’m going to vote for someone, and then disappear for a year. And then that person that you voted for does something terrible and you just don’t change your vote. You don’t review it. I look at it as kind of like, you don’t permanently cast a vote for the party you want. Each year you have to go out and cast your vote for governments. At companies every time there’s something that happens, you have to cast a vote.
+
+[00:27:37] bytemaster: So if you want to have a permanent vote, then nominate a proxy and then that proxy will be responsible for staying active and voting on a regular basis. But if you think about it, a vote at this point in time … these are good people, but as time progresses that past vote of confidence does not carry the same meaning. You can’t say this ____ good people for all time and so we need people to continually input into the system that this is currently someone who’s good. And if they don’t do that then their votes either decay or no longer count at all.
+
+[00:28:24] bytemaster: There’s another question that came up, “If you set a proxy who in turn sets another proxy”. You’re not going to follow the secondary proxy. The reason why we don’t allow you to do that is you could create cycles out of nondeterministic depth of the proxying of votes. So there is a limit on how indirect your voting can get.
+
+
+
+
+
+[00:29:00] bytemaster: Yes. Anything that can be parametrized will be parametrized.
+
+
+
+
+

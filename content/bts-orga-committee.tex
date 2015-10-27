@@ -1,0 +1,58 @@
+Since Bitcoin struggled to reach a consensus about the size of their blocks,
+the people in the cryptocurrency space realized that the governance of a DAC
+should not be ignored. Hence, BitShares offers a tools to reach on-chain
+consensus about business management decisions.
+
+The BitShares blockchain has a set of parameters available that are subject of
+shareholder approval. Shareholders can define their preferred set of parameters
+and thereby create a so called \emph{committee member} or alternatively vote
+for an existing committee member. The BitShares committee consists of $C$
+\emph{active} committee members.
+
+For each business parameter the protocol will calculate the difference between
+up- and down-votes ($v_\text{pro}-v_\text{con}$) for each active committee
+member and then take the median of the top $C$ active members:
+\begin{algorithmic}
+ \State // Derive active C committee members
+ \For{ i : active committee members }
+  \State member weight: $w[i] \gets v_\text{pro}-v_\text{con}$
+ \EndFor
+ \State $\text{members} \gets \Call{sort}{w}$
+ \State $\text{active} \gets \text{members}[0 \to C]$
+
+ \State // For each Parameter: derive median of active members
+ \For{ parameter : parameters }
+   \State $p \gets \Call{GetParameters}{\text{active}, \text{parameter}}$
+   \State $x = \operatorname{sort}(p[i])$
+   \State $\tilde p =\begin{cases}
+                        x[\frac{C+1}{2}]                                               & C \text{ odd}\\
+                        \frac {1}{2}\left(x[{\frac{C}{2}}] + x[\frac{C}{2} + 1]\right) & C \text{ even.}
+           \end{cases}$
+  \State $\text{parameter} \gets \tilde p$
+ \EndFor
+\end{algorithmic}
+Since, $C$ is a parameter as any other, the shareholders decide for the size of
+the committee.
+
+The BitShares ecosystem has a set of parameters available that are subject of
+shareholder approval. Initially, BitShares has the following blockchain
+parameters:
+%
+\begin{description}[leftmargin=4em,style=nextline]
+ \item[{fee structure}:        ] fess that have to be paid by costumers for individual transactions
+ \item[{block interval}:       ] i.e. block interval, max size of block/transaction
+ \item[{expiration parameters}:] i.e. maximum expiration interval
+ \item[{witness parameters}:   ] i.e. maximum amount of witnesses (block producers)
+ \item[{committee parameters}: ] i.e. maximum amount of committee members
+ \item[{witness pay}:          ] payment for each witnesses per signed block
+ \item[{worker budget}:        ] available budget available for budget items (e.g. development)
+\end{description}
+Please note that the given set of parameters serves as an example and that the
+network's parameters are subject to change over time.
+
+\medskip
+
+Additionally to defining the parameters any active witness can propose a
+protocol or business upgrade (i.e. hard fork) which can be voted on (or
+against) by shareholders. When the total votes for the hard fork are greater
+than the median witness weight $w$ then the hard fork takes effect.

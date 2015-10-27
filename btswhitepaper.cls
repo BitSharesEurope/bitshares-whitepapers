@@ -82,8 +82,11 @@
  scale=1,angle=0,opacity=1,
  contents={%
  \begin{tikzpicture}[remember picture,overlay]
-  \path [fill=btsdark] (-0.5\paperwidth, 0.50\paperheight) 
+  %\path [fill=btsdark] (-0.5\paperwidth, 0.50\paperheight) 
+  %           rectangle ( 0.5\paperwidth, 0.25\paperheight);
+  \clip                (-0.5\paperwidth, 0.50\paperheight) 
              rectangle ( 0.5\paperwidth, 0.25\paperheight);
+  \node[anchor=north] at (0, 0.5\paperheight) {\includegraphics[width=\paperwidth]{figures/bg.jpg}};
  \end{tikzpicture}}
 }
 
@@ -95,17 +98,18 @@
  \let \footnote \thanks
  \begin{minipage}[t][.25\paperheight][t]{\textwidth}
   \begin{flushright}
-  \color{white}
-   {\LARGE\bfseries\textsc{\@title} \par}%
-    \vskip 3.5em%
+   \color{white}
+    {\LARGE\bfseries\textsc{\@title} \par}%
+    \vskip 5ex%
     {\normalsize
       \lineskip .5em%
-      \begin{minipage}{.3\linewidth}
-      \end{minipage}
-      {\color{white}\vrule width 2pt}\hskip.5em
-      \begin{minipage}{.3\linewidth}
+      \begin{minipage}{.5\linewidth}
+       \begin{flushright}
        \@author
+       \end{flushright}
       \end{minipage}
+      \hskip.5em
+      {\color{white}\vrule width 2pt}
     }%
   \end{flushright}
  \end{minipage}

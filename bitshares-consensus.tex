@@ -27,3 +27,35 @@
 
 % Randomness of Witness Scheduling
 % https://bitsharestalk.org/index.php/topic,18126.msg231771.html#msg231771
+
+
+% https://bitsharestalk.org/index.php/topic,18613.msg239949.html#msg239949
+% Compromising one witness does not give you unlimited ability to perform a
+% double spend attack.   To perform the ``double-spend'' they would have to
+% broadcast the transaction 1 block before their turn, then skip the block that
+% included their first transaction and produce a block that contained an
+% alternative transaction\ldots *AND* have cooperation of the next witness which
+% would have to be in on it because that next witness would have seen the
+% original block/transaction first and would therefore ignore the bad witnesses'
+% block.
+% 
+% This means that you need at least 2 witnesses to attempt a double spend and you
+% could only do it any time those two witnesses were randomly selected to follow
+% one another.   
+% 
+% Lastly you could only perform the double spend attack as part of an anonymous
+% transaction (ie: paying someone who does not know your identity) and the
+% transaction and the other party would have to accept single confirmation
+% transactions and then take some kind of irreversible action.   As a result
+% meta-exchange, block trades, and exchanges would require several witnesses to
+% sign (up to 51% of the witnesses).    Because most witnesses will be publicly
+% known with real identities and reputations on the line, the risk of criminal
+% charges for a provable intentional double spend that is not rectified is enough
+% to prevent it from happening altogether.
+% 
+% The opportunity to execute large, anonymous transactions involving irreversible
+% actions in less than 10 seconds will be vanishingly small.   Once it was
+% detected everyone would be on notice to wait 10 seconds until 10 of 19
+% witnesses have signed and to vote out the attackers.    Therefore, you could
+% probably pull off the double spend ``ONCE'', the profit earned would be small
+% compared to the value of the income from the witnesses.

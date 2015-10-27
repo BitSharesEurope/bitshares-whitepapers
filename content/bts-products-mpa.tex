@@ -1,0 +1,23 @@
+The core product of BitShares is a class of assets referred to as Market-Pegged
+Assets (MPA), BitAssets, or SmartCoins and represent a crypto-token that has
+\emph{at least} the value of the underlying asset. For instance, a bitUSD can
+always be sold for \$1, either to a merchant at face-value, or to the network
+(by means of settlement of a contract) in return for BitShares' core currency
+(BTS) worth \$1.
+
+In practice, a SmartCoin \emph{always} has 100\% or more of its value backed by
+means of a contract for difference (CFD) between two parties with BTS as
+collateral. What makes these CFDs unique is that they are free from
+counterparty risk. This is achievable by letting the network itself
+(implemented as a software protocol) be responsible for securing the collateral
+and performing (forced) settlements if required as is described in more detail
+in~\cite{bts:financial}.
+
+Applications for SmartCoins are obvious: With the aforementioned properties, a
+bitUSD qualifies for regular and instant payments, for example with a
+smartphone or a modern browser application. In contrast, a bitGOLD (with one
+ounce of gold as underlying asset) would fit those people's needs that see gold
+as long-term store of value. As long as an asset has a unique global price, a
+SmartCoin could track its value. This allows for even more sophisticated
+applications, such as tracking a stock market index, or the price of a liter of
+gasoline.

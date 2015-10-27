@@ -50,87 +50,87 @@ receives to its peers after validating it. Given the average transaction size
 is less than \SI{100}{bytes}, it is almost as efficient to send the transaction
 as it is to send the notice (assuming a \SI{20}{byte} transaction id).
 
-Hence, each node implements the following optimized protocol:
-
-{\small
- \begin{algorithmic}
-  \Function{onReceiveTransaction}{from\_peer, transaction}
-   \If{\Call{isKnown}{transaction.id()}}
-    \State \Return
-   \EndIf
-   \Call{markKnown}{transaction.id()}
-   \If{ ! \Call{validate}{transaction} }
-    \State \Return
-   \EndIf
-   \For{ peer : peers }
-    \If{ peer != from\_peer }
-     \State \Call{send}{peer, transaction }
-    \EndIf
-   \EndFor
-  \EndFunction
- \end{algorithmic}
-
- \begin{algorithmic}
-  \Function{onReceiveBlock}{ from\_peer, block\_summary }
-   \If{ \Call{isKnown}{ block\_summary }}
-    \State \Return
-   \EndIf
-   \State full\_block = \Call{reconstructFullBlcok}{ from\_peer, block\_summary }
-   \If{ !full\_block } 
-    \State\Call{disconnect}{from\_peer}
-   \EndIf
-   \Call{markKnown}{ block\_summary }
-   \If{ !\Call{pushBlock}{ full\_block } }
-    \State \Call{disconnect}{from\_peer}
-   \EndIf
-   \For{ peer : peers }
-    \If{ peer != from\_peer }
-     \State \Call{send}{peer, block\_summary }
-    \EndIf
-   \EndFor
-  \EndFunction
- \end{algorithmic}
-
- \begin{algorithmic}
-  \Function{onConnect}{ new\_peer, new\_peer\_head\_block\_num }
-   \If{ peers.size{} $\geq$ max\_peers }
-    \State \Call{send}{ new\_peer, peers }
-    \State \Call{disconnect}{ new\_peer }
-    \State \Return
-   \EndIf
-   \While{ new\_peer\_head\_block\_num $<$ our\_head\_block\_num }
-    \State \Call{sendFullBlock}{ new\_peer, ++new\_peer\_head\_block\_num }
-   \EndWhile
-   \State new\_peer.synced = true
-   \For{ peer : peers }
-    \State \Call{send}{ peer, new\_peer }
-   \EndFor
-  \EndFunction
- \end{algorithmic}
-
- \begin{algorithmic}
-  \Function{onReceivePeers}{ from\_peer, peers }
-   \State\Call{addToPotentialPeers}{ peers }
-  \EndFunction
- \end{algorithmic}
- \begin{algorithmic}
-  \Function{onUpdateConnectionsTimer}{}
-   \If{ peers.size{} $<$ desired\_peers }
-    \State\Call{connect}{ random\_potential\_peer }
-   \EndIf
-  \EndFunction
- \end{algorithmic}
- \begin{algorithmic}
-  \Function{onFullBlock}{ from\_peer, full\_block }
-   \If{ !\Call{pushBlock}{ full\_block } } 
-    \State\Call{disconnect}{from\_peer}
-   \EndIf
-  \EndFunction
- \end{algorithmic}
- \begin{algorithmic}
-  \Function{onStartup}{}
-   \State\Call{init\_potential\_peers}{config}
-   \State\Call{start}{onUpdateConnectionsTimer}
-  \EndFunction
- \end{algorithmic}
-}
+% Hence, each node implements the following optimized protocol:
+% 
+% {\small
+%  \begin{algorithmic}
+%   \Function{onReceiveTransaction}{from\_peer, transaction}
+%    \If{\Call{isKnown}{transaction.id()}}
+%     \State \Return
+%    \EndIf
+%    \Call{markKnown}{transaction.id()}
+%    \If{ ! \Call{validate}{transaction} }
+%     \State \Return
+%    \EndIf
+%    \For{ peer : peers }
+%     \If{ peer != from\_peer }
+%      \State \Call{send}{peer, transaction }
+%     \EndIf
+%    \EndFor
+%   \EndFunction
+%  \end{algorithmic}
+% 
+%  \begin{algorithmic}
+%   \Function{onReceiveBlock}{ from\_peer, block\_summary }
+%    \If{ \Call{isKnown}{ block\_summary }}
+%     \State \Return
+%    \EndIf
+%    \State full\_block = \Call{reconstructFullBlcok}{ from\_peer, block\_summary }
+%    \If{ !full\_block } 
+%     \State\Call{disconnect}{from\_peer}
+%    \EndIf
+%    \Call{markKnown}{ block\_summary }
+%    \If{ !\Call{pushBlock}{ full\_block } }
+%     \State \Call{disconnect}{from\_peer}
+%    \EndIf
+%    \For{ peer : peers }
+%     \If{ peer != from\_peer }
+%      \State \Call{send}{peer, block\_summary }
+%     \EndIf
+%    \EndFor
+%   \EndFunction
+%  \end{algorithmic}
+% 
+%  \begin{algorithmic}
+%   \Function{onConnect}{ new\_peer, new\_peer\_head\_block\_num }
+%    \If{ peers.size{} $\geq$ max\_peers }
+%     \State \Call{send}{ new\_peer, peers }
+%     \State \Call{disconnect}{ new\_peer }
+%     \State \Return
+%    \EndIf
+%    \While{ new\_peer\_head\_block\_num $<$ our\_head\_block\_num }
+%     \State \Call{sendFullBlock}{ new\_peer, ++new\_peer\_head\_block\_num }
+%    \EndWhile
+%    \State new\_peer.synced = true
+%    \For{ peer : peers }
+%     \State \Call{send}{ peer, new\_peer }
+%    \EndFor
+%   \EndFunction
+%  \end{algorithmic}
+% 
+%  \begin{algorithmic}
+%   \Function{onReceivePeers}{ from\_peer, peers }
+%    \State\Call{addToPotentialPeers}{ peers }
+%   \EndFunction
+%  \end{algorithmic}
+%  \begin{algorithmic}
+%   \Function{onUpdateConnectionsTimer}{}
+%    \If{ peers.size{} $<$ desired\_peers }
+%     \State\Call{connect}{ random\_potential\_peer }
+%    \EndIf
+%   \EndFunction
+%  \end{algorithmic}
+%  \begin{algorithmic}
+%   \Function{onFullBlock}{ from\_peer, full\_block }
+%    \If{ !\Call{pushBlock}{ full\_block } } 
+%     \State\Call{disconnect}{from\_peer}
+%    \EndIf
+%   \EndFunction
+%  \end{algorithmic}
+%  \begin{algorithmic}
+%   \Function{onStartup}{}
+%    \State\Call{init\_potential\_peers}{config}
+%    \State\Call{start}{onUpdateConnectionsTimer}
+%   \EndFunction
+%  \end{algorithmic}
+% }

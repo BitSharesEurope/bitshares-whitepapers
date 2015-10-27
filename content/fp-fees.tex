@@ -1,39 +1,41 @@
 \label{sec:dexfee}
-\newcommand*\justify{%
-  \fontdimen2\font=0.4em% interword space
-  \fontdimen3\font=0.2em% interword stretch
-  \fontdimen4\font=0.1em% interword shrink
-  \fontdimen7\font=0.1em% extra space
-  \hyphenchar\font=`\-% allowing hyphenation
-}
+% \newcommand*\justify{%
+%   \fontdimen2\font=0.4em% interword space
+%   \fontdimen3\font=0.2em% interword stretch
+%   \fontdimen4\font=0.1em% interword shrink
+%   \fontdimen7\font=0.1em% extra space
+%   \hyphenchar\font=`\-% allowing hyphenation
+% }
 
-In the BitShares ecosystem every operation is assigned a certain fee. These
-fees are subject to change. However, they are defined solely by shareholder
-approval and, hence, every shareholder of the BitShares core asset (BTS) has a
-say as to what the fees should be. Hence, if shareholders can be convinced to
-reduce a certain fee and consensus is reached, the fee will be reduces
-automatically by the blockchain.
+In the BitShares ecosystem every operation is assigned an \emph{individual}
+fee. These fees are subject to change. However, they are defined solely by
+shareholder approval and, hence, every shareholder of the BitShares core asset
+(BTS) has a say as to what the fees should be. If shareholders can be convinced
+to reduce a certain fee and consensus is reached, the fee will be reduced
+automatically by the blockchain\footnote{Changes of blockchain parameters are
+proposed by members of the committee. These members are voted by shareholders
+and improve the flexibility and reaction rate.}.
 
-The following fees are associated with the DEX and financial instruments:
-%
-%\texttt{\justify
- transfer,
- limit-order-create,
- limit-order-cancel,
- call-order-update,
- fill-order,
- asset-create,
- asset-update,
- asset-update-bitasset,
- asset-update-feed-producers,
- asset-issue,
- asset-reserve,
- asset-fund-fee-pool,
- asset-settle,
- asset-global-settle,
- asset-publish-feed.
-%}
-%
-Some more fees are available on the protocol level but are not a subject of
-this paper. Which fees currently apply can be extracted from the blockchain and
-will certainly be put on a distinct information page of most wallet software.
+% The following fees are associated with the DEX and financial instruments:
+% %
+% %\texttt{\justify
+%  transfer,
+%  limit-order-create,
+%  limit-order-cancel,
+%  call-order-update,
+%  fill-order,
+%  asset-create,
+%  asset-update,
+%  asset-update-bitasset,
+%  asset-update-feed-producers,
+%  asset-issue,
+%  asset-reserve,
+%  asset-fund-fee-pool,
+%  asset-settle,
+%  asset-global-settle,
+%  asset-publish-feed.
+% %}
+% %
+% Some more fees are available on the protocol level but are not a subject of
+% this paper. Which fees currently apply can be extracted from the blockchain and
+% will certainly be put on a distinct information page of most wallet software.
