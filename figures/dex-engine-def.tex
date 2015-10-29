@@ -4,7 +4,7 @@
 \usepackage[active,tightpage]{preview}
 \usepackage{tikz}
 \usepackage{pgfplots}
-\usetikzlibrary{calc,trees,positioning}
+\usetikzlibrary{calc,trees,positioning,spy,arrows,fit,shapes}
 \PreviewEnvironment{tikzpicture}
 \setlength\PreviewBorder{2mm}
 \usepackage{btscolors}
@@ -35,11 +35,12 @@
 \author{Fabian Schuh}
 \begin{document}
 
+ \pgfmathparse{1.6}\let\MCPR\pgfmathresult
+ \pgfmathparse{1.1}\let\SQPR\pgfmathresult
+ \pgfmathparse{0.0025}\let\SWAN\pgfmathresult
+ \pgfmathparse{\SWAN*\MCPR}\let\MCP\pgfmathresult
+
  \begin{tikzpicture}[>=latex]
-  \pgfmathparse{0.005}\let\price\pgfmathresult
-  \pgfmathparse{0.0025}\let\SWAN\pgfmathresult
-  \pgfmathparse{1.6}\let\MCPR\pgfmathresult
-  \pgfmathparse{1.1}\let\SQPR\pgfmathresult
   \begin{axis}[
                  width=12cm,
                  height=6cm,
@@ -57,15 +58,15 @@
                  },
                  samples=100,
               ]
-   \pgfmathparse{\SWAN*\MCPR}\let\MCP\pgfmathresult
+   \pgfmathparse{0.005}\let\price\pgfmathresult
    \pgfmathparse{\price/\SQPR}\let\SQP\pgfmathresult
    \begin{scope}[font=\tiny,line width=1pt,opacity=.9]
     \draw[btsdark] (axis cs:\SWAN,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Swan Price}}
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Your Swan Price}}
           node[pos=0.5,coordinate] (SWAN) {}
           (axis cs:\SWAN,1);
     \draw[btsdark!10!red] (axis cs:\MCP,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Margin Call Price}}
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Your Margin Call Price}}
           node[pos=0.5,coordinate] (MCP) {}
           (axis cs:\MCP,1);
     \draw[btsdark!40!red] (axis cs:\SQP,0) --
@@ -73,10 +74,16 @@
           node[pos=0.5,coordinate] (SQP) {}
           (axis cs:\SQP,1);
     \draw[btslight] (axis cs:\price,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Settlement Price}}
+          node[pos=1,rotate=90,anchor=north east] {\textsc{Settlement Price}}
           node[pos=0.5,coordinate] (SP) {}
           (axis cs:\price,1);
    \end{scope}
+   \coordinate (a) at (axis cs:\MCP,0.15);
+   \coordinate (b) at (axis cs:\SWAN,0.15);
+   \node[fill=white,fill opacity=0.4,draw,fit=(a) (b)]{};
+   \draw[-,fill] (a) circle(1pt) -- (b) circle(1pt);
+   \draw (a) edge[->] node[pos=0,below right,font=\tiny,rotate=90] {\parbox{1cm}{\centering less\\collateral}} ++(+.5cm,0);
+   \draw (b) edge[->] node[pos=0,above right,font=\tiny,rotate=90] {\parbox{1cm}{\centering more\\collateral}} ++(-.5cm,0);
    \path[name path=axis] (rel axis cs:0,0) -- (rel axis cs:1,0);
    \addplot[name path=bid,restrict x to domain=\price:0.008] table[x expr={(\thisrowno{0})/2e4+\price}, y expr=\thisrowno{1}] {market.csv};
    \addplot[name path=ask,restrict x to domain=0:\price] table[x expr={(\thisrowno{0}-101)/3e4+\price}, y expr=\thisrowno{2}] {market.csv};
@@ -84,16 +91,14 @@
    %\addplot[name path=ask,domain=0:0.007] {1e5*(x-\price)^2};
    \addplot [ask] fill between[ of=ask and axis ];
    \addplot [bid] fill between[ of=bid and axis ];
-   \draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
-   \draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
+   \draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\times\text{MCR}$} (MCP);
+   \draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$\slash\text{MSQR}$} (SQP);
+   \node[above right,font=\footnotesize] at (rel axis cs: 0,0) {bid side};
+   \node[above left,font=\footnotesize] at (rel axis cs: 1,0) {ask side};
   \end{axis}
  \end{tikzpicture}
 
  \begin{tikzpicture}[>=latex]
-  \pgfmathparse{0.0048}\let\price\pgfmathresult
-  \pgfmathparse{0.0025}\let\SWAN\pgfmathresult
-  \pgfmathparse{1.6}\let\MCPR\pgfmathresult
-  \pgfmathparse{1.1}\let\SQPR\pgfmathresult
   \begin{axis}[
                  width=12cm,
                  height=6cm,
@@ -111,15 +116,16 @@
                  },
                  samples=100,
               ]
-   \pgfmathparse{\SWAN*\MCPR}\let\MCP\pgfmathresult
+
+   \pgfmathparse{0.0048}\let\price\pgfmathresult
    \pgfmathparse{\price/\SQPR}\let\SQP\pgfmathresult
    \begin{scope}[font=\tiny,line width=1pt,opacity=.9]
     \draw[btsdark] (axis cs:\SWAN,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Swan Price}}
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Your Swan Price}}
           node[pos=0.5,coordinate] (SWAN) {}
           (axis cs:\SWAN,1);
     \draw[btsdark!10!red] (axis cs:\MCP,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Margin Call Price}}
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Your Margin Call Price}}
           node[pos=0.5,coordinate] (MCP) {}
           (axis cs:\MCP,1);
     \draw[btsdark!40!red] (axis cs:\SQP,0) --
@@ -127,7 +133,7 @@
           node[pos=0.5,coordinate] (SQP) {}
           (axis cs:\SQP,1);
     \draw[btslight] (axis cs:\price,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Settlement Price}}
+          node[pos=1,rotate=90,anchor=north east] {\textsc{Settlement Price}}
           node[pos=0.5,coordinate] (SP) {}
           (axis cs:\price,1);
    \end{scope}
@@ -136,16 +142,14 @@
    \addplot[name path=ask,restrict x to domain=0:\price] table[x expr={(\thisrowno{0}-101)/3e4+\price}, y expr=\thisrowno{2}] {market.csv};
    \addplot [ask] fill between[ of=ask and axis ];
    \addplot [bid] fill between[ of=bid and axis ];
-   \draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
-   \draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
+   %\draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
+   %\draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
+   \node[above right,font=\footnotesize] at (rel axis cs: 0,0) {bid side};
+   \node[above left,font=\footnotesize] at (rel axis cs: 1,0) {ask side};
   \end{axis}
  \end{tikzpicture}
 
  \begin{tikzpicture}[>=latex]
-  \pgfmathparse{0.0042}\let\price\pgfmathresult
-  \pgfmathparse{0.0025}\let\SWAN\pgfmathresult
-  \pgfmathparse{1.6}\let\MCPR\pgfmathresult
-  \pgfmathparse{1.1}\let\SQPR\pgfmathresult
   \begin{axis}[
                  width=12cm,
                  height=6cm,
@@ -163,15 +167,15 @@
                  },
                  samples=100,
               ]
-   \pgfmathparse{\SWAN*\MCPR}\let\MCP\pgfmathresult
+   \pgfmathparse{0.0042}\let\price\pgfmathresult
    \pgfmathparse{\price/\SQPR}\let\SQP\pgfmathresult
    \begin{scope}[font=\tiny,line width=1pt,opacity=.9]
     \draw[btsdark] (axis cs:\SWAN,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Swan Price}}
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Your Swan Price}}
           node[pos=0.5,coordinate] (SWAN) {}
           (axis cs:\SWAN,1);
     \draw[btsdark!10!red] (axis cs:\MCP,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Margin Call Price}}
+          %node[pos=1,rotate=90,anchor=south east] {\textsc{Your Margin Call Price}}
           node[pos=0.5,coordinate] (MCP) {}
           (axis cs:\MCP,1);
     \draw[btsdark!40!red] (axis cs:\SQP,0) --
@@ -179,7 +183,7 @@
           node[pos=0.5,coordinate] (SQP) {}
           (axis cs:\SQP,1);
     \draw[btslight] (axis cs:\price,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Settlement Price}}
+          node[pos=1,rotate=90,anchor=north east] {\textsc{Settlement Price}}
           node[pos=0.5,coordinate] (SP) {}
           (axis cs:\price,1);
    \end{scope}
@@ -188,19 +192,20 @@
    \addplot[name path=ask,restrict x to domain=0:\price] table[x expr={(\thisrowno{0}-101)/3e4+\price}, y expr=\thisrowno{2}] {market.csv};
    \addplot [ask] fill between[ of=ask and axis ];
    \addplot [bid] fill between[ of=bid and axis ];
-   \draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
-   \draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
+   %\draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
+   %\draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
    \addplot[name path=overlap,restrict x to domain=\MCP:\price] table[x expr={(\thisrowno{0}-101)/3e4+\price}, y expr=\thisrowno{2}] {market.csv};
    \path[name path=lvpa] (axis cs:\MCP,0) -- (axis cs:\price,0);
    \addplot [overlap] fill between[ of=overlap and lvpa ];
+   \node[above right,font=\footnotesize] at (rel axis cs: 0,0) {bid side};
+   \node[above left,font=\footnotesize] at (rel axis cs: 1,0) {ask side};
+   \pgfmathparse{(\MCP+\price)/2}\let\SPY\pgfmathresult
+   \coordinate (spythis) at (axis cs: \SPY,0);
   \end{axis}
+  \node[draw=orange!50!red,circle,inner sep=6pt,thick] at (spythis) {};
  \end{tikzpicture}
 
  \begin{tikzpicture}[>=latex]
-  \pgfmathparse{0.0042}\let\price\pgfmathresult
-  \pgfmathparse{0.0025}\let\SWAN\pgfmathresult
-  \pgfmathparse{1.6}\let\MCPR\pgfmathresult
-  \pgfmathparse{1.1}\let\SQPR\pgfmathresult
   \begin{axis}[
                  width=12cm,
                  height=6cm,
@@ -218,15 +223,16 @@
                  },
                  samples=100,
               ]
-   \pgfmathparse{\SWAN*\MCPR}\let\MCP\pgfmathresult
+
+   \pgfmathparse{0.0042}\let\price\pgfmathresult
    \pgfmathparse{\price/\SQPR}\let\SQP\pgfmathresult
    \begin{scope}[font=\tiny,line width=1pt,opacity=.9]
     \draw[btsdark] (axis cs:\SWAN,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Swan Price}}
+          node[pos=1,rotate=90,anchor=south east] {\textsc{Your Swan Price}}
           node[pos=0.5,coordinate] (SWAN) {}
           (axis cs:\SWAN,1);
     \draw[btsdark!10!red] (axis cs:\MCP,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Margin Call Price}}
+          %node[pos=1,rotate=90,anchor=south east] {\textsc{Your Margin Call Price}}
           node[pos=0.5,coordinate] (MCP) {}
           (axis cs:\MCP,1);
     \draw[btsdark!40!red] (axis cs:\SQP,0) --
@@ -234,7 +240,7 @@
           node[pos=0.5,coordinate] (SQP) {}
           (axis cs:\SQP,1);
     \draw[btslight] (axis cs:\price,0) --
-          node[pos=1,rotate=90,anchor=south east] {\textsc{Settlement Price}}
+          node[pos=1,rotate=90,anchor=north east] {\textsc{Settlement Price}}
           node[pos=0.5,coordinate] (SP) {}
           (axis cs:\price,1);
    \end{scope}
@@ -243,8 +249,11 @@
    \addplot[name path=ask,restrict x to domain=0:\price] table[x expr={(\thisrowno{0}-101)/3e4+\MCP}, y expr=\thisrowno{2}] {market.csv};
    \addplot [ask] fill between[ of=ask and axis ];
    \addplot [bid] fill between[ of=bid and axis ];
-   \draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
-   \draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
+   %\draw[->] (SWAN) to[bend left]  node[midway,font=\tiny,above] {$\cdot\text{MCR}$} (MCP);
+   %\draw[->] (SP)   to[bend right] node[midway,font=\tiny,above] {$:\text{MSQR}$} (SQP);
+   \node[above right,font=\footnotesize] at (rel axis cs: 0,0) {bid side};
+   \node[above left,font=\footnotesize] at (rel axis cs: 1,0) {ask side};
+   \node[draw=red,anchor=north east,font=\footnotesize,text=red] at (rel axis cs:0.9,0.9) {\underline{Margin Call Triggered}};
   \end{axis}
  \end{tikzpicture}
 

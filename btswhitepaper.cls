@@ -17,8 +17,31 @@
 \RequirePackage{algorithm}
 \RequirePackage{algorithmicx}
 \RequirePackage{algpseudocode}
-\RequirePackage[per-mode=symbol]{siunitx}
+\RequirePackage{siunitx}
 \RequirePackage{tikz}
+
+%% -----------------------------
+%% Options
+%% -----------------------------
+\newcommand{\draftcode}{}
+\DeclareOption{unpublished}{
+ \renewcommand{\draftcode}{
+  \begin{tikzpicture}[remember picture,overlay]
+  \node [rotate=-45,scale=15,
+         text opacity=0.8,text=red!45]
+         at (current page.center) {Draft};
+  \end{tikzpicture}
+ }
+}
+\ProcessOptions\relax
+
+%% -----------------------------
+%% SIUnits
+%% -----------------------------
+\sisetup{locale = US,
+         per-mode=symbol,
+         group-separator={,},
+        }
 
 %% -----------------------------
 %% Geometry and spacings
@@ -90,7 +113,7 @@
  \end{tikzpicture}}
 }
 
-\makeatletter
+%\makeatletter
 \def\@maketitle{%
  \vskip-5em
  \newpage
@@ -115,14 +138,14 @@
  \end{minipage}
  \thispagestyle{plain}
 }
-\makeatother
+%\makeatother
 
 %% -----------------------------
 %% Headers
 %% -----------------------------
 \fancypagestyle{wp}{%
  \fancyhf{}
- \fancyhead[R]{{\color{black}\sffamily\thepage}}
+ \fancyhead[R]{{\color{black}\sffamily\thepage}\draftcode}
  \fancyhead[L]{{\color{black}\sffamily \nouppercase{\textsc{\rightmark}}}}
  \fancyfoot{}
  \fancyfoot[R]{\includegraphics[height=2cm]{figures/btslogo4.png}}
@@ -131,7 +154,7 @@
 }
 \fancypagestyle{plain}{%
  \fancyhf{}
- \fancyhead{}
+ \fancyhead{\draftcode}
  \fancyfoot{}
  \renewcommand{\headrule}{}
  \renewcommand{\headrulewidth}{0pt}
@@ -170,3 +193,18 @@
 \widowpenalty=1000
 \displaywidowpenalty=1000
 
+
+%% TODO
+% http://tex.blogoverflow.com/2014/05/gitinfo2-latex-and-git-join-forces/
+%%%%%%%
+% \usepackage{eso-pic}
+% \makeatletter
+% \AddToShipoutPicture{%
+%     \setlength{\@tempdimb}{.1\paperwidth}%
+%     \setlength{\@tempdimc}{.04\paperheight}%
+%     \setlength{\unitlength}{1pt}%
+%     \put(\strip@pt\@tempdimb,\strip@pt\@tempdimc){%
+%         \makebox(0,0){ \textcolor{gray}{Rev: \svnrev{} (\svnfilerev)} }%
+%     }%
+% }
+% \makeatother

@@ -1,0 +1,8 @@
+
+When we were planning Graphene one of the features we wanted to have was
+"market orders" - user specifies only amount and buy or sell order executes at
+current market price. So in Graphene order can be executed in the same block
+it's placed and also it can be marked as "fill or kill" - this makes market
+orders much easier to implement. Now we only need to add simple buy/sell/short
+form to the GUI where user can specify amount, click Place button, agree with
+price and confirm.
