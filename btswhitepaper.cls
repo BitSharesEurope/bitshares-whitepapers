@@ -144,7 +144,7 @@
 %% -----------------------------
 %% Headers
 %% -----------------------------
-\newcommand{\gitline}{\raisebox{2ex}{\color{lightgray}Release: \gitTags - \gitDescribe{} (\gitAuthorDate)}}
+\newcommand{\gitline}{\raisebox{2ex}{\color{lightgray}Release: \gitDescribe\ (\gitAuthorDate)}}
 \fancypagestyle{wp}{%
  \fancyhf{}
  \fancyhead[R]{{\color{black}\sffamily\thepage}\draftcode}
