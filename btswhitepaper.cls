@@ -19,6 +19,7 @@
 \RequirePackage{algpseudocode}
 \RequirePackage{siunitx}
 \RequirePackage{tikz}
+\RequirePackage{gitinfo2}
 
 %% -----------------------------
 %% Options
@@ -143,11 +144,13 @@
 %% -----------------------------
 %% Headers
 %% -----------------------------
+\newcommand{\gitline}{\raisebox{2ex}{\color{lightgray}Release: \gitDescribe{} (\gitAuthorDate)}}
 \fancypagestyle{wp}{%
  \fancyhf{}
  \fancyhead[R]{{\color{black}\sffamily\thepage}\draftcode}
  \fancyhead[L]{{\color{black}\sffamily \nouppercase{\textsc{\rightmark}}}}
  \fancyfoot{}
+ \fancyfoot[L]{\gitline}
  \fancyfoot[R]{\includegraphics[height=2cm]{figures/btslogo4.png}}
  \renewcommand{\headrule}{\color{btslight}\hrule}
  \renewcommand{\headrulewidth}{0.4pt}
@@ -156,6 +159,7 @@
  \fancyhf{}
  \fancyhead{\draftcode}
  \fancyfoot{}
+ \fancyfoot[L]{\gitline}
  \renewcommand{\headrule}{}
  \renewcommand{\headrulewidth}{0pt}
 }
@@ -192,19 +196,3 @@
 \clubpenalty=1000
 \widowpenalty=1000
 \displaywidowpenalty=1000
-
-
-%% TODO
-% http://tex.blogoverflow.com/2014/05/gitinfo2-latex-and-git-join-forces/
-%%%%%%%
-% \usepackage{eso-pic}
-% \makeatletter
-% \AddToShipoutPicture{%
-%     \setlength{\@tempdimb}{.1\paperwidth}%
-%     \setlength{\@tempdimc}{.04\paperheight}%
-%     \setlength{\unitlength}{1pt}%
-%     \put(\strip@pt\@tempdimb,\strip@pt\@tempdimc){%
-%         \makebox(0,0){ \textcolor{gray}{Rev: \svnrev{} (\svnfilerev)} }%
-%     }%
-% }
-% \makeatother
