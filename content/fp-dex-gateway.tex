@@ -1,9 +1,9 @@
 \label{sec:gateway}
 
-The roles that traditional exchanges perform today encompass:
+The roles that traditional exchanges perform today are:
 
 \begin{compactenum}
- \item \label{it:g1} Receiving crypto-currency and issuing IOUs.
+ \item \label{it:g1} Receiving cryptocurrency and issuing IOUs.
  \item \label{it:g2} Receiving fiat and issuing IOUs.
  \item \label{it:g3} Redeeming IOUs.
  \item \label{it:g4} Processing an order book.
@@ -18,7 +18,7 @@ exposed to the same counterparty risk.
 Moving money into or out of an exchange often incurs a significant time delay,
 which means that active traders must keep their funds on the exchange. This
 magnifies the amount of risk to users of the exchange. It also magnifies the
-risk to all users in the crypto-currency ecosystem. Each large security breach
+risk to all users in the cryptocurrency ecosystem. Each large security breach
 results in significant sell pressure, from both the thief looking to cash in
 their loot, and from regular users hoping to sell before the thief does.
 
@@ -29,8 +29,8 @@ With the separation of powers, we only need gateways that perform the tasks
 processing and storage of account balances are managed by the BitShares
 protocol/network. An entity issuing and redeeming IOUs for another asset in
 BitShares is called a \emph{gateway}. In contrast to central exchanges, the
-IOUs are sent to the wallet of the customer directly and are under his full
-control (see \cref{sec:uia:restrictions}).
+IOUs are sent to the wallet of the customer and are under his full control (see
+\cref{sec:uia:restrictions}).
 
 Many gateways prefer the low-risk approach of one-for-one redemption and will
 simply allow the GatewayUSD to float against BitUSD with a small but variable

@@ -1,8 +1,7 @@
 \label{sec:feeds}
 
-In order for settlements to convert any smartcoin into the core asset (e.g. BTS
-in the BitShares network) at a fair price, the blockchain needs to be aware of
-the external price of BTS.
+The blockchain needs to be aware of the external price of BTS in order for
+settlements to convert SmartCoins into the core asset (BTS) at a fair price.
 
 In BitShares, this is achieved by means of a set of $N$ trusted
 \emph{witnesses}. These witnesses have to be elected by the corresponding
@@ -23,12 +22,13 @@ to:
    \frac {1}{2}\left(x[{\frac{N}{2}}] + x[\frac{N}{2} + 1]\right) & N \text{ even.}
  \end{cases}
 \end{align}
-Hence, the price is resistant against misbehaving witnesses in such as only a
+Hence, the price is resistant against misbehaving witnesses in that only a
 majority of price publishers can manipulate the outcome of the median. In
 practice, any unintentional feed \emph{error} is thus balanced around the true
 price. % FIXME later, show some statistics from bts-0.9
 
 Obviously, the shareholders are required to constantly monitor the published
-prices of their witnesses and should make public note about discrepancies. This
-is similar to traditional \emph{quality management} for the \emph{smartcoin}
-products (e.g. bitUSD) and BitShares can offer a paid position in that regard.
+prices of their witnesses and should make a public note about any
+discrepancies. This is similar to traditional \emph{quality management} for the
+\emph{Smart Coin} products (e.g. bitUSD) and BitShares system can offer a paid
+position to perform this service.

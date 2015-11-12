@@ -1,19 +1,15 @@
-In order for BitUSD to be accepted as being equal to \$1.00 for the purposes of
-setting prices and online shopping, it only needs to maintain a \emph{floor} of
-\$1.00. If it can maintain a floor of \$1.00, then merchants can accept it,
-know their margins are safe, and that they are \emph{not exposed to currency
-risk}. In order to enable a guaranteed floor, all BitUSD can be \emph{force
-liquidated} at a trustworthy price feed\footnote{Price feeds are published by
-\emph{witnesses} that have shareholder approval. See~\cref{sec:feeds}.}. If
-this rule is present, then those who create the BitUSD must sell it at a price
-that properly accounts for this risk of so called \emph{forced settlement}.
-This means that at almost all times new BitUSD will only enter circulation when
-there is a buyer willing to pay a premium for a guaranteed floor.
+For BitUSD to be accepted as being equal to \$1.00 for the purposes of setting
+prices, it only needs to maintain a \emph{floor} of \$1.00. If it can maintain
+a floor of \$1.00, then merchants can accept it and know their margins are safe
+and that they are \emph{not exposed to currency risk}. In order to enable a
+guaranteed floor, all BitUSD can be \emph{force liquidated} at a trustworthy
+price feed\footnote{Price feeds are published by \emph{witnesses} that have
+shareholder approval. See~\cref{sec:feeds}.}. Since this rule is present,
+those who create the BitUSD must sell it at a price that properly accounts for
+this risk of \emph{forced settlement}. This means that at almost all times, new
+BitUSD will only enter circulation when there is a buyer willing to pay a
+premium for a guaranteed floor.
 
 As we will see, since USD holders can initiate settlement, there is no need for
 artificial forced covering every 30 days. This relieves shorts of risk, helps
 increase short demand, and keeps the price of BitUSD near the floor.
-
-Also note that for reasons of easier description in this paper, the terms
-\emph{SmartCoins} and \emph{Market Pegged Assets} are now synonym to BitAsset
-2.0.

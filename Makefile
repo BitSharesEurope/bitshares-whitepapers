@@ -10,16 +10,14 @@ TMPFILES = *.aux *.log *.dvi *.bbl *.blg *.mtc* *.maf \
 SRC=$(wildcard bitshares-*.tex)
 BIBS=$(wildcard *.bib) $(wildcard *.bst)
 
-all: compile clean move
+all: compile clean
 
 compile: $(SRC:.tex=.pdf)
-
-move:
-	@mv *.pdf pdfs/
 
 %.pdf: %.tex %.bbl
 	@pdflatex $(PDFLATEXOPTS) $<
 	@pdflatex $(PDFLATEXOPTS) $<
+	@mv $(shell basename $< .tex).pdf pdfs/
 
 %.aux: %.tex
 	@pdflatex $(PDFLATEXOPTS) $<

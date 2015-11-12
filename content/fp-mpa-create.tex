@@ -8,15 +8,15 @@ shared block chain ledger and the software enforces the market rules. This
 block chain based marketplace is referred to as the \emph{decentralized
 exchange} or \emph{internal market} (c.f., \cref{sec:dex}) to distinguish from
 \emph{external markets} such as websites that facilitate the exchange of
-government issued currencies with crypto-currency.
+government issued currencies with cryptocurrency.
 
-SmartCoins are tokens of a particular MPA (e.g. bitUSD), take the concept of a
-contract for difference, and make the long side fungible. For the purpose of
-this discussion, we will assume that the long side of the contract is BitUSD
+SmartCoins are tokens of a particular MPA (e.g. bitUSD). They use the concept
+of a contract for difference, and make the long side fungible. For the purpose
+of this discussion, we will assume that the long side of the contract is BitUSD
 and that the backing \emph{collateral} is BTS (the BitShares core asset).
 
 In practice, bitUSD are created on the BitShares blockchain when a BTS holder
-asks the network for them by handing over \emph{collateral} to the network
+asks the network for them by handing over \emph{collateral} to the network,
 essentially locking them in a contract for difference (c.f., \emph{1)} in
 \cref{fig:btsdex}).
 
@@ -24,24 +24,23 @@ essentially locking them in a contract for difference (c.f., \emph{1)} in
  \begin{center}
   \includegraphics[width=.8\linewidth]{figures/external-pricefeed}
  \end{center}
- \caption{Illustration of external price discovery and a ``short-sell'' to seek
+ \caption{Illustration of external price discovery and a ``short sell'' to seek
           greater exposure for BTS price movements.}
  \label{fig:btsdex}
 \end{figure}
 
 The collateral is only returned to the short seller when the corresponding
 amount of the asset agreed in the contract is handed over to the BitShares
-network again. The protocol will then effectively destroyed these tokens and
+network again. The protocol will then effectively destroy these tokens and
 fulfill the contract. This is referred to as \emph{covering a
 short}. At the moment of creation, the position of the \emph{shorter} has not
 changed at all because he can directly cover his own short position using the
 bitUSD to gain back his BTS used as collateral.
 
-In the case the short seller has sold the smartcoins he is required to purchase
-them back from the market. 
-
-In the mean-time, if the value of the collateral relative to the current price
-of the market pegged asset falls below a certain margin of safety the assets
+If the short seller has sold the SmartCoins he has created, then he would be
+required to purchase them back from the market before closing his short
+position. Meanwhile, if the value of the collateral relative to the current price
+of the market pegged asset falls below a certain margin of safety, the assets
 can be automatically (i.e. initiated by the protocol itself) repurchased from
 the market before the collateral becomes insufficient.
 
@@ -56,10 +55,10 @@ In summary, the following set of market rules apply to all market pegged assets
 (for the sake of simplicity, we here focus on the MPA bitUSD):
 \begin{itemize}
  \item Anyone with BitUSD can settle their position within an
-       interval\footnote{defined by the shareholder approval} at the feed
-       price.
- \item The \emph{least} collateralized short positions are used to settle the
-       position.
+       interval\footnote{defined by the shareholder approval} at the settlement
+       price (identical to the feed price).
+ \item In this case, the \emph{least} collateralized short positions would be
+       margin called and their collateral would be used to settle the position.
  \item The price feed is the median of many sources that are updated at least
        once per hour.
  \item Short positions never expire, except by hitting the maintenance
@@ -68,7 +67,7 @@ In summary, the following set of market rules apply to all market pegged assets
  \item In the event that the least-collateralized short position lacks enough
        collateral to cover at the price feed, then all BitUSD positions are
        automatically force settled at the price of the least collateralized
-       short (black swan even, see~\cref{sec:blackswan}).
+       short (black swan event, see~\cref{sec:blackswan}).
 \end{itemize}
 
 These simple rules enable a price floor of \$1.00 for 1.00 BitUSD. A simple

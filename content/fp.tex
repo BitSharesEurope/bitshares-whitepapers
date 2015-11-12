@@ -1,81 +1,78 @@
 %%%%%%%%%%%%%%%%
 % Smartcoins
 %%%%%%%%%%%%%%%%
-In todays world, crypto-currencies are unique in that they are the only digital
-currency that is not someone else's liability. They are \emph{fungible},
-\emph{decentralized}, and as \emph{valuable} as the network of users that
-support them. Unfortunately, they suffer from very high volatility, because
-their perception of value constantly changes as users enter and leave the
-ecosystem. Although many professional traders appreciate this volatility, it
-prevents its adoption as a \emph{payment} solution.
+In today's world, crypto-currencies are unique because they are the only type
+of digital currency that does not represent a corresponding counterparty
+liability. Instead, they are \emph{fungible} \emph{decentralized} tokens, whose
+value is derived from the amount of practical utility (or potential future
+utility) perceived by the network of users that support and trade in them. Not
+surprisingly, most cryptocurrencies suffer from high levels of price volatility
+due to many complex factors, such as constantly shifting public perception and
+highly speculative and unregulated markets. Although professional traders tend
+to appreciate this volatility, so far it has hindered the widespread adoption
+of cryptocurrency as a \emph{practical payment solution}.
 
-The traditional approach to creating a \emph{stable} asset is to accept
-deposits and issue a digital token as a \emph{claim receipt} (i.e. ``I Owe
-You''). Under this approach, the token is valued by the market as the
-underlying asset, discounted by any credit risk associated with the issuer.
-This can work well for transactions, but less well as a form of savings.
-Furthermore, history has repeatedly proven that issuers eventually go bankrupt
-due to fraud, incompetence, or government intervention.
+One approach to creating a \emph{price-stable} asset would be for an issuer to
+accept deposits in return for a digital token as a \emph{claim receipt} (an "I
+Owe You"). With this approach, the token would trade in the market as having
+the same value as the underlying asset, minus any perceived credit risk
+associated with the issuer. While this approach may work well for settlements,
+it is far less secure as an instrument for long term savings. History has
+repeatedly proven that many issuers will eventually go bankrupt due to
+incompetence, government intervention or outright fraud.
 
 %%%%%%%%%%%%%%%%
 % MPA
 %%%%%%%%%%%%%%%%
-More recent alternative approaches have used a crypto-currency as
-\emph{collateral} in a \emph{contract for difference} (CFD)~\cite{def:cfd}.
-Under this approach, two parties take opposite sides of a trade, where one
-party is guaranteed price stability, and the other party is granted leverage.
-This approach works as long as sufficient collateral exists, and the contract
-can be settled by an honest 3rd party with a price feed.
+BitShares has developed an alternative approach to creating price stable
+digital assets by using a cryptocurrency as \emph{collateral} in a
+\emph{contract for difference} (CFD)~\cite{def:cfd}. With this approach, two
+parties take opposite sides of a trade, where one party is guaranteed price
+stability, and the other party is granted leverage. This works as long as
+sufficient collateral exists, and the contract can be settled by an honest 3rd
+party with a price feed
 
-These contracts are \emph{derivative instruments} and part of a wider
-definition of \emph{financial instruments}. Since financial instruments are
-defined as \emph{tradable} assets of \emph{any} kind they can (in general) be
-cash, proof of ownership, or a contractual right to receive or deliver a
-financial instrument. 
-
-BitShares, as a decentral counterparty-trust-free platform for financial smart
-contracts which operates over the internet, offers a set of financial
-instruments including CFDs. Several other financial instruments are fully
-implemented, one of which can act as a \emph{derivative} with \emph{cash} as an
-underlying asset. These derivatives contracts derive its value from the
-performance of an underlying entity and are thus often referred to as
-\emph{market pegged assets} (MPA) or ``smart-coins'', and will be presented in
-\cref{sec:mpa}.
+BitShares is a counterparty-trust free platform for financial smart contracts
+which operates over the internet, and offers a set of \emph{financial
+instruments} that includes CFDs. These contracts are \emph{derivative
+instruments}, and as such they fall under the wider definition of financial
+instruments. Financial instruments can be defined as \emph{tradable} assets of
+\emph{any} kind, including cash, proof of ownership receipts, or a contractual
+right to receive or deliver an underlying instrument, commodity, option, etc.
+Additionally, several other digital financial instrument tools are currently
+available on BitShares, such as Market Pegged Assets (MPA) or ``SmartCoins''
+which represent a \emph{derivative} with fiat currency, gold, or even other
+cryptocurrencies as the underlying asset. These SmartCoins derive their value
+from contracts based on the performance of the BitShares base token (BTS).
+Smart coins will be presented in detail in \cref{sec:mpa}. 
 
 %%%%%%%%%%%%%%%%
 % UIA
 %%%%%%%%%%%%%%%%
-Additionally, the BitShares platform provides an abstract feature known as
-"user-issued assets" (UIA) to help facilitate a wide range of profitable
-business models for certain types of services. The term refers to a type of
-custom token registered on the platform, which users can hold and trade within
-certain restrictions. The creator of such an asset publicly names, describes,
-and distributes its tokens, and can specify customized requirements, such as an
-approved \emph{whitelist} of accounts permitted to hold the tokens, or the
-associated trading and transfer fees. These tokens allow for diverse use-cases
-such as, for instance, ownership tracking, crowd fund raising, IOUs, coupons,
-and many more and will be discussed in \cref{sec:uia}
+The BitShares platform also contains an flexible feature called ``user-issued
+assets'' (UIA) which will help facilitate a wide range of profitable business
+models based around certain types of services. A UIA is a type of custom token
+registered on the platform, which users can hold and trade within certain
+restrictions. The creator of such an asset can publicly name, describe, and
+distribute its tokens, and can specify custom requirements such as an approved
+\emph{whitelist} of accounts permitted to hold the tokens, or the associated
+trading and transfer fees. These tokens allow for diverse use cases such as
+ownership tracking, crowd fundraising, IOUs, coupons, and many more that will
+be discussed in \cref{sec:uia}.
 
 %%%%%%%%%%%%%%%%
 % DEX
 %%%%%%%%%%%%%%%%
 In order to \emph{trade} financial instruments, BitShares provides a
 high-performance \emph{decentralized exchange} (DEX), with all the features
-expected from a trading platform (see \cref{sec:dex}). Any two assets that are
-registered on the blockchain (MPA or UIA) may be traded against each other at
-any time. Orders can be settled almost instantly up to at least 100,000
-transactions per second.  With this kind of performance on a decentralized
-exchange, there is no more need to risk funds in centralized exchanges.
+expected of a professional trading platform (see \cref{sec:dex}). Any two
+assets that are registered on the blockchain (MPA or UIA) may be traded against
+each other at any time. Orders can be settled almost instantly at speeds of up
+to 100,000 transactions per second. With this kind of performance on a
+decentralized exchange, there is no longer a need for traders to expose their
+funds to the risks of centralized exchanges.
 
-% %%%%%%%%%%%%%%%%
-% % Bonds
-% %%%%%%%%%%%%%%%%
-% Last but not least, the BitShares bond market (currently not implemented fully)
-% is an investment marketplace accessible to anyone that lets you earn interest
-% with any of your asset, or take a short position using any other asset as
-% collateral.
-
-In the following we will discuss the financial instruments available in the
-BitShares network as well as the DEX. It is recommended to previously read
-through the basic technological components of BitShares in the other white
-papers~\cite{bts:general,bts:growth,bts:structure}.
+In this paper we will discuss the financial instruments available in the
+BitShares network as well as the DEX. Before continuing, we recommend that you
+read through the basic technological components of BitShares in the other white
+papers~\cite{bts:general} (more papers to be published shortly).

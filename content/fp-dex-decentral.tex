@@ -1,31 +1,29 @@
-Decentralization gives BitShares robustness against failure. When a
-centralized exchange is compromised, millions of dollars and thousands of users
-are impacted all at once. In a decentralized system, any attack or failure
+Decentralization gives BitShares robustness against failure. When a centralized
+exchange is compromised, millions of dollars and thousands of users are
+impacted all at once. In a decentralized system, any attack or failure would
 impacts only a single user and their funds. Users are in control of their own
-security, which can be much better than any centralized entity.
+security, which is generally preferable to trusting a centralized entity.
 
 Furthermore, since KYC/AML verification can be outsourced via whitelists, a
-gateway that holds customers funds in terms of IOU backing fiat does not
-necessarily have direct access to your identity as was the case with
-Mt.Gox~\cite{mtgox} where thousands of identities have been stolen.
+gateway that holds customers funds for fiat backed IOU's would not necessarily
+need direct access to the customers' identities. This was an issue with
+Mt.Gox~\cite{mtgox}, where thousands of customers' identities were stolen.
 
-Since, there is a fixed cost associated with attempting to hack an exchange or
-an individual user, the difference is the size of the reward. If you place a
-multi-million dollar bounty on attacking a specific exchange, then you can
-expect a lot more effort to be put into compromising that exchange than would
-be put into attacking your individual account.
+Since there is a fixed cost associated with attempting to hack an exchange or
+an individual user, the difference between a centralized exchange and the DEX
+is the size of the reward. If someone places a multi-million dollar bounty on
+attacking a specific exchange, then you can expect a lot more effort to be put
+into compromising that exchange than would be put into attacking your
+individual account. 
 
-Within a given company, multiple people usually have access to customer funds.
-%
-%You may have heard the expression, "Three can keep a secret if two are dead".
-%
-Currently, all centralized exchanges end up depending upon multiple people who
-share the responsibility of guarding the secret key that controls the funds.
-If any one of them is compromised, everyone's funds are put at risk. Because of
-this, being individually responsible for maintaining your own secrets is the
-only safe option.
+Furthermore, within any centralized company multiple people usually have access
+to customer funds. Likewise, most centralized exchanges end up depending upon
+multiple people who share the responsibility of guarding the secret key that
+controls the funds. If any one of them is compromised, everyone's funds are put
+at risk. Because of this, being individually responsible for maintaining your
+own secrets is a much safer option.
 
-Accessing funds in BitShares can be even more secured by means of corporate
+Access to funds in BitShares can be further secured by means of corporate
 accounts that implement threshold signatures~\cite{bts:general,ripple:multisig}
 and validate only those transactions which signature weights (e.g. the CEO has
 more say than a worker) surpass a pre-defined threshold.

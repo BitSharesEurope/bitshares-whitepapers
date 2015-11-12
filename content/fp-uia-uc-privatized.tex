@@ -1,8 +1,7 @@
 \label{sec:uia:priv}
 
-A market-pegged crypto asset (a.k.a. SmartCoin) was the inspiration for
-BitShares. With BitShares 2.0, users can create their own derivatives (i.e.
-price-stable assets) with custom parameters designed to track the value of any
+Wit BitShares 2.0, users can create their own derivatives (i.e. price-stable
+assets) with custom parameters designed to track the value of any
 asset they can imagine by means of CFDs. The benefit of price-stable
 crypto-currencies is that they are \emph{fully collateralized}, and the issuer
 only needs to be trusted to appoint an honest set of independent
@@ -10,12 +9,13 @@ only needs to be trusted to appoint an honest set of independent
 
 Unlike deposit receipts, the value of a privatized SmartCoin is secured even if
 the issuer disappears (in this case, however, the asset may be declared
-non-complying by regulators since white- and black-lists cannot be updated any
+non-complying by regulators since white and blacklists cannot be updated any
 longer).
 
-To create a privatized SmartCoin, Bitshares provides many parameters that an
-issuer may tune. In addition to account whitelists, market restrictions, and
-transfer restrictions, the issuer of a private SmartCoin has control over
+To create a privatized SmartCoin, Bitshares provides several different
+parameters that an issuer may fine tune. In addition to account whitelists,
+market restrictions, and transfer restrictions, the issuer of a private
+SmartCoin has control over
 \begin{inparaenum}[(a)]
  \item Collateral Type,
  \item Initial Collateral Rate,
@@ -24,7 +24,7 @@ transfer restrictions, the issuer of a private SmartCoin has control over
  \item Price Feed Update Rate,
  \item Settlement Delay, %, and Daily Volume %% (???????)
  \item Global Forced Settlement, and
- \item Trading and Withdrawal Fees
+ \item Trading and Withdrawal Fees.
 \end{inparaenum}
 
 With these tools it is possible to emulate a pure contract for difference with
@@ -33,6 +33,6 @@ BitAssets 1.0 by having a 30 day delay on forced settlement
 (c.f.~\cref{sec:bitassets1}).
 
 Hence, any arbitrary financial indexes can be used for the price feed to mimic
-all manner of exotic assets. In addition with publicly auditable accounts even
-mixed asset funds can be modelled with the advantage of verifiable ownership
-claims by the fund manager.
+all manner of exotic assets. Also, because accounts are publicly auditable,
+even mixed asset funds can be modeled with the advantage of verifiable
+ownership claims by the fund manager.
