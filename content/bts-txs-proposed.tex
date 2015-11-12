@@ -1,0 +1,31 @@
+Additionally, the Graphene technology allows users to propose a transaction
+which requires approval of multiple accounts in order to execute.
+These transactions are only partially valid and do not \emph{execute} until
+they are completely valid.
+
+The user proposes a transaction, then signatory accounts add or remove their
+approvals from this operation. When a sufficient number of approvals have been
+granted, the operations in the proposal are used to create a virtual
+transaction which is subsequently evaluated. Even if the transaction fails, the
+proposal will be kept until the expiration time, at which point, if sufficient
+approval is granted, the transaction will be evaluated a final time. This
+allows transactions which will not execute successfully until a given time to
+still be executed through the proposal mechanism. The first time the proposed
+transaction succeeds, the proposal will be regarded as resolved, and all future
+updates will be invalid.
+
+The common use-case would be similar to so called \emph{multi-signature}
+transactions which must be signed by two parties. Classical crypto currencies
+had the issue that such \emph{proposed} transaction had to be communicated on
+separated channels until all required signatures have been collected.
+With BitShares, it is no possible to propose a transaction on the blockchain
+and have the required signatures be added by the respective parties.
+
+The proposal system in combination with corporate accounts allows for
+arbitrarily complex or recursively nested authorities. If a recursive authority
+(i.e. an authority which requires approval of \emph{nested} authorities on other
+accounts) is required for a proposal, then a second proposal can be used to
+grant the nested authority's approval. That is, a second proposal can be
+created which, when sufficiently approved, adds the approval of a nested
+authority to the first proposal. This multiple-proposal scheme can be used to
+acquire approval for an arbitrarily deep authority tree.

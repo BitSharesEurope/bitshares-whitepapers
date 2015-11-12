@@ -7,7 +7,7 @@ TMPFILES = *.aux *.log *.dvi *.bbl *.blg *.mtc* *.maf \
           $(shell find . -name "*.backup") \
           $(shell find . -name "auto")
 
-SRC=$(wildcard *.tex)
+SRC=$(wildcard bitshares-*.tex)
 BIBS=$(wildcard *.bib) $(wildcard *.bst)
 
 all: $(SRC:.tex=.pdf)
@@ -23,4 +23,4 @@ all: $(SRC:.tex=.pdf)
 	@bibtex $(shell basename $< .tex)
 
 clean:
-	@rm -rf $(TMPFILES) *.pdf
+	@rm -rf $(TMPFILES)

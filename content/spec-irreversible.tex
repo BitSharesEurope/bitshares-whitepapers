@@ -1,0 +1,29 @@
+Historically we have stated that a blockchain becomes irreversible after one
+round of block production with greater than 51\% participation. It turns out
+that this metric is too fuzzy because of noise in how witnesses are ordered. In
+an effort to provide stronger/absolute guarantees a new metric has been derived
+that determines the exact point at which a particular block becomes
+\emph{irreversible}. The algorithm to define the metric goes as follows:
+
+Sort $N$ witnesses by the last block number they signed, then take the highest
+block number that is lower than 66\% of all other witnesses. This will indicate
+that said block has been confirmed by 66\% of all witnesses and is clearly
+irreversible.
+
+This particular metric is dynamic and can respond to changes in the order of
+witnesses and is immune to situations where the network fragments into more
+than two pieces. In the event of a major disruption users are guaranteed that
+no block older than that number can ever be undone. 
+
+If we had only 17 witnesses and 3 second block confirmation interval, then this
+will take an average of 34 seconds. If we had 101 witnesses and 3 second blocks
+then this will take an average of 3.3 minutes for block to be
+\emph{irreversible},
+
+Having this metric is important to give everyone in the network peace of mind
+in the unlikely event that a software bug or network issue causes all witnesses
+to fall out of sync and gives a clear measure of when they are considered back
+in sync.
+
+Anyone accepting transactions as final prior to the most recent irreversible
+block is choosing to take some extra risk on their transaction.
