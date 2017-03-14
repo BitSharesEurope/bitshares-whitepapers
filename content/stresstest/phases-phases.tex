@@ -1,0 +1,16 @@
+The stress-test contained seven phrases. As can be seen, the last two phases
+change the block confirmation time and drastically reduce the maximum block
+size to ensure that blocks can at least be transferred in a timely manner.
+Whether blocks are propagated to the witnesses in time is out of our hands
+since we are running on a public and globally distributed Peer-2-Peer network.
+
+\begin{tabular}{c|c|c|c}
+ \textbf{phase} & \textbf{max. tx size} & \textbf{max. block size} & \textbf{block interval} \\\hline
+ 1 & \SI{1114}{bytes}  & \SI{1}{MB}  & \SI{3}{s} \\
+ 2 & \SI{1114}{bytes}  & \SI{5}{MB}  & \SI{3}{s} \\
+ 3 & \SI{1114}{bytes}  & \SI{10}{MB} & \SI{3}{s} \\
+ 4 & \SI{11014}{bytes} & \SI{10}{MB} & \SI{3}{s} \\
+ 5 & \SI{22014}{bytes} & \SI{10}{MB} & \SI{3}{s} \\
+ 6 & \SI{22014}{bytes} & \SI{2}{MB}  & \SI{2}{s} \\
+ 7 & \SI{22014}{bytes} & \SI{1}{MB}  & \SI{1}{s} \\\hline
+\end{tabular}

@@ -1,0 +1,43 @@
+\documentclass{btswhitepaper}
+\title{BitShares Testnet Stress-test}
+\author{
+ Fabian~Schuh
+ BitShares Europe, bitshares.eu\thanks{This work was supported by ChainSquad GmbH, BitShares-Munich and honorable members of the bitsharestalk.org community.}\\
+ Erlangen (Bavaria), Germany\\
+ \texttt{fabian@bitshares.eu}
+}
+\begin{document}
+\maketitle
+
+\begin{abstract}%
+ BitShares 2.0 is an industrial-grade decentralized platform built for
+ high-performance financial smart contracts. In order to show its capabilities
+ in the field, we have conducted a stress test on the public testnet. The
+ testnet has been deployed with the identical code base that is used for
+ the BitShares network and has nodes around the globe. A multi-phase
+ stress-test has been proposed and accepted that modifies the maximum
+ transaction size, maximum block size and block confirmation times in the live
+ network during the stress test. Validators have been kept up to date by means
+ of stake-weighted voting~\cite{bts:general}.
+\end{abstract}
+
+\section    { Introduction                       } \input { content/stresstest/intro              } 
+\section    { Testnet Setup                      } \input { content/stresstest/setup              } 
+\subsection { Software                           } \input { content/stresstest/software           } 
+\subsection { Validators                         } \input { content/stresstest/validators         } 
+\subsection { Reference Full Node and Seed Node  } \input { content/stresstest/refapi             } 
+\section    { Limiting Factors                   } \input { content/stresstest/limiting           }
+\section    { Phases of the Stress-Test          } \input { content/stresstest/phases             } 
+\subsection { Modified Blockchain Parameters     } \input { content/stresstest/phases-parameters  } 
+\subsection { Tested Parameter Sets              } \input { content/stresstest/phases-phases      } 
+\section    { Results                            } \input { content/stresstest/results            } 
+\subsection { Processed Transactions/Operations  } \input { content/stresstest/results-processed  } 
+\subsection { Transaction/Operation Throughput   } \input { content/stresstest/results-throughput } 
+\subsection { Memory and Processing Requirements } \input { content/stresstest/results-hardware   } 
+\section    { Conclusions                        } \input { content/stresstest/conclusion         } 
+\section    { Acknoledgements                    } \input { content/stresstest/ack                } 
+
+\bibliographystyle{IEEEtran}
+\bibliography{literature}
+%\nocite{*}
+\end{document}

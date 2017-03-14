@@ -1,0 +1,48 @@
+In this section we briefly discuss the limiting factors we have identified
+prior to the stress-test. For the sake of proper description, we first need to
+look into the distinction of \emph{blocks}, \emph{transactions}, and
+\emph{operations}.
+
+Similar to other blockchain technologies (i.e. Bitcoin), a single block may
+contain multiple transactions. Each transaction is signed by one or multiple
+entities and thus requires the validators to perform elliptic curve signature
+verification as well as public key recovery for authorization.
+
+In contrast to other blockchains, Graphene-based blockchain \emph{explicitly}
+allow to bundle multiple \emph{operations} into a single transaction. Similar
+to Bitcoin allowing to bundle multiple outputs, but with the options to execute
+different smart contracts offered by the blockchain subsequently. The easiest
+application is similar to Bitcoin's multi-send feature where a single user
+sends bitcoins to many addresses. In the case of Graphene/BitShares, the user
+would also sign a single transaction with a single signature but the
+transaction would carry many \texttt{transfer} operations. Additionally, a
+user may put a combination of \texttt{trade}/\texttt{transfer}/\texttt{borrow}
+operations (or any other) into a single transaction to ensure that they are
+executed subsequently.
+
+As can be seen, the main difference between bundling many transactions into a
+block and bundling many operations into a transactions is that in the latter
+case, the operations are guaranteed to be executed subsequently and that only a
+single authorization (e.g. signature) needs to be validated and verified.
+
+This distinction is important as our test results will clearly distinguish
+between the throughput of \emph{operations} and the throughput of
+\emph{transactions}.
+
+From a scalability point of view, the limiting factors are the time and
+resources that are required to validate a signature for a given transaction and
+the time and resources that are required to append a transactions to the
+blockchain and execute its corresponding smart contract/operation.
+
+Since the Graphene technology is built such that the signature validation can
+be done independent of the blockchain's current database state, the signature
+verification and key recovery can be trivially parallelized by means of a
+cluster or the use of a graphics processing unit (GPU). However, as the
+required software for this parallel verification was not available at the time
+of the stress-test, we expect the throughput to be significantly higher once we
+can validated on a GPU.
+
+For this reason, and because we want to see the limiting factors when applying
+validated transactions to the blockchain, parts of our test scenario are
+focused around producing transactions that carry hundreds of \emph{transfer}
+operations with just a single signature to be verified.

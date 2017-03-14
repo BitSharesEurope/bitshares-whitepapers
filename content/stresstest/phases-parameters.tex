@@ -1,0 +1,26 @@
+For our stress-test, we have decided to focus on three blockchain parameters only:
+
+\paragraph{Max. block size}
+This limit allows us to modify the size of the blocks that are considered valid
+by the network. For our test, the size will be between \SI{1}{MB} and
+\SI{10}{MB}. The limiting factor is the supported data rate and connectivity of
+the validating nodes since blocks need to be produce and broadcast within a
+certain time interval. A broadcast block needs to be received by the subsequent
+validator in time, otherwise the subsequent block cannot be linked to the
+expected previous block properly.
+
+\paragraph{Max. transaction size}
+Each \emph{block} can carry multiple \emph{transaction} and, in contrast to
+many other blockchain technologies, transactions on Graphene-based blockchains
+can carry multiple \emph{operations}. In our test, we assume that most of the
+operations are simple \emph{transfers} of size \SI{22}{bytes}. Together with
+the transaction header, a simple single-transfer (unsigned) transaction is
+\SI{36}{bytes} large. During the stress-test, we allow between \num{50} and
+\num{1000} transfer operations to be bundled into a single transaction.
+
+\paragraph{Block confirmation time}
+The block confirmation time is the expected time between blocks. At the
+beginning we will start with a \SI{3}{s} block interval and reduce it down to
+\SI{1}{s} at which point we expect the network to loose it's robustness as it
+is distributed globally and round-trip times together with the need to transmit
+non-empty blocks might take longer.

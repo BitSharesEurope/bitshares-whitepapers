@@ -1,0 +1,35 @@
+The Graphene Platform has been developed by Cryptonomex specifically for
+BitShares, went through many changes and has done its best to stay on top of
+blockchain technology. One of it's public forks, BitShares, is publicly traded
+for over 2 years and has yet to show it's full potential. For this reasons, we
+have deployed a testnet using the very same technology that BitShares is built
+on, specifically for testing algorithms, implementations and also scalability.
+
+Here, the term \emph{scalability} refers to the amount of transactions that can
+be applied to the blockchain at scale. Several factors need to be taken into
+account to correctly interpret any results obtained through testing. Among
+these are the specification of the deployed servers (CPU/RAM) that produce the
+blocks (validators), the interconnectivity of the nodes in the Peer-2-Peer
+network, the round-trip times and latency between nodes, as well as the
+geographical distance between nodes.
+
+Obviously, a globally distributed network represents the worst case scenario
+when it comes to latency between nodes limited mostly by the speed of light and
+the size of the planet. A network that is hosted locally can result in better
+overall performance but doesn't offer the same robustness and redundancy as a
+global network.
+
+The number of validators, furthermore, does not affect the throughput as long
+as all active validators can keep up with the requirements of the network. All
+active validators are treated equally and are given a slot to produce their
+blocks in each round~\cite{bts:general}. Increasing the number of validators
+(a.k.a. witnesses) comes with an increased robustness against server failures,
+but also results in a longer period to reach transaction
+finality~\cite{bts:general} which describes the absolute irreversibility of
+transactions after 2/3 of all validators approved a given block and its'
+transactions.
+
+The goal of the public stress-test performed on the graphene-based testnet was
+to identify the limiting factors and bottlenecks at scale with multiple parties
+involved. We furthermore wanted to demonstrate scalability of current state of
+the art blockchain technologies.
