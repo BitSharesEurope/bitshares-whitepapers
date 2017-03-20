@@ -3,11 +3,7 @@ prior to the stress-test. For the sake of proper description, we first need to
 look into the distinction of \emph{blocks}, \emph{transactions}, and
 \emph{operations}.
 
-Similar to other blockchain technologies (i.e. Bitcoin), a single block may
-contain multiple transactions. Each transaction is signed by one or multiple
-entities and thus requires the validators to perform elliptic curve signature
-verification as well as public key recovery for authorization.
-
+\paragraph{Transactions and Operations}
 In contrast to other blockchains, Graphene-based blockchain \emph{explicitly}
 allow to bundle multiple \emph{operations} into a single transaction. Similar
 to Bitcoin allowing to bundle multiple outputs, but with the options to execute
@@ -23,11 +19,17 @@ executed subsequently.
 As can be seen, the main difference between bundling many transactions into a
 block and bundling many operations into a transactions is that in the latter
 case, the operations are guaranteed to be executed subsequently and that only a
-single authorization (e.g. signature) needs to be validated and verified.
+single authorization (e.g.\ signature) needs to be validated and verified.
 
 This distinction is important as our test results will clearly distinguish
 between the throughput of \emph{operations} and the throughput of
 \emph{transactions}.
+
+\paragraph{Signature Verification}
+Similar to other blockchain technologies (i.e. Bitcoin), a single block may
+contain multiple transactions. Each transaction is signed by one or multiple
+entities and thus requires the validators to perform elliptic curve signature
+verification as well as public key recovery for authorization.
 
 From a scalability point of view, the limiting factors are the time and
 resources that are required to validate a signature for a given transaction and
@@ -46,3 +48,42 @@ For this reason, and because we want to see the limiting factors when applying
 validated transactions to the blockchain, parts of our test scenario are
 focused around producing transactions that carry hundreds of \emph{transfer}
 operations with just a single signature to be verified.
+
+\paragraph{Connectivity}
+Obviously, a globally distributed network represents the worst case scenario
+when it comes to latency between nodes limited mostly by the speed of light and
+the size of the planet. A network that is hosted locally can result in better
+overall performance but doesn't offer the same robustness and redundancy as a
+global network.
+
+\paragraph{Memory Requirements}
+In previous tests, we have identified a significantly increasing need for
+memory by the blockchain providing back-end software. This was caused mostly by
+so called \emph{plugins} that take care of historic events, such as account
+transactions history or the trading histories. Those plugins kept their data in
+memory for performance reasons. Once we disabled these plugins, the validating
+software only required a few hundred Megabytes of memory.
+
+\paragraph{Transaction Production}
+In order to stress-test a network, we need to produce actual stress which isn't
+too easy to achieve in the scale we needed it for our tests. Furthermore, we
+wanted to simulate a more or less realistic scenario in which multiple
+independent parties distributed on the globe produce transactions, each
+transaction trying to make it into the next block.
+
+For this reasons, we have asked the BitSharesTalk community to participate in
+the stress-testing not only by means of providng validation nodes across the
+planet, but also to produce the required stress.
+
+\paragraph{Peer-2-Peer Networking}
+The original codebase of Graphene has a hard-coded limit in its Peer-2-Peer
+networking code (not part of the blockchain consensus protocol), that prevented
+us from reaching more than \SI{1000}{tps} due to restriction in the amount of
+transactions being obtained through the Peer-2-Peer network. After increasing
+this limit way beyond what we wanted to achieve in our stress-test, we allow
+the validating nodes to obtain many thousand transactions per second from the
+Peer-2-Peer network.
+
+However, the Peer-2-Peer networking code has been optimized for a block
+interval of about \SI{10}{s} and thus leaves a lot of room for optimizations
+when talking about high-throughput at low latencies.
