@@ -1,5 +1,5 @@
 With our testing, we have seen that the code base is much more robust
-than we have expected. The block creation and block validation is
+than we had expected. The block creation and block validation is
 sufficiently fast so that we can run a blockchain with synchronous block
 confirmations times of \SI{1}{s} without validators dropping out too
 much.
@@ -7,11 +7,11 @@ much.
 The Peer-2-Peer code seems to be working nicely but results show that it
 could be one of the bottlenecks currently preventing us from going
 further. The computational resources of our validators have more than
-enough back-off for higher throughputs but the networking code wasn't
-able to provide sufficient data (e.g. transactions) to grow it during
+enough back-off for higher throughputs but the networking code was not
+able to provide sufficient data (e.g. transactions) to raise it during
 our stress-test.
 
-We have further identified another bottleneck w.r.t.\ transaction
+We have further identified another bottleneck with respect to transaction
 production. Signing transactions takes more resources and we will
 prepare properly for our next stress-test.
 

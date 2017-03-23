@@ -1,10 +1,10 @@
-For our stress-test, we have decided to focus on three blockchain parameters only:
+For our stress-test, we decided to focus on three blockchain parameters only:
 
 \paragraph{Max. block size}
-This limit allows us to modify the size of the blocks that are considered valid
+This limit allowed us to modify the size of the blocks that are considered valid
 by the network. For our test, the size will be between \SI{1}{MB} and
 \SI{10}{MB}. The limiting factor is the supported data rate and connectivity of
-the validating nodes since blocks need to be produce and broadcast within a
+the validating nodes since blocks need to be produced and broadcasted within a
 certain time interval. A broadcast block needs to be received by the subsequent
 validator in time, otherwise the subsequent block cannot be linked to the
 expected previous block properly.
@@ -15,21 +15,18 @@ many other blockchain technologies, transactions on Graphene-based blockchains
 can carry multiple \emph{operations}. In our test, we assume that most of the
 operations are simple \emph{transfers} of size \SI{22}{bytes}. Together with
 the transaction header, a simple single-transfer (unsigned) transaction is
-\SI{36}{bytes} large. During the stress-test, we allow between \num{50} and
+\SI{36}{bytes} large. During the stress-test, we allowed between \num{50} and
 \num{1000} transfer operations to be bundled into a single transaction.
 
 \paragraph{Block confirmation time}
 The block confirmation time is the expected time between blocks. At the
-beginning we will start with a \SI{3}{s} block interval and reduce it down to
-\SI{1}{s} at which point we expect the network to loose its robustness as it
-is distributed globally and round-trip times together with the need to transmit
-non-empty blocks might take longer.
+beginning we started with a \SI{3}{s} block interval and reduced it down to
+\SI{1}{s} at which point we expected the network to lose its robustness because of its global distribution, and because round-trip durations together with the need to transmit non-empty blocks might require more time.
 
 \bigskip
-These parameters can be changed throught a committee represents a
-dynamic multi-signature account. The members of the committee are voted
+These parameters can be changed by a committee decision that is manifested through a dynamic multi-signature account. The members of the committee are voted
 on by the shareholders and collectively (with 50\%+1), the committee can
-modify blockchain parameters by a single transactions. The procedure
+modify blockchain parameters by a single transaction. The procedure
 requires sufficient committee members to approve/co-sign a transaction
-that proposes to change parameters. After approval the parameters are
-changed with the next maintenance block.
+that proposes to change parameters. After approval, the parameters are
+changed during the next maintenance block.

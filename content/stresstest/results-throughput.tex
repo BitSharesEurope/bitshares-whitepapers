@@ -1,21 +1,21 @@
-After the stress-test, when the transactions and operations have been added to
-the blockchain, we have started looking into the blockchain off-line. Given
-that we have the transactions and operations tracked by the blockchain, we
-started by investing the overall results first.
+After the stress-test, when the transactions and operations had been added to
+the blockchain, we reviewed the blockchain off-line. Given
+that the transactions and operations are recorded on the blockchain, we
+started by investigatng the overall results first.
 
-As we can see from \cref{fig:tpsall} (top), we have multiple sections of
-actions. We can clearly see that most of the transactions started being
+As can be seen from \cref{fig:tpsall} (top), there are multiple periods of
+activity. Clearly, most of the transactions started being
 broadcast from 15:00 going forward with an average of approximately
 \SI{1000}{transactions per block} afterwards. We also notice that the
-throughput is not constant during the stress-test which can be explained by the
+throughput was not constant during the stress-test which can be explained by the
 transactions requiring some time to propagate through the Peer-2-Peer network.
 
 We can further see in \cref{fig:tpsall} (bottom), that the participants have
 been constantly trying to modify their spam production method (increase number
 of transactions vs.\ bundling more operations per transaction) until a maximum
 of process operations per block was reached at about 16:40. Afterwards, the
-participants have been asked to increase the number of created transactions
-instead which is why the process operations per block decreased later on.
+participants were asked to increase the number of created transactions
+instead which is why the processed operations per block decreased later on.
 
 \begin{figure}[!htp]
  \centering
@@ -24,7 +24,7 @@ instead which is why the process operations per block decreased later on.
  \label{fig:tpsall}
 \end{figure}
 
-Most interestingly, we have several short peaks of processed transactions and
+Most interestingly, we observed several short peaks of processed transactions and
 operations during the whole stress-test. As it turned out, the reasons of those
 peaks can be explained by a single participant who decided to use his
 block validating node to produce transactions. By this, he skipped the
@@ -51,7 +51,7 @@ skipping the networking.
 
 Finally, the results in \cref{fig:ops} show that the blockchain was able to
 process an average of over \SI{8000}{operations per block} with quite high
-peaks and a non-regular throughput per block.
+peaks and an irregular throughput per block.
 
 \begin{figure}[!htp]
  \centering
