@@ -6,7 +6,7 @@ look into the distinction of \emph{blocks}, \emph{transactions}, and
 \paragraph{Transactions and Operations}
 In contrast to other blockchains, Graphene-based blockchain \emph{explicitly}
 allow to bundle multiple \emph{operations} into a single transaction. Similar
-to Bitcoin allowing to bundle multiple outputs, but with the options to execute
+to Bitcoin allowing to bundle multiple outputs, but with the option to execute
 different smart contracts offered by the blockchain sequentially. The easiest
 application is similar to Bitcoin's multi-send feature where a single user
 sends bitcoins to many addresses. In the case of Graphene/BitShares, the user
@@ -42,7 +42,7 @@ verification and key recovery can be trivially parallelized by means of a
 cluster or the use of a graphics processing unit (GPU). However, as the
 required software for this parallel verification was not available at the time
 of the stress-test, we expect the throughput to be significantly higher once we
-can validated on a GPU.
+can be validated on a GPU.
 
 For this reason, and because we want to see the limiting factors when applying
 validated transactions to the blockchain, parts of our test scenario are
@@ -58,7 +58,7 @@ global network.
 
 \paragraph{Memory Requirements}
 In previous tests, we have identified a significantly increasing need for
-memory by the blockchain providing back-end software. This was caused mostly by
+memory by the blockchain providing back-end software. This was mostly caused by
 so called \emph{plugins} that take care of historic events, such as account
 transactions history or the trading histories. Those plugins kept their data in
 memory for performance reasons. Once we disabled these plugins, the validating

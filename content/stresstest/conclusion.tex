@@ -13,7 +13,12 @@ our stress-test.
 
 We have further identified another bottleneck with respect to transaction
 production. Signing transactions takes more resources and we will
-prepare properly for our next stress-test.
+prepare properly for our next stress-test. This result was confirmed in
+a later private testnet where 36 cores have been activated during the
+test sequentially. The result was that the blockchain easily dealt with
+all of the produced transactions and the throughput increasesed
+accordingly, each time additional cores have been added to transaction
+production.
 
 To conclude, the current software stack still has a few limitations and
 edges that need to be optimized in order to improve scalability further,

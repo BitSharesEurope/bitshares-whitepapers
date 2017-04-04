@@ -18,12 +18,12 @@ header which also contains the time stamp. Little variations are to be expected
 due to slightly inaccurate synchronization of the local time, while large
 deviations indicate one or multiple validators to have missed their blocks. The
 graphs shown in the figure are averaged over \SI{100}{blocks} to reduce the
-noise in the figure.
+noise.
 
 We can see that, during the stress-test, multiple different block confirmation
 times were tested, starting with \SI{5}{s}, going down to \SI{2}{s}, then
 up to \SI{10}{s} until we decided to also test \SI{1}{s} block confirmation
-times. Unfortunately, we observed some witnesses not producing during large
+time. Unfortunately, we observed some witnesses not producing during large
 parts of the stress-test which is why the averages are above the target rates
 most of the time. For our next stress-test we plan to be more strict in
 replacing witnesses when they miss block production blocks.
@@ -35,6 +35,8 @@ replacing witnesses when they miss block production blocks.
  \label{fig:time-1se}
 \end{figure}
 
-In \cref{fig:time-1sec} highlights the period when the block confirmation time was reduced to \SI{1}{s}. We can see that most of the blocks were produced in time with only up to 3 validators not having produced in time
-(i.e. the black peaks going up to at most \SI{4}{s}). This came as a big
-surprise to us as we had expected a higher block-miss rate all together.
+In \cref{fig:time-1sec} highlights the period when the block confirmation time
+was reduced to \SI{1}{s}. We can see that most of the blocks were produced in
+time with only up to 3 validators not having produced in time (i.e. the black
+peaks going up to at most \SI{4}{s}). This came as a big surprise to us as we
+had expected a higher block-miss rate all together.
