@@ -16,19 +16,19 @@
  \begin{tikzpicture}[>=latex,remember picture]
 
   %% BOX content
-  \node[draw=btslight] (d) {\textbf{CFD}};
+  \node[draw=btslight] (d) {\textbf{collateralized loan}};
   \node[at=(d),above right=1cm] (s) {\textbf{short position}};
   \node[at=(d),below right=1cm] (l) {\textbf{long position}};
   \draw (s) edge[->,bend left,shorten >=3mm] node[pos=0.3,right=1mm,font=\footnotesize,align=center](t1){\textbf{1.} put\\collateral} (d.east);
   \draw (d.north) edge[->,bend left,shorten <=3mm] node[pos=0.7,left=1mm,font=\footnotesize,align=center](t2){\textbf{2.} obtain\\bitUSD} (s);
   \draw (s.south east) edge[->,bend left,shorten <=3mm] node[pos=0.7,left=1mm,font=\footnotesize,align=center](t3){\textbf{3.} sell\\bitUSD} (l.north east);
 
-  %% CFD box
-  \node[fit=(s) (l) (d) (t1) (t2) (t3), inner xsep=2ex, draw=btsdark] (cfd) {};
-  \node[rotate=90,at=(cfd.east),anchor=north] (logo) {\includegraphics[width=2.5cm]{btslogo1.png}};
+  %% Loan box
+  \node[fit=(s) (l) (d) (t1) (t2) (t3), inner xsep=2ex, draw=btsdark] (loan) {};
+  \node[rotate=90,at=(loan.east),anchor=north] (logo) {\includegraphics[width=2.5cm]{btslogo1.png}};
 
   %% BTS box
-  \node[fit=(cfd) (logo), inner xsep=2ex, draw] (bts) {};
+  \node[fit=(loan) (logo), inner xsep=2ex, draw] (bts) {};
 
   \node[draw=gray,text=gray,align=center,at=(bts.west),anchor=south,xshift=-2cm,rotate=90] (ext) {\textbf{external}\\\textbf{exchanges}};
   \draw[->,gray] (ext) -- node[above,font=\footnotesize,text=btslight] {BTS/USD} (bts);
