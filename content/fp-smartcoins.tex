@@ -12,7 +12,7 @@ highly speculative and unregulated markets. Although professional traders tend
 to appreciate this volatility, so far it has hindered the widespread adoption
 of cryptocurrency as a \emph{practical payment solution}.
 
-One approach to creating a \emph{price-stable} asset would be for an issuer to
+One approach to creating a \emph{price-stable} token would be for an issuer to
 accept deposits in return for a digital token as a \emph{claim receipt} (an "I
 Owe You"). With this approach, the token would trade in the market as having
 the same value as the underlying asset, minus any perceived credit risk
@@ -21,27 +21,16 @@ it is far less secure as an instrument for long term savings. History has
 repeatedly proven that many issuers will eventually go bankrupt due to
 incompetence, government intervention or outright fraud.
 
-%%%%%%%%%%%%%%%%
-% MPA
-%%%%%%%%%%%%%%%%
-On the BitShares Blockchain, there is an alternative approach to creating \emph{price
-stable} digital assets by using a cryptocurrency as \emph{collateral} in a
-\emph{contract for difference} (CFD)~\cite{def:cfd}. With this approach, two
-parties take opposite sides of a trade, where one party is guaranteed price
-stability, and the other party is granted leverage. This works as long as
-sufficient collateral exists, and the contract can be settled by an honest 3rd
-party with a price feed
-
-BitShares is a counterparty-trust free platform for financial smart contracts
-which operates over the internet, and offers a set of \emph{financial
-instruments} that includes CFDs. These contracts are \emph{derivative
-instruments}, and as such they fall under the wider definition of financial
-instruments. Financial instruments can be defined as \emph{tradable} assets of
-\emph{any} kind, including cash, proof of ownership receipts, or a contractual
-right to receive or deliver an underlying instrument, commodity, option, etc.
-Additionally, several other digital financial instrument tools are currently
-available on BitShares, such as Market Pegged Assets (MPA) or ``SmartCoins''
-which represent a \emph{derivative} with fiat currency, gold, or even other
-cryptocurrencies as the underlying asset. These SmartCoins derive their value
-from contracts based on the performance of the BitShares base token (BTS).
-Smart coins will be presented in detail in \cref{sec:mpa}. 
+On the BitShares Blockchain, there is an alternative approach to creating
+\emph{price stable} digital tokens by using a cryptocurrency as
+\emph{collateral} in a collateralized counterpartyrisk-free loan implemented as
+smart contract. Here, the smart contract becomes the lender and requires a
+security from the borrow in form of another digital token. In case of bitUSD,
+anyone can borrow new bitUSD from the blockchain by providing sufficient BTS as
+collateral. The smart contract autonomously and transparently ensure that each
+bitUSD in existance is backed by more than 100\% (mostly even more than 175\%)
+of its value in BTS. Same holds true for bitCNY. It is worth noting that the
+smartcoin framework allows for customizing many of the parameters to improve
+behavior and stay flexible in the longer-term. Given the nature of smart
+contracts on a public blockchain, all actions are transparent and auditable.
+Acountability is baked into the protocol.
