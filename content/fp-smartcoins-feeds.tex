@@ -1,0 +1,98 @@
+\label{sec:feeds}
+
+The blockchain needs to be aware of a fair valuation of the token and
+its collateral (think, the value of BTS in USD) in order to enable
+margin calls and allow for settlements to convert tokens into the
+collateral token (in most cases BTS) at a fair price.
+
+A feed constitutes multiple attributes including
+\begin{description}
+ \item[price] of the token with respect to the collateral of the smartcoin,
+  e.g., the BTS price in USD.
+ \item[maximum short squeeze ratio]: Given that margin calls are force to buy
+  in the markets, this ratio defines the upper bound for the premium that needs
+  to be paid in case of a margin call.
+ \item[maintenance collateral ratio]: This parameter defines the minimum
+  required collateral as a ratio between the token and the value of the
+  collateral denoted in token. If the collateral ratio of any call order (a
+  borrow position) comes below this ratio, a margin call for the call order is
+  triggered.
+\end{description}
+
+These parameters are in the hands of the group selected by the owner of the
+smartcoin. Only those are allowed to produce valid price feeds for a particular
+smartcoin. In case of \emph{bitUSD}, \emph{bitCNY} and others, the owner of the
+token is the committee, a group of people elected by the BTS holders. Here, the
+group of feed producers coincides with the group of block producers (i.e.
+\emph{witnesses})
+
+These $N$ trusted witnesses can be constantly reviewed as all feeds are put on
+the blockchain. Hence, misbehaving witnesses can be identified, fired from
+their revenue generating witness position and lose their reputation.
+
+Additionally, to prevent manipulation of the price feed (and the other
+parameters), $N$ witnesses have to be elected that can all produce their feeds
+independently. Having a set of $N$ feeds $p_i,\;1<i<N$ for an arbitrary MPA on
+the blockchain, the protocol obtains a value $\tilde{p}$ by the use of the
+\emph{median} according to:
+\begin{align}
+ x &= \operatorname{sort}(p[i])\\
+ \tilde p &=\begin{cases}
+   x[\frac{N+1}{2}]                                               & N \text{ odd}\\
+   \frac {1}{2}\left(x[{\frac{N}{2}}] + x[\frac{N}{2} + 1]\right) & N \text{ even.}
+ \end{cases}
+\end{align}
+Hence, the price, as well as the other parameters, are resistant against
+misbehaving witnesses in that only a majority of feed publishers can manipulate
+the outcome of the median. In practice, any unintentional feed \emph{error} is
+thus balanced around the median value.
+
+
+
+
+%% Continue here
+
+
+Obviously, the shareholders are required to constantly monitor the published
+prices of their witnesses and should make a public note about any
+discrepancies. This is similar to traditional \emph{quality management} for the
+\emph{Smart Coin} products (e.g. bitUSD) and BitShares system can offer a paid
+position to perform this service.
+
+There is always concern of price manipulation. Someone with a large amount of
+money on both sides of a trade can use their funds to manipulate the markets
+and thus the price feed. If the amount of money they lose manipulating the
+markets is less than the amount of money they can gain by manipulating the
+price feed, then it will be profitable to manipulate the market at the expense
+of either the BitUSD longs or the shorts. A low collateralized short that sees
+a large force or global settlement order requested can attempt to manipulate
+the markets and thus the feed against the BitUSD holder.
+
+The risk of price manipulation should be priced into the premium on BitUSD
+charged by the shorts, and thus should already be priced into the market. If
+price manipulation became a serious problem that caused very high premiums,
+then it could be addressed by the price feed producers, who can adopt a moving
+average over wider time windows to increase the difficulty of short-term
+manipulation. A variety of algorithms could be used to estimate a \emph{fair
+price}\footnote{``fair'' for honest market participants.} that keeps BitUSD
+valued at least \$1.00.
+
+In practice, a feed producer can observe the BitUSD:USD market as an indicator
+on which way to adjust the feed. Generally speaking, the strategy that the feed
+producers adopt for controlling the feed should be public knowledge, because
+the shorts will ultimately rely on it. For the feed producers to change
+strategies in unpredictable ways could cause losses to both longs and shorts.
+Fortunately, it is assumed that shareholders primarily approve complying feed
+producers and quickly fire misbehaving feed providers.
+
+
+% parameters:
+%%%%%%%%%%%%%%%
+% maximum_short_squeeze_ratio
+% maintenance_collateral_ratio
+% price
+% minumin feeds
+% force_settlement_delay_sec
+% force_settlement_offset_percent
+% maximum_force_settlement_volume
+% short_backing_asset

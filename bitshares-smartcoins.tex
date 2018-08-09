@@ -8,65 +8,53 @@
 
 \begin{abstract}%
 
- With the current growth of the crypto- ecosystem in general, and the
- growth of crypto- currencies like BTC (Bitcoin Blockchain) and ETH
- (Ethereum Blockchain) in particular, the general public as well as
- traditional (old economy) markets finally take notice of blockchain
- technology and its application(s) in the financial technology and other
- sectors. A well-known obstacle to greater adoption of crypto-currencies
- like BTC (Bitcoin) as a medium of payment is the high volatility of its
- exchange value, due to its limited supply. As a consequence, the unit
- price varies (sometimes significantly) over short periods of time. This
- makes BTC unpractical for merchants that need to pay their suppliers in
- cash, especially in bearish markets where this currency risk can ruin a
- business.
-
- A crypto-currency, with the properties and advantages of Bitcoin, that
- is capable of maintaining price parity with a globally adopted currency
- (e.g. U.S. Dollar), has high utility for convenient and cheap commerce.
-
  This document serves as a detailed and accurate description of so called
  \emph{smartcoins}, often also referred to as \emph{bitassets} or \emph{market
  pegged assets}. These refer to special kinds of tokens that are governed
- autonomously and transparently by the blockchain's internal smart contracts.
- Prominent examples are \textbf{bitUSD} and \textbf{bitCNY} which provide
- automation and incentives for market participants to maintain a high
- correlation with the value of U.S. Dollar or CNY.
+ autonomously and transparently by the blockchain's internal smartcoin
+ framework - a set of smart contracts. This framework enables a variety of
+ interesting token types. Prominent examples are \textbf{bitUSD} and
+ \textbf{bitCNY} which provide automation and incentives for market
+ participants to maintain a high correlation with the value of U.S. Dollar or
+ CNY.
 
 \end{abstract}
 
-\section       { Introduction                                     } \input { content/fp-smartcoins             } 
-\section       { Terminology                                      } \input { content/fp-smartcoins-terminology } 
+\section       { Introduction                                     } \input { content/fp-smartcoins             }
+\section       { Terminology                                      } \input { content/fp-smartcoins-terminology }
 
-\section       { Smartcoin                                        } \input { content/fp-mpa                    } 
-\subsection    { Price Stability                                  } \input { content/fp-mpa-stab               } 
-\subsubsection { Definition of Price Stability                    } \input { content/fp-mpa-stab-def           } 
-\subsubsection { BitAssets 1.0: Historical Lessons                } \input { content/fp-mpa-stab-bts1          } 
-\subsubsection { BitAssets 2.0: Evolving a Stable Crypto Currency } \input { content/fp-mpa-stab-floor         } 
-\subsection    { Autonomy and Transparency                        } 
-\subsection    { Parameterization                                 } 
-\subsection    { Ownership and Responsibilities                   }
+%\section       { Smartcoin Tokens                                 } \input { content/fp-smartcoins-token       }
+%\subsection    { Autonomy and Transparency                        } \input { content/fp-smartcoins-autonomy    }
+%\subsection    { Ownership and Responsibilities                   } \input { content/fp-smartcoins-ownership   }
 
-\section       { Mechanics                                        } \input { content/fp-mpa-create             } 
-\subsection    { Face Value                                       } 
-\subsection    { Price Feeds                                      } \input { content/fp-mpa-stab-feed          } 
-\subsubsection { Price Manipulation                               } \input { content/fp-mpa-manipulation       } 
-\subsection    { Collateralization                                } 
-\subsection    { Settlement                                       } 
-\subsection    { Margin Calls                                     } 
-\subsubsection { Calling for insufficient collateral }
-\subsubsection { Margin Call Orders }
-\subsubsection { Order of Filling }
-\subsection    { Global Settlement                                } \input { content/fp-mpa-blackswan          } 
+\section       { Mechanics                                        } \input { content/fp-smartcoins-mechanics   }
+\subsection    { Feeds                                            } \input { content/fp-smartcoins-feeds       }
+\subsection    { Collateralization                                } \input { content/fp-smartcoins-collateral  }
+\subsection    { Call Orders                                      } \input { content/fp-smartcoins-call-orders }
+\subsection    { Settlement                                       } \input { content/fp-smartcoins-settlement  }
 
-\subsection    { Risks                                            } \input { content/fp-mpa-risk               } 
-\subsubsection { Collateral Risk                                  } \input { content/fp-mpa-risk-coll          } 
-\subsubsection { Counterparty Risk                                } \input { content/fp-mpa-risk-counter       } 
-\subsubsection { Systemic Risk                                    } \input { content/fp-mpa-risk-system        } 
-\subsection    { Privatized SmartCoins                            } \input { content/fp-mpa-privatized         } 
+\subsection    { Margin Calls                                     } \input { content/fp-smartcoins-margincall  }
+\subsubsection { Calling for insufficient collateral              } \input { content/fp-smartcoins-margincall1 }
+\subsubsection { Margin Call Orders                               } \input { content/fp-smartcoins-margincall2 }
+\subsubsection { Order of Filling                                 } \input { content/fp-smartcoins-margincall3 }
+
+\subsection    { Global Settlement                                } \input { content/fp-smartcoins-blackswan   }
+\subsubsection { Call Position Migration                          } \input { content/fp-smartcoins-swan-order  }
+\subsubsection { Reviving from Global Settlement                  } \input { content/fp-smartcoins-revive      }
+
+\subsection    { Risks                                            } \input { content/fp-mpa-risk               }
+\subsubsection { Collateral Risk                                  } \input { content/fp-mpa-risk-coll          }
+\subsubsection { Counterparty Risk                                } \input { content/fp-mpa-risk-counter       }
+\subsubsection { Systemic Risk                                    } \input { content/fp-mpa-risk-system        }
+
+\section       { Use Case: Price Stability                        } \input { content/fp-mpa-stab               }
+\subsection    { Definition of Price Stability                    } \input { content/fp-mpa-stab-def           }
+\subsection    { BitAssets 1.0: Historical Lessons                } \input { content/fp-mpa-stab-bts1          }
+\subsection    { BitAssets 2.0: Evolving a Stable Crypto Currency } \input { content/fp-mpa-stab-floor         }
+\subsection    { Face Value                                       } \input { content/fp-smartcoins-facevalue   }
 
 
-\section        { Conclusion                                       } \input { content/fp-smartcoins-conc     }
+\section       { Conclusion                                       } \input { content/fp-smartcoins-conc        }
 \bibliographystyle{IEEEtran}
 \bibliography{literature}
 \end{document}

@@ -1,3 +1,4 @@
+\label{sec:mpa}
 %%%%%%%%%%%%%%%%
 % Smartcoins
 %%%%%%%%%%%%%%%%
@@ -5,32 +6,40 @@ In today's world, crypto-currencies are unique because they are the only type
 of digital currency that does not represent a corresponding counterparty
 liability. Instead, they are \emph{fungible} \emph{decentralized} tokens, whose
 value is derived from the amount of practical utility (or potential future
-utility) perceived by the network of users that support and trade in them. Not
-surprisingly, most cryptocurrencies suffer from high levels of price volatility
-due to many complex factors, such as constantly shifting public perception and
-highly speculative and unregulated markets. Although professional traders tend
-to appreciate this volatility, so far it has hindered the widespread adoption
-of cryptocurrency as a \emph{practical payment solution}.
+utility) perceived by the network of users that support and trade in them.
 
-One approach to creating a \emph{price-stable} token would be for an issuer to
-accept deposits in return for a digital token as a \emph{claim receipt} (an "I
-Owe You"). With this approach, the token would trade in the market as having
-the same value as the underlying asset, minus any perceived credit risk
-associated with the issuer. While this approach may work well for settlements,
-it is far less secure as an instrument for long term savings. History has
-repeatedly proven that many issuers will eventually go bankrupt due to
-incompetence, government intervention or outright fraud.
+Not surprisingly, most cryptocurrencies suffer from high levels of price
+volatility due to many complex factors, such as constantly shifting
+public perception and highly speculative and unregulated markets.
+Although professional traders tend to appreciate this volatility, so far
+it has hindered the widespread adoption of cryptocurrency as a
+\emph{practical payment solution}. A cryptocurrency that has the
+properties and advantages of Bitcoin, but is also capable of maintaining
+price parity with a globally adopted currency (e.g. U.S. dollar), would
+have incredible high utility for convenient and fast e-commerce.
 
-On the BitShares Blockchain, there is an alternative approach to creating
-\emph{price stable} digital tokens by using a cryptocurrency as
-\emph{collateral} in a collateralized counterpartyrisk-free loan implemented as
-smart contract. Here, the smart contract becomes the lender and requires a
-security from the borrow in form of another digital token. In case of bitUSD,
-anyone can borrow new bitUSD from the blockchain by providing sufficient BTS as
-collateral. The smart contract autonomously and transparently ensure that each
-bitUSD in existance is backed by more than 100\% (mostly even more than 175\%)
-of its value in BTS. Same holds true for bitCNY. It is worth noting that the
-smartcoin framework allows for customizing many of the parameters to improve
-behavior and stay flexible in the longer-term. Given the nature of smart
-contracts on a public blockchain, all actions are transparent and auditable.
-Acountability is baked into the protocol.
+The BitShares Blockchain tries to solving this problem by introducing
+smartcoins - a framework for collateralized counterpartyrisk-free loans
+that enable token that highly correlate with the valuation of an
+underlying asset, such as U.S. Dollar.
+
+These loan contracts are implemented as smart contracts and strictly
+follow pre-defined and publicly known behavior. In the case of our
+collateralized loans, the smart contract becomes the lender and requires
+a security from the borrow in form of another digital token. Hence,
+anyone can borrow new bitUSD from the blockchain by providing sufficient
+BTS as collateral. The smart contract autonomously and transparently
+ensure that each bitUSD in existance is backed by more than 100\%
+(mostly even more than 175\%) of its value in BTS. Same holds true for
+bitCNY. It is worth noting that the smartcoin framework allows for
+customizing many of the parameters to improve behavior and stay flexible
+in the longer-term. Given the nature of smart contracts on a public
+blockchain, all actions are transparent and auditable. Acountability is
+baked into the protocol.
+
+What makes smartcoins unique is that they are free from counterparty
+risk even though they resemble a loan backed by collateral. This is
+achieved by allowing the network itself (implemented as a software
+protocol) to be responsible for securing the collateral and performing
+settlements and margin calls to ensure sufficient backing. This will be
+described in greater detail below.

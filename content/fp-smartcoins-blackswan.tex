@@ -1,0 +1,16 @@
+\label{sec:blackswan}
+
+All guarantees of SmartCoins are subject to the caveat that a SmartCoin can
+never be worth more than the collateral backing the \emph{least-collateralized}
+short position. All collateral above this maintenance collateral limit is
+effectively meaningless when it comes to enforcing the ``peg''. In normal
+market conditions, the value of the collateral is always more than sufficient,
+but, from time to time, markets can rapidly revalue the collateral.
+
+If this revaluation happens faster than the short positions can be forced to
+cover, then all SmartCoins are liquidated at the exchange rate of the least
+collateralized short position. This is called a \emph{black swan} event since
+the least collateralized position is unable to buy enough BitUSD to cover. At
+this point, all positions are automatically force settled and any additional
+collateral maintained by the shorts is returned to them. This is similar to an
+insolvent bank converting its deposits to equity.
