@@ -23,23 +23,13 @@ smartcoins - a framework for collateralized counterpartyrisk-free loans
 that enable token that highly correlate with the valuation of an
 underlying asset, such as U.S. Dollar.
 
-These loan contracts are implemented as smart contracts and strictly
-follow pre-defined and publicly known behavior. In the case of our
-collateralized loans, the smart contract becomes the lender and requires
-a security from the borrow in form of another digital token. Hence,
-anyone can borrow new bitUSD from the blockchain by providing sufficient
-BTS as collateral. The smart contract autonomously and transparently
-ensure that each bitUSD in existance is backed by more than 100\%
-(mostly even more than 175\%) of its value in BTS. Same holds true for
-bitCNY. It is worth noting that the smartcoin framework allows for
-customizing many of the parameters to improve behavior and stay flexible
-in the longer-term. Given the nature of smart contracts on a public
-blockchain, all actions are transparent and auditable. Acountability is
-baked into the protocol.
+% Terminology
+In this paper we refer to \emph{smartcoins} as a means for customization of
+tokens within a \emph{framework} of smart contracts and parameters as offered
+by the BitShares Blockchain. In literature, smartcoins are also often referred
+to as \emph{bitassets} or \emph{market pegged asset}.
 
-What makes smartcoins unique is that they are free from counterparty
-risk even though they resemble a loan backed by collateral. This is
-achieved by allowing the network itself (implemented as a software
-protocol) to be responsible for securing the collateral and performing
-settlements and margin calls to ensure sufficient backing. This will be
-described in greater detail below.
+As such, tokens like \emph{bitUSD}, \emph{bitCNY} and others are merely
+cases specific to one particular use. It is worth noting that
+price-stable tokens are only one subset of possiblities within the
+smartcoin framework.

@@ -1,0 +1,25 @@
+There is always concern of price manipulation. Someone with a large amount of
+money on both sides of a trade can use their funds to manipulate the markets
+and thus the price feed. If the amount of money they lose manipulating the
+markets is less than the amount of money they can gain by manipulating the
+price feed, then it will be profitable to manipulate the market at the expense
+of either the BitUSD longs or the shorts. A low collateralized short that sees
+a large force or global settlement order requested can attempt to manipulate
+the markets and thus the feed against the BitUSD holder.
+
+The risk of price manipulation should be priced into the premium on BitUSD
+charged by the shorts, and thus should already be priced into the market. If
+price manipulation became a serious problem that caused very high premiums,
+then it could be addressed by the price feed producers, who can adopt a moving
+average over wider time windows to increase the difficulty of short-term
+manipulation. A variety of algorithms could be used to estimate a \emph{fair
+price}\footnote{``fair'' for honest market participants.} that keeps BitUSD
+valued at least \$1.00.
+
+In practice, a feed producer can observe the BitUSD:USD market as an indicator
+on which way to adjust the feed. Generally speaking, the strategy that the feed
+producers adopt for controlling the feed should be public knowledge, because
+the shorts will ultimately rely on it. For the feed producers to change
+strategies in unpredictable ways could cause losses to both longs and shorts.
+Fortunately, it is assumed that shareholders primarily approve complying feed
+producers and quickly fire misbehaving feed providers.

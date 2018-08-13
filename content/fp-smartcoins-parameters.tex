@@ -1,0 +1,31 @@
+In this section, we briefly describe which parameters are available to tune
+custom smartcoins and their behavior in the market.
+
+\begin{description}
+ \item[short backing asset]: This defines the asset that has to be used for
+       securing the loan. In other words, this represents the collateral asset.
+       Once the smartcoin has been registered, this parameter may only be
+       changed if the supply is zero.
+ \item[feed lifetime]: The life time of a price feed as provided by oracles.
+       Once a feed is older than this, it will be ignored. This ensure that
+       feed producers need to publish feeds frequently.
+ \item[minimum feeds]: The required minimum number of unique feed producers that
+       published a valid price feeds to enable the smartcoin. If less than
+       these are available, borrowing and margin calls (see below) are
+       disabled.
+ \item[force settlement delay sec]: Those that hold a smartcoin (e.g. bitUSD)
+       can settle their smartcoin (see below) for their pro-rata share in the
+       collateral.
+       % This behaves similar to a debt equity swap if BTS = equity :D
+ \item[force settlement offset percent]: This offset allows to reduce the
+       percentage of collateral that can be obtained through settlement.
+       If this is set to \SI{0}{\percent}, then a settlement of \SI{1}{bitUSD}
+       will result in BTS worth \SI{1}{USD} (according to price feed) after the
+       force settlement delay.
+ \item[maximum force settlement volume]: This parameter limits the maximum
+       amount of smartcoins that can be settled per maintenance interval.
+\end{description}
+
+These parameters are tied to the smartcoin and can be modified by its manager.
+The prominent smartcoins bitUSD and bitCNY are managed by the BitShares
+Committee -- a BTS voter approved group of trusted individuals.

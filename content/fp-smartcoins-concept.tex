@@ -1,0 +1,28 @@
+The general concept of a smartcoins is to mimic the dynamics of
+\emph{collateralized loans}.
+
+These loan contracts are implemented as smart contracts and strictly follow
+pre-defined and publicly known behavior. In the case of our collateralized
+loans, the smart contract becomes the lender and requires a security from the
+borrow in form of another digital token to protect against loan default.
+
+Hence, anyone can borrow from the blockchain by providing sufficient
+collateral. The smart contract autonomously and transparently ensure that each
+loaned unit in existance is backed by more than \SI{100}{\percent} (mostly even
+more than \SI{175}{\percent}) of its value by the collateral.
+
+Given the nature of smart contracts on a public blockchain, all actions are
+transparent and auditable. Acountability is baked into the protocol.
+
+What makes smartcoins unique is that they are free from counterparty risk even
+though they resemble a loan backed by collateral. This is achieved by allowing
+the network itself (implemented as a software protocol) to be responsible for
+securing the collateral and performing settlements and margin calls to ensure
+sufficient backing. This will be described in greater detail below.
+
+Let's take bitUSD as an example. The parameters (see below) of bitUSD require
+a minimum collateral of \SI{175}{\percent} in BTS tokens at all times. This
+means that, in order to borrow \SI{1}{bitUSD} from the smart contract, one
+needs to provide BTS worth \SI{1.75}{USD} as collateral. At the time the bitUSD
+is borrowed, the BTS used as collateral are locked away and only returned to
+the user when the debt is cleared.
