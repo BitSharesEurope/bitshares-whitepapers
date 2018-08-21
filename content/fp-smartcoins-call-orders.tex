@@ -1,1 +1,30 @@
 \label{sec:callorder}
+
+A \emph{call order} is the technical term for an order of a collateralized
+loan. When borrowing from the blockchain by providing collateral, a call order
+is created and tied to the user's account.
+
+This call order allows to not only keep track of loans but to also modify the
+amount of collateral provided to the contract. When modifying the amount of
+collateral, the only limitation is that the collateral ratio is kept above the
+collateral maintenance ratio.
+
+The collateral ratio can be derived by
+\begin{align*}
+ \text{r} = \frac{\text{c}}{\text{d}} \;\cdot\; p
+\end{align*}
+
+with $d$ denoting the amount of the loan (e.g. \SI{100}{USD} as bitUSD), $c$ being the
+amount of collateral (e.g. \SI{2500}{BTS}) and $p$ representing the current
+fair price of the collateral in terms of the underlying asset as provided by
+the price feed, e.g. \SI{0.10}{USD \per BTS}. With the numbers from the
+examples, we would obtain a collateral ratio of:
+\begin{align*}
+ \text{r} = \frac{\SI{2500}{BTS}}{\SI{100}{USD}} \;\cdot\; \SI{0.10}{USD \per BTS} = 2.5\; 
+\end{align*}
+
+Any additional collateral above the maintenance collateral ($1.75$ in case of
+bitUSD) is only required to protect the position against margin calls due to
+volatility of the collateral asset (e.g. BTS).
+
+% FIXME: https://github.com/bitshares/bsips/blob/master/bsip-0038.md

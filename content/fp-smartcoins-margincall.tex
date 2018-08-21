@@ -1,1 +1,57 @@
 \label{sec:margincall}
+
+However, since markets do not have all their liquidity at the spot or feed
+price the blockchain needs a back-off and start closing borrow positions
+earlier to prevent a loan defaults. For smartcoins, the back-off factor is
+called \emph{Maintenance Collateral Ratio (MCR)} and derives the
+position-specific \emph{Margin Call Price} (MCP) by:
+\begin{align}
+ \MCP = \MCR \;\cdot\; \frac{\text{d}}{\text{c}}
+\end{align}
+
+The \MCR\ is a asset-specific parameter defined by the feed providers which can
+change to adept to market conditions but is guaranteed to be above $1$. It is
+derived from the median of the proposed \MCR s of the feed producers such that
+only the majority of feed producers can manipulate this parameter. A commonly
+agreed value for the \MCR\ is \num{1.75} or 175\%.
+
+With the examples from above, and a requirement to stay above \num{1.75} we
+derive the margin call price as:
+
+\begin{align}
+ \MCP &= 1.75 \;\cdot\; \frac{\SI{100}{USD}}{\SI{2500}{BTS}} \\
+      &= \SI{0.07}{USD \per BTS}
+\end{align}
+
+If the price feed goes below \SI{0.07}{USD \per BTS}, your position will be
+automatically margin called by the smart contract. This means that the contract
+itself will take the collateral and sell just enough of it to market
+participants in the internal exchange to increase the \MCR\ back to its
+required minimum~\cite{bsip31}.
+
+However, it is worth noting that there is a protection of call positions
+against short squeezes. A short squeeze implies that call positions are being
+squeezed out of their positions by forcing them into margin and having the
+contract sell the collateral to the market (usually at a loss for the owner of
+the call position).
+
+To protect shorts against short squeezes, margin calls only execute
+\emph{up to} the short squeeze protection price (\SQP).
+
+The \SQP is derived by
+\begin{align}
+ \SQP = p \;/\; \MSQR
+\end{align}
+
+with $p$ denoting the price in the form of \si{debt \per collateral} (e.g.
+\SI{0.10}{USD\per BTS}). With the known numbers again and a \MSQR\ of
+\SI{110}{\percent}, we end up with in margin calls that would buy in the
+markets and pay up to
+\begin{align}
+ \SQP &= \SI{0.07}{USD \per BTS} \;/\; \SI{110}{\percent} \\
+      &= \SI{0.077}{USD \per BTS} \\
+      &\stackrel{\frown}{=} \SI{12.98}{BTS \per USD}\,.
+\end{align}
+
+During margin call, the orders with the least collateral ratio will be called
+first~\cite{bsip34}.
