@@ -1,17 +1,20 @@
 Every smartcoin is represented by a unique symbol on the blockchain. Together
 with the parameters this symbol contains a management account (often
 misleadingly referred to as \emph{issuer}). This management account has control
-over the parameters and also distinguishes two types of smart coins, namely the
-\emph{bitassets} from \emph{privatized bitassets}.
+over the parameters.
 
-Regular BitAssets are smartcoins that are managed by the BitShares Committee
-Account and thus, ultimately, by the BTS holders that vote the BitShares
-Committee.  The Committee constitutes at least 11 members that jointly control
-the committee-account. As a consequence of this being community driven, the
-smartcoins are usually prefixed by \texttt{bit} in most user interfaces. It is
-worth noting that bitUSD is such a community-driven smartcoin that uses the
-symbol name \texttt{USD}, internally. Same holds true for bitCNY and others.
+The BitShares Blockchain has one highlighted type of smartcoins, which are also
+called \emph{BitAsset}. They constitute the following key aspects
+\begin{itemize}
+\item \textbf{Manged by the BitShares Committee}, which constitutes at least 11 
+members that jointly control the committee-account, which are voted in by the BTS holders
+\item \textbf{Price-fed by block producers}, which are also voted in by the BTS holders
+\item \textbf{Backed by BTS} directly or backed by another smartcoin which is then directly backed by BTS
+\end{itemize}
+Such BitAssets are thus community driven and imply a certain level of trust. The
+smartcoins are usually prefixed by \texttt{bit} in most user interfaces and also while addressing them,
+but their actual on-chain symbol does not contain the \texttt{bit}, it is not even technically possible to create an asset that 
+starts with \texttt{bit} (to prevent fraud). For example, the symbol of the price-stable BitAsset \texttt{bitUSD} is actually only \texttt{USD}.
 
-In contrast, privatized BitAssets are those smartcoins that are managed and
-maintained by independent 3rd parties. For sake of neutrality, we do not go
+This stands in contrast to privatized smartcoins that are managed and maintained by independent 3rd parties. For sake of neutrality, we do not go
 into further detail about these in this paper.

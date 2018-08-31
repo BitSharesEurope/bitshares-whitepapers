@@ -1,17 +1,14 @@
 \label{sec:settlement}
 
-Any long position (i.e. holder of smartcoins) can request a so called
-\emph{settlement} to convert their position into the collateral. The settlement
-has a asset-specific delay and settles at the settlement price minus an offset
-that is defined by the token management.
+Any \emph{long position} can request a so called
+\emph{settlement} to convert the smartcoin into its collateral. 
+The collateral is taken from the call positions that has
+the least collateral ratio. If this position is insufficient to cover
+the settlement, the next position with the least collateral will be used, and so on.
 
-Settlements are covered by collateral provide by the call positions that have
-the least collateral ratio. If a single all position is insufficient to cover
-the settlement, the next position with least collateral will be used and so on.
-
-However, there is a limit to the amount of smartcoins that can be settled per
+Settlements have an asset-specific delay and settles at the settlement price minus an offset
+that is defined by the token management. However, there is a limit to the amount of smartcoins that can be settled per
 \emph{maintenance interval} which can be updated by the token management.
-
 Furthermore, the settlement offset is paid by the person requesting settlement
 to the person providing the collateral as a compensation.
 

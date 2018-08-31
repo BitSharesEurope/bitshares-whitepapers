@@ -21,28 +21,19 @@ A feed constitutes multiple attributes including
 
 These parameters are in the hands of the group selected by the owner of the
 smartcoin. Only those are allowed to produce valid price feeds for a particular
-smartcoin. In case of \emph{bitUSD}, \emph{bitCNY} and others, the owner of the
-token is the committee, a group of people elected by the BTS holders. Here, the
-group of feed producers coincides with the group of block producers (i.e.
-\emph{witnesses})
+smartcoin. 
 
-These $N$ trusted witnesses can be constantly reviewed as all feeds are put on
-the blockchain. Hence, misbehaving witnesses can be identified, fired from
-their revenue generating witness position and lose their reputation.
-
-In case of bitUSD and bitCNY, when feed producers generate their feed price,
+When feed producers generate their feed price,
 they usually obtain a fair valuation by considering the exchange rates for the
-smartcoin on multiple exchanges and trading platforms and combine them to
-reflect a fair price. Most witnesses make use of volume-weighted averaging to
-properly account for trading volume on individual exchanges.
-
-Additionally, feed producers are recommended to keep track of external price
-movements and update their price feed accordingly.
+smartcoin and collateral on multiple exchanges and trading platforms and combine them to
+reflect a fair price. Feed producers are recommended to keep track of external price
+movements and update their price feed accordingly. A common approach is to use volume-weighted 
+averaging to account for trading volume on individual exchanges, though there is freedom in the exact
+price calculations, making the overall result  more reliable.
 
 Additionally, to prevent manipulation of the price feed (and the other
-parameters), $N$ witnesses have to be elected that can all produce their feeds
-independently. Having a set of $N$ feeds $p_i,\;1<i<N$ for an arbitrary
-smartcoin on the blockchain, the protocol obtains a value $\tilde{p}$ by the
+parameters), $N$ feed producers have to be set that can all produce their feeds
+independently. Having a set of $N$ feeds $p_i,\;1<i<N$, the protocol obtains a price $\tilde{p}$ by the
 use of the \emph{median} according to:
 \begin{align}
  x &= \operatorname{sort}(p[i])\\
@@ -52,7 +43,7 @@ use of the \emph{median} according to:
  \end{cases}
 \end{align}
 Hence, the price, as well as the other parameters, are resistant against
-misbehaving witnesses in that only a \textbf{majority} of feed publishers can
+misbehaving witnesses in that only a \textbf{majority} of feed producers can
 manipulate the outcome of the median. In practice, any unintentional feed
 \emph{error} is thus balanced around the median value.
 

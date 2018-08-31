@@ -1,19 +1,18 @@
 \label{sec:collateral}
 
 As previously mentioned, the collateral is used to secure the debt of a
-collateralized loan. While any asset on the BitShares Blockchain could
+collateralized loan.
+ While all regular assets on the BitShares Blockchain can
 technically be used as collateral asset for a smart coin, most smartcoins
-use the core native token BTS, exclusively.
-
+use the core native token BTS.
 Collateral needs to be provided in order to borrow smartcoins from the
 blockchain. The provided collateral will be locked away and can only be
-redeemed back when clearing the debt with the blockchain.
+redeemed back when clearing the debt with the blockchain. 
+Additional, the collateral can be increased freely at any time to improve the
+so called collateral ratio. It can also be reduced, however with the limitation
+that the collateral ratio is greater than the collateral maintenance ratio.
 
 Even though the collateral is locked and tied to the user's account, other uses
 may obtain your collateral in parts of fully by so called \emph{settlements}
 (see below).
 
-Additional, the collateral can be increased freely at any time to improve the
-so called collateral ratio. It can also be reduced, however with the limitation
-that the collateral ratio is greater than the collateral maintenance ratio,
-which is, for instance, \SI{175}{\percent} for bitUSD at the time of writing.

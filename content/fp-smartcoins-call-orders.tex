@@ -14,17 +14,21 @@ The collateral ratio can be derived by
  \text{r} = \frac{\text{c}}{\text{d}} \;\cdot\; p
 \end{align*}
 
-with $d$ denoting the amount of the loan (e.g. \SI{100}{USD} as bitUSD), $c$ being the
-amount of collateral (e.g. \SI{2500}{BTS}) and $p$ representing the current
+with $d$ denoting the amount of the loan, $c$ being the
+amount of collateral and $p$ representing the current
 fair price of the collateral in terms of the underlying asset as provided by
-the price feed, e.g. \SI{0.10}{USD \per BTS}. With the numbers from the
-examples, we would obtain a collateral ratio of:
-\begin{align*}
- \text{r} = \frac{\SI{2500}{BTS}}{\SI{100}{USD}} \;\cdot\; \SI{0.10}{USD \per BTS} = 2.5\; 
-\end{align*}
+the price feed.
 
+\paragraph{Example}
+Assume $d = \SI{100}{USD}$ as bitUSD, $c = \SI{2500}{BTS}$ and $p = \SI{0.10}{USD \per BTS}$.
+The obtained collateral ratio is
+\begin{align*}
+ \text{r} = \frac{\SI{2500}{BTS}}{\SI{100}{USD}} \;\cdot\; \SI{0.10}{USD \per BTS} = 2.5.
+\end{align*}
 Any additional collateral above the maintenance collateral ($1.75$ in case of
-bitUSD) is only required to protect the position against margin calls due to
-volatility of the collateral asset (e.g. BTS).
+bitUSD) is not mandatory, but serves to protect the position against margin calls due to
+volatility of the collateral asset.
 
 % FIXME: https://github.com/bitshares/bsips/blob/master/bsip-0038.md
+
+

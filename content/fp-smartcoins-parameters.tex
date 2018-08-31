@@ -27,5 +27,21 @@ custom smartcoins and their behavior in the market.
 \end{description}
 
 These parameters are tied to the smartcoin and can be modified by its manager.
-The prominent smartcoins bitUSD and bitCNY are managed by the BitShares
-Committee -- a BTS voter approved group of trusted individuals.
+The created smartcoin is also called the \textbf{long position}.
+
+\paragraph{Example}
+Throughout this paper the example of the smartcoin bitUSD is used, which is one of
+the prominent price-stable smartcoins. Its parameters require
+a minimum collateral of \SI{175}{\percent} in BTS tokens at all times. This
+means that, in order to borrow \SI{1}{bitUSD} from the smart contract, one
+needs to provide BTS worth \SI{1.75}{USD} as collateral. At the time the bitUSD
+is borrowed, the BTS used as collateral are locked away and only returned to
+the user when the debt is cleared.
+The owner of the smartcoin is the committee, a group of people elected by the BTS holders. Here, the
+group of feed producers coincides with the group of block producers (i.e. \emph{witnesses}).
+These $N$ trusted witnesses can be constantly reviewed as all feeds are put on
+the blockchain. Hence, misbehaving witnesses can be identified, fired from
+their revenue generating witness position and lose their reputation.
+
+Another example of a widely adopted price-stable smartcoin is bitCNY, which could be equivalently used for 
+the examples.

@@ -9,8 +9,8 @@ but, from time to time, markets can rapidly revalue the collateral.
 
 If this revaluation happens faster than the short positions can be forced to
 cover, then all SmartCoins are liquidated at the exchange rate of the least
-collateralized short position. This is called a \emph{black swan} event since
-the least collateralized position is unable to buy enough BitUSD to cover. At
+collateralized short position. This is called a \emph{global settlement} (also refered to as  black swan) event since
+the least collateralized position is unable to liquidate itself on the market. At
 this point, all positions are automatically force settled and any additional
-collateral maintained by the shorts is returned to them. This is similar to an
+collateral maintained by the short positions is returned to them. This is similar to an
 insolvent bank converting its deposits to equity.
